@@ -2,28 +2,26 @@
 layout: default
 ---
 
-<div class="main-container">
+<div class="container">
 
-![USTC Logo](https://www.ustc.edu.cn/_upload/tpl/00/56/118/template118/images/logo.png){: .logo}
+# Jiayue Yang (杨家越) 🔍
 
-# Jiayue Yang
-
-**Undergraduate Student (Freshman)**  
-University of Science and Technology of China  
-School of Cyber Science and Technology
+🏫 **School of Cyber Science and Technology**  
+🎓 University of Science and Technology of China  
+📌 Hefei, Anhui, China
 
 ---
 
-## Research Interests
-- Artificial Intelligence
-- Machine Learning
-- Computer Vision
+## 🚀 Research Interests
+- 🧠 Artificial Intelligence
+- 🤖 Machine Learning
+- 👁️ Computer Vision
 
 ---
 
-## Contact
-📧 [Academic Email](mailto:jiayueyang@mail.ustc.edu.cn)  
-📧 [Gmail](mailto:jiayueyang06@gmail.com)  
-🐱 [GitHub Profile](https://github.com/jryyangjy)
+## 📬 Contact
+📧 **Academic**: [jiayueyang@mail.ustc.edu.cn](mailto:jiayueyang@mail.ustc.edu.cn)  
+📧 **Gmail**: [jiayueyang06@gmail.com](mailto:jiayueyang06@gmail.com)  
+🐱 **GitHub**: [jryyangjy](https://github.com/jryyangjy)
 
 </div>
