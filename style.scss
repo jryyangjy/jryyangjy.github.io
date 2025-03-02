@@ -1,30 +1,64 @@
 ---
 ---
 
-/* 主容器 */
-$left-margin: 80px;
-$content-width: 700px;
+// Design Parameters
+$left-margin: 18%;
+$content-width: 720px;
+$english-font: "Arial", "Helvetica Neue", sans-serif;
 
-.content-wrapper {
+.main-container {
   max-width: $content-width;
   margin-left: $left-margin;
-  padding: 30px 40px 40px 0;
-  line-height: 1.7;  // 增加行高提升可读性
+  padding: 35px 50px 50px 30px;
+  font-family: $english-font;
+  line-height: 1.6;
 
-  img {
-    margin-bottom: 1.5rem;  // 给 logo 添加下方间距
+  // Typography
+  h1 {
+    font-size: 2.4rem;
+    margin: 1.5rem 0;
+    color: #2d4059;
+    letter-spacing: -0.5px;
   }
-}
 
-/* 移动端优化 */
-@media (max-width: 900px) {
-  .content-wrapper {
-    margin-left: 8%;
-    padding: 20px 8% 40px 0;
-    max-width: 84%;
-    
+  h2 {
+    font-size: 1.8rem;
+    border-bottom: 2px solid #eeeeee;
+    padding-bottom: 0.4rem;
+    margin: 2rem 0 1.2rem;
+  }
+
+  // Logo styling
+  .logo {
+    height: 95px;
+    margin: 1.5rem 0 2.5rem;
+    opacity: 0.9;
+  }
+
+  // Contact section icons
+  [role="img"] {
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+
+  // Responsive design
+  @media (max-width: 992px) {
+    margin-left: 12%;
+    padding: 30px;
+    max-width: 85%;
+
     h1 {
-      font-size: 1.8rem;  // 标题缩小适应移动端
+      font-size: 2rem;
     }
+    
+    h2 {
+      font-size: 1.6rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    margin-left: 5%;
+    padding: 20px;
+    max-width: 90%;
   }
 }
