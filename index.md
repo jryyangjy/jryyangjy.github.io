@@ -2,11 +2,10 @@
 layout: default
 ---
 
-<div class="container">
-<div style="text-align: center">
-  <img src="https://www.ustc.edu.cn/_upload/tpl/00/56/118/template118/images/logo.png" 
-       style="height: 100px; margin: 20px 0">
-</div>
+<div class="content-wrapper">
+
+![USTC Logo](https://www.ustc.edu.cn/_upload/tpl/00/56/118/template118/images/logo.png){: style="height:80px"}
+
 
 # Jiayue Yang (杨家越)
 
