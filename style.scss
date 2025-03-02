@@ -2,20 +2,29 @@
 ---
 
 /* 主容器 */
-$left-margin: 80px; // 左边距大小
-$content-width: 700px; // 内容区域宽度
+$left-margin: 80px;
+$content-width: 700px;
 
 .content-wrapper {
   max-width: $content-width;
   margin-left: $left-margin;
-  padding: 20px 40px 40px 0; // 上 右 下 左
+  padding: 30px 40px 40px 0;
+  line-height: 1.7;  // 增加行高提升可读性
+
+  img {
+    margin-bottom: 1.5rem;  // 给 logo 添加下方间距
+  }
 }
 
-/* 移动端适配 */
-@media (max-width: 768px) {
+/* 移动端优化 */
+@media (max-width: 900px) {
   .content-wrapper {
-    margin-left: 5%;
-    padding-right: 5%;
-    max-width: 90%;
+    margin-left: 8%;
+    padding: 20px 8% 40px 0;
+    max-width: 84%;
+    
+    h1 {
+      font-size: 1.8rem;  // 标题缩小适应移动端
+    }
   }
 }
