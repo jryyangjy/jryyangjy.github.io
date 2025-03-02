@@ -1,27 +1,23 @@
 ---
-layout: default
+layout: none # 关键设置！
 ---
 
-<div class="container">
+# Jiayue Yang (杨家越)
 
-# Jiayue Yang (杨家越) 🔍
-
-🏫 **School of Cyber Science and Technology**  
-🎓 University of Science and Technology of China  
-📌 Hefei, Anhui, China
+**Undergraduate Freshman**  
+🏫 School of Cyber Science and Technology  
+🎓 University of Science and Technology of China
 
 ---
 
-## 🚀 Research Interests
+## Research Interests
 - 🧠 Artificial Intelligence
 - 🤖 Machine Learning
 - 👁️ Computer Vision
 
 ---
 
-## 📬 Contact
-📧 **Academic**: [jiayueyang@mail.ustc.edu.cn](mailto:jiayueyang@mail.ustc.edu.cn)  
-📧 **Gmail**: [jiayueyang06@gmail.com](mailto:jiayueyang06@gmail.com)  
-🐱 **GitHub**: [jryyangjy](https://github.com/jryyangjy)
-
-</div>
+## Contact
+📧 [Academic Email](mailto:jiayueyang@mail.ustc.edu.cn)  
+📧 [Gmail](mailto:jiayueyang06@gmail.com)  
+🐱 [GitHub](https://github.com/jryyangjy)
