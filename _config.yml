@@ -5,3 +5,5 @@ theme: minima
 social:
   github: jryyangjy
   email: jiayueyang@mail.ustc.edu.cn
+plugins:
+  - jekyll-sass-converter
