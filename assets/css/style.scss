@@ -1,0 +1,69 @@
+---
+---
+
+// Core parameters
+$left-margin: 15%;
+$content-width: 720px;
+$primary-color: #2c3e50;
+
+.container {
+  max-width: $content-width;
+  margin-left: $left-margin;
+  padding: 40px 50px;
+  line-height: 1.7;
+
+  // Title styling
+  h1 {
+    font-size: 2.4rem;
+    margin-bottom: 1.5rem;
+    color: $primary-color;
+  }
+
+  // Icon integration
+  [role="img"] {
+    margin-right: 12px;
+    vertical-align: middle;
+    font-style: normal;
+  }
+
+  // Section headers
+  h2 {
+    font-size: 1.8rem;
+    border-left: 4px solid #3498db;
+    padding-left: 15px;
+    margin: 2.5rem 0 1.5rem;
+    color: darken($primary-color, 10%);
+  }
+
+  // List styling
+  ul {
+    padding-left: 1.2rem;
+    li {
+      margin-bottom: 0.8rem;
+      &::marker {
+        color: #3498db;
+      }
+    }
+  }
+
+  // Mobile adaptation
+  @media (max-width: 768px) {
+    margin-left: 8%;
+    padding: 30px;
+    max-width: 84%;
+
+    h1 {
+      font-size: 2rem;
+    }
+    
+    h2 {
+      font-size: 1.6rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    margin-left: 5%;
+    padding: 20px;
+    max-width: 90%;
+  }
+}
