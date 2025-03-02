@@ -1,9 +1,2 @@
-title: Jiayue Yang 
-description: Freshman @ School of Cyber Science and Technology, USTC
-email: jiayueyang@mail.ustc.edu.cn
-theme: minima
-social:
-  github: jryyangjy
-  email: jiayueyang@mail.ustc.edu.cn
-plugins:
-  - jekyll-sass-converter
+theme: none  # 关键配置！禁用所有主题
+markdown: kramdown
