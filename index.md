@@ -1,8 +1,8 @@
 ---
-layout: home
-title: Jiayue Yang
+layout: default
 ---
 
+<div class="container">
 <div style="text-align: center">
   <img src="https://www.ustc.edu.cn/_upload/tpl/00/56/118/template118/images/logo.png" 
        style="height: 100px; margin: 20px 0">
@@ -33,6 +33,3 @@ title: Jiayue Yang
 ## 🚀 Recent Projects
 （暂时保留空位，后续可添加）
 
-theme: minima
-plugins:
-  - jekyll-sass-converter # 启用SASS编译
