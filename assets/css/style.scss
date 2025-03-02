@@ -1,69 +1,74 @@
----
----
+/* 基础重置 */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+}
 
-// Core parameters
-$left-margin: 15%;
-$content-width: 720px;
-$primary-color: #2c3e50;
-
+/* 主容器 */
 .container {
-  max-width: $content-width;
-  margin-left: $left-margin;
-  padding: 40px 50px;
-  line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
 
-  // Title styling
-  h1 {
-    font-size: 2.4rem;
-    margin-bottom: 1.5rem;
-    color: $primary-color;
-  }
+/* 标题样式 */
+h1 {
+    font-size: 2.5em;
+    color: #2c3e50;
+    margin-bottom: 1.2em;
+}
 
-  // Icon integration
-  [role="img"] {
+h2 {
+    font-size: 1.8em;
+    color: #34495e;
+    margin: 2em 0 1em;
+    border-bottom: 2px solid #ecf0f1;
+    padding-bottom: 0.5em;
+}
+
+/* 列表样式 */
+ul {
+    padding-left: 1.5em;
+}
+
+li {
+    margin-bottom: 0.8em;
+    font-size: 1.1em;
+}
+
+/* 链接样式 */
+a {
+    color: #3498db;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+a:hover {
+    color: #2980b9;
+    border-bottom-color: #2980b9;
+}
+
+/* 特殊符号处理 */
+[role="img"] {
     margin-right: 12px;
-    vertical-align: middle;
-    font-style: normal;
-  }
+    font-size: 1.2em;
+}
 
-  // Section headers
-  h2 {
-    font-size: 1.8rem;
-    border-left: 4px solid #3498db;
-    padding-left: 15px;
-    margin: 2.5rem 0 1.5rem;
-    color: darken($primary-color, 10%);
-  }
-
-  // List styling
-  ul {
-    padding-left: 1.2rem;
-    li {
-      margin-bottom: 0.8rem;
-      &::marker {
-        color: #3498db;
-      }
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        padding: 30px 15px;
+        max-width: 90%;
     }
-  }
-
-  // Mobile adaptation
-  @media (max-width: 768px) {
-    margin-left: 8%;
-    padding: 30px;
-    max-width: 84%;
-
+    
     h1 {
-      font-size: 2rem;
+        font-size: 2em;
     }
     
     h2 {
-      font-size: 1.6rem;
+        font-size: 1.6em;
     }
-  }
-
-  @media (max-width: 480px) {
-    margin-left: 5%;
-    padding: 20px;
-    max-width: 90%;
-  }
 }
