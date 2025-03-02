@@ -1,64 +1,24 @@
----
----
-
-// Design Parameters
-$left-margin: 18%;
-$content-width: 720px;
-$english-font: "Arial", "Helvetica Neue", sans-serif;
-
-.main-container {
-  max-width: $content-width;
-  margin-left: $left-margin;
-  padding: 35px 50px 50px 30px;
-  font-family: $english-font;
-  line-height: 1.6;
-
-  // Typography
-  h1 {
-    font-size: 2.4rem;
-    margin: 1.5rem 0;
-    color: #2d4059;
-    letter-spacing: -0.5px;
-  }
-
-  h2 {
-    font-size: 1.8rem;
-    border-bottom: 2px solid #eeeeee;
-    padding-bottom: 0.4rem;
-    margin: 2rem 0 1.2rem;
-  }
-
-  // Logo styling
-  .logo {
-    height: 95px;
-    margin: 1.5rem 0 2.5rem;
-    opacity: 0.9;
-  }
-
-  // Contact section icons
-  [role="img"] {
-    margin-right: 10px;
-    vertical-align: middle;
-  }
-
-  // Responsive design
-  @media (max-width: 992px) {
-    margin-left: 12%;
-    padding: 30px;
-    max-width: 85%;
-
-    h1 {
-      font-size: 2rem;
-    }
-    
-    h2 {
-      font-size: 1.6rem;
-    }
-  }
-
-  @media (max-width: 576px) {
-    margin-left: 5%;
-    padding: 20px;
-    max-width: 90%;
+// style.scss 添加
+.contact-icon {
+  font-size: 1.15em;
+  margin-right: 15px;
+  vertical-align: middle;
+  transition: transform 0.2s ease;
+  display: inline-block;
+  
+  // 学术主题色
+  &.campus { color: #2980b9; }  // USTC主题蓝
+  &.mail { color: #c0392b; }    // 红色系
+  &.github { color: #333; }     // GitHub黑
+  
+  &:hover {
+    transform: translateY(-2px);
+    cursor: pointer;
   }
 }
+
+// index.md 修改联系方式部分
+## Contact
+<span class="contact-icon campus">🏫</span> [Academic Email](mailto:jiayueyang@mail.ustc.edu.cn)  
+<span class="contact-icon mail">📬</span> [Gmail](mailto:jiayueyang06@gmail.com)  
+<span class="contact-icon github">🐱</span> [GitHub Profile](https://github.com/jryyangjy)
