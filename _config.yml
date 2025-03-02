@@ -1,2 +1,4 @@
-theme: none  # 关键配置！禁用所有主题
+# 文件内容必须严格如下
+title: Jiayue Yang
+theme: none # 强制禁用主题
 markdown: kramdown
