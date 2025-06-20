@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -18,11 +17,15 @@
         hr { border: 1px solid #eee; margin: 2rem 0; }
         ul { padding-left: 1.5rem; }
         li { margin: 0.8rem 0; }
+        .intro { margin-bottom: 1.5rem; line-height: 1.8; }
     </style>
 </head>
 <body>
 
-<h1>Jiayue Yang (杨家越) 🔍</h1>
+<div class="intro">
+    <h1>Jiayue Yang (杨家越) 🔍</h1>
+    <p>I'm <strong>Jiayue Yang</strong>, a first-year Cybersecurity undergrad at <a href="https://www.ustc.edu.cn/">USTC</a> (中国科学技术大学). Exploring the intersection of programming and AI fundamentals. I'm also a member of <a href="https://spin-ustc.cn/">SPIN-Lab</a>, supervised by prof. <a href="https://saids.ustc.edu.cn/2024/1105/c36363a686123/page.htm">Yan Xia</a> (夏彦).</p>
+</div>
 
 🏫 <strong>School of Cyber Science and Technology</strong><br>
 🎓 University of Science and Technology of China<br>
@@ -32,9 +35,9 @@
 
 <h2>🚀 Research Interests</h2>
 <ul>
-    <li>🧠 Artificial Intelligence</li>
-    <li>🤖 Machine Learning</li>
     <li>👁️ Computer Vision</li>
+    <li>🌐 Spatial Intelligence</li>
+    <li>🧠 Multimodal Large Models</li>
 </ul>
 
 <hr>
