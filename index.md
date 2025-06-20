@@ -9,37 +9,39 @@
         body {
             max-width: 800px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 60px 20px 40px; /* 顶部空间增大 */
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             line-height: 1.7;
-            color: #333;
+            color: #000; /* 纯黑色字体 */
+            background-color: #fff;
         }
         
         h1 { 
-            color: #2c3e50; 
+            color: #000; /* 纯黑色标题 */
             margin-bottom: 0.5rem;
         }
         
         .intro {
             margin-bottom: 1.5rem;
             line-height: 1.8;
+            color: #000; /* 纯黑色文本 */
         }
         
         a { 
-            color: #3498db; 
+            color: #0066cc; /* 深蓝色链接 */
             text-decoration: none;
             transition: all 0.3s ease;
         }
         
         a:hover {
             text-decoration: underline;
-            color: #2980b9;
+            color: #004080;
         }
         
         hr { 
             border: 0; 
             height: 1px; 
-            background: #eee; 
+            background: #e0e0e0; /* 更浅的分隔线 */
             margin: 2rem 0; 
         }
         
@@ -53,18 +55,20 @@
             list-style-type: none;
             position: relative;
             padding-left: 1.5rem;
+            color: #000; /* 纯黑色列表项 */
         }
         
         li:before {
             content: "•";
             position: absolute;
             left: 0;
-            color: #3498db;
+            color: #0066cc; /* 蓝色项目符号 */
             font-size: 1.2rem;
         }
         
         .contact-info {
             line-height: 1.8;
+            color: #000; /* 纯黑色联系信息 */
         }
         
         .contact-icon {
@@ -80,18 +84,18 @@
         
         .section-title {
             margin-bottom: 0.8rem;
-            color: #2c3e50;
+            color: #000; /* 纯黑色标题 */
         }
         
         .badge {
             display: inline-block;
             background: #f0f7ff;
-            border: 1px solid #3498db;
+            border: 1px solid #0066cc;
             border-radius: 4px;
             padding: 2px 8px;
             font-size: 0.85em;
             margin-left: 8px;
-            color: #3498db;
+            color: #0066cc;
         }
     </style>
 </head>
