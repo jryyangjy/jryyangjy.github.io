@@ -204,13 +204,13 @@
             text-decoration: underline;
         }
         
-        /* 右侧地球可视化 */
+        /* 右侧统计信息 */
         .right-panel {
             flex: 1;
             min-width: 350px;
         }
         
-        .globe-container {
+        .stats-container {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 20px;
@@ -221,60 +221,26 @@
             height: fit-content;
         }
         
-        .globe-title {
+        .stats-title {
             font-size: 1.4rem;
             color: #2c3e50;
             margin-bottom: 20px;
             font-weight: 600;
         }
         
-        .globe {
+        .simple-chart {
             width: 300px;
-            height: 300px;
+            height: 200px;
             margin: 0 auto 20px;
             position: relative;
-            border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, #4a90e2, #1e3a8a);
-            box-shadow: 
-                inset -10px -10px 20px rgba(0, 0, 0, 0.3),
-                0 10px 30px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-        }
-        
-        .globe::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,50 Q25,25 50,50 T100,50 M0,30 Q25,35 50,30 T100,30 M0,70 Q25,65 50,70 T100,70" stroke="rgba(255,255,255,0.1)" stroke-width="0.5" fill="none"/></svg>');
-            border-radius: 50%;
-        }
-        
-        .visitor-dot {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background: #ff4757;
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-            box-shadow: 0 0 10px #ff4757;
-        }
-        
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            50% {
-                transform: scale(1.5);
-                opacity: 0.7;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #3498db;
+            border: 2px solid rgba(52, 152, 219, 0.1);
         }
         
         .stats {
@@ -496,6 +462,85 @@
             line-height: 1.6;
         }
         
+        /* CV特定样式 */
+        .cv-section {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .cv-section h3 {
+            color: #2c3e50;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        .timeline-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .timeline-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .timeline-period {
+            font-weight: 600;
+            color: #3498db;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-subtitle {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+        
+        .timeline-description {
+            color: #495057;
+            line-height: 1.6;
+        }
+        
+        /* CV技能卡片样式 */
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .skill-item {
+            background: #e3f2fd;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #1976d2;
+            font-weight: 500;
+        }
+        
+        .achievement-item {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .achievement-item::before {
+            content: "🏆";
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
         /* 响应式设计 */
         @media (max-width: 1200px) {
             .main-container {
@@ -506,9 +551,9 @@
                 min-width: unset;
             }
             
-            .globe {
+            .simple-chart {
                 width: 250px;
-                height: 250px;
+                height: 180px;
             }
             
             .nav-links {
@@ -538,7 +583,7 @@
                 font-size: 0.9rem;
             }
             
-            .profile-card, .globe-container, .section, .full-page {
+            .profile-card, .stats-container, .section, .full-page {
                 padding: 20px;
             }
             
@@ -546,9 +591,9 @@
                 font-size: 1.8rem;
             }
             
-            .globe {
+            .simple-chart {
                 width: 200px;
-                height: 200px;
+                height: 150px;
             }
             
             .skills-container {
@@ -652,25 +697,25 @@
                 </div>
             </div>
             
-            <!-- 右侧地球可视化 -->
+            <!-- 右侧简单统计 -->
             <div class="right-panel">
-                <div class="globe-container fade-in">
-                    <h2 class="globe-title">🌍 Global Visitors</h2>
-                    <div class="globe" id="globe">
-                        <!-- 访问点将通过JavaScript动态添加 -->
+                <div class="stats-container fade-in">
+                    <h2 class="stats-title">📊 Site Statistics</h2>
+                    <div class="simple-chart">
+                        📈
                     </div>
                     <div class="stats">
                         <div class="stat-item">
-                            <div class="stat-number" id="totalVisitors">0</div>
-                            <div class="stat-label">Total Visitors</div>
+                            <div class="stat-number" id="totalViews">0</div>
+                            <div class="stat-label">Total Views</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-number" id="todayVisitors">0</div>
+                            <div class="stat-number" id="todayViews">0</div>
                             <div class="stat-label">Today</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-number" id="countries">0</div>
-                            <div class="stat-label">Countries</div>
+                            <div class="stat-number" id="lastUpdate">Jan 25</div>
+                            <div class="stat-label">Last Update</div>
                         </div>
                     </div>
                 </div>
@@ -835,11 +880,154 @@
     <div id="cv" class="page">
         <div class="full-page fade-in">
             <h1 class="page-title">📄 Curriculum Vitae</h1>
-            <div class="coming-soon">
-                <h3>Academic & Professional Background</h3>
-                <p>A comprehensive overview of my academic achievements, research experiences, technical skills, and professional development. The detailed CV will be available for download once my research portfolio is more established.</p>
-                <br>
-                <p><em>Detailed CV will be available for download soon!</em></p>
+            
+            <div class="cv-section">
+                <h3>🎓 Education</h3>
+                <div class="timeline-item">
+                    <div class="timeline-period">September 2025 - June 2028 (Expected)</div>
+                    <div class="timeline-title">University of Science and Technology of China (USTC)</div>
+                    <div class="timeline-subtitle">School of Computer Science and Technology, Elite Class in Computer Science</div>
+                    <div class="timeline-description">
+                        Bachelor's degree in Computer Science and Technology, specializing in Computer Vision and Spatial Intelligence. 
+                        Conducting research under the supervision of Prof. Yan Xia at SPIN Lab (Spatial Intelligence Lab).
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-period">September 2024 - June 2025</div>
+                    <div class="timeline-title">University of Science and Technology of China (USTC)</div>
+                    <div class="timeline-subtitle">School of Cyber Science and Technology, Wang Xiaomo Cyber Security Elite Class</div>
+                    <div class="timeline-description">
+                        Foundation year in Cyber Security program before transferring to Computer Science. 
+                        Built strong fundamentals in programming, mathematics, and computer systems.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cv-section">
+                <h3>🔬 Research Experience</h3>
+                <div class="timeline-item">
+                    <div class="timeline-period">January 2025 - Present</div>
+                    <div class="timeline-title">Undergraduate Researcher</div>
+                    <div class="timeline-subtitle">SPIN Lab (Spatial Intelligence Lab), USTC</div>
+                    <div class="timeline-description">
+                        Working under Prof. Yan Xia on computer vision and spatial intelligence projects. 
+                        Focus areas include 3D scene understanding, point cloud processing, and spatial reasoning algorithms.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cv-section">
+                <h3>💻 Technical Skills</h3>
+                <div class="skills-container">
+                    <div class="skill-card">
+                        <div class="skill-title">Programming Languages</div>
+                        <p>Python, C/C++, JavaScript</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-title">AI/ML Frameworks</div>
+                        <p>PyTorch, OpenCV, PDAL</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-title">Tools & Technologies</div>
+                        <p>Git/GitHub, Linux, Point Cloud Processing</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-title">Specializations</div>
+                        <p>Computer Vision, Machine Learning, Algorithm Design</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cv-section">
+                <h3>📚 Relevant Coursework</h3>
+                <div class="timeline-description">
+                    <strong>Computer Science Fundamentals:</strong> Data Structures and Algorithms, Computer Organization, 
+                    Operating Systems, Computer Networks<br><br>
+                    <strong>Mathematics:</strong> Linear Algebra, Calculus, Discrete Mathematics, Probability and Statistics<br><br>
+                    <strong>AI/ML:</strong> Introduction to Artificial Intelligence (CS221), Machine Learning Fundamentals<br><br>
+                    <strong>Programming:</strong> Structure and Interpretation of Computer Programs (CS61A), 
+                    Object-Oriented Programming, Software Engineering
+                </div>
+            </div>
+            
+            <div class="cv-section">
+                <h3>🏆 Academic Achievements</h3>
+                <ul>
+                    <li>Selected for Elite Class in Computer Science (华夏计算机科技英才班) at USTC</li>
+                    <li>Successful transfer from Cyber Security to Computer Science program</li>
+                    <li>Undergraduate research position at SPIN Lab under Prof. Yan Xia</li>
+                </ul>
+            </div>
+            
+            <div class="cv-section">
+                <h3>💼 Projects</h3>
+                <div class="timeline-item">
+                    <div class="timeline-period">2025</div>
+                    <div class="timeline-title">Point Cloud Processing System</div>
+                    <div class="timeline-subtitle">Research Project - SPIN Lab</div>
+                    <div class="timeline-description">
+                        Developed an intelligent point cloud segmentation system for large-scale LiDAR data processing. 
+                        Implemented multi-radius analysis (25m, 50m, 100m) with smart conflict detection and parallel processing capabilities.
+                        Technologies: Python, PDAL, concurrent processing, file system optimization.
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-period">2024-2025</div>
+                    <div class="timeline-title">Algorithm Implementation Portfolio</div>
+                    <div class="timeline-subtitle">Coursework Projects</div>
+                    <div class="timeline-description">
+                        Implemented fundamental algorithms and data structures in Python and C. 
+                        Projects include sorting algorithms, graph traversal, dynamic programming solutions, and basic AI algorithms.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cv-section">
+                <h3>📈 Research Interests</h3>
+                <div class="timeline-description">
+                    <strong>Computer Vision:</strong> 3D scene understanding, object detection and recognition, 
+                    image processing and analysis<br><br>
+                    <strong>Spatial Intelligence:</strong> Spatial reasoning, 3D geometry processing, 
+                    point cloud analysis, scene reconstruction<br><br>
+                    <strong>Machine Learning:</strong> Deep learning applications in computer vision, 
+                    neural network architectures for spatial data
+                </div>
+            </div>
+            
+            <div class="cv-section">
+                <h3>🌐 Languages</h3>
+                <div class="timeline-description">
+                    <strong>Chinese:</strong> Native<br>
+                    <strong>English:</strong> Proficient (Academic and Technical)
+                </div>
+            </div>
+            
+            <div class="cv-section">
+                <h3>📧 Contact Information</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <div>
+                            <strong>Academic Email:</strong> <a href="mailto:jiayueyang@mail.ustc.edu.cn">jiayueyang@mail.ustc.edu.cn</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <div>
+                            <strong>Personal Email:</strong> <a href="mailto:jiangjiayue06@gmail.com">jiangjiayue06@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">🐱</span>
+                        <div>
+                            <strong>GitHub:</strong> <a href="https://github.com/jryyangjy" target="_blank">github.com/jryyangjy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px; color: #7f8c8d; font-size: 0.9rem;">
+                <p><em>Last Updated: July 2025</em></p>
             </div>
         </div>
     </div>
@@ -847,150 +1035,36 @@
     <!-- Guide 页面 -->
     <div id="guide" class="page">
         <div class="full-page fade-in">
-            <h1 class="page-title">🗺️ Study Guide</h1>
+            <h1 class="page-title">📖 Guide</h1>
             <div class="coming-soon">
-                <h3>Learning Resources & Tips</h3>
-                <p>Based on my academic experience at USTC and research journey, I'll create guides and resources to help fellow students navigate computer science coursework, research opportunities, and academic life.</p>
+                <h3>Academic & Research Guide</h3>
+                <p>This section will contain useful guides and resources for fellow students and researchers. 
+                Topics will include research methodologies, programming tutorials, academic writing tips, and insights into computer science education.</p>
                 <br>
-                <p><em>Study guides and resources will be shared as I develop them!</em></p>
+                <p><em>Guides and tutorials coming soon!</em></p>
             </div>
         </div>
     </div>
-
+    
     <script>
-        // 访问统计数据管理
-        class VisitorTracker {
-            constructor() {
-                this.storageKey = 'jiayue_site_visitors';
-                this.todayKey = 'jiayue_site_today';
-                this.countriesKey = 'jiayue_site_countries';
-                this.initializeData();
-            }
-            
-            initializeData() {
-                // 获取或初始化数据
-                this.data = this.getData();
-                
-                // 检查是否是新的一天
-                this.checkNewDay();
-                
-                // 模拟获取访问者地理位置并记录
-                this.recordVisit();
-            }
-            
-            getData() {
-                const stored = JSON.parse(localStorage.getItem(this.storageKey)) || {};
-                return {
-                    totalVisitors: stored.totalVisitors || 127,
-                    todayVisitors: stored.todayVisitors || 1,
-                    countries: stored.countries || new Set(['China', 'USA', 'Germany', 'Japan', 'UK', 'Canada', 'Australia', 'France', 'Netherlands', 'South Korea', 'Singapore', 'Sweden', 'Brazil', 'India', 'Russia', 'Italy', 'Spain', 'Switzerland', 'Norway', 'Denmark', 'Finland', 'Belgium', 'Austria']),
-                    lastVisit: stored.lastVisit || new Date().toDateString(),
-                    visitHistory: stored.visitHistory || []
-                };
-            }
-            
-            saveData() {
-                const dataToSave = {
-                    ...this.data,
-                    countries: Array.from(this.data.countries)
-                };
-                localStorage.setItem(this.storageKey, JSON.stringify(dataToSave));
-            }
-            
-            checkNewDay() {
-                const today = new Date().toDateString();
-                if (this.data.lastVisit !== today) {
-                    // 新的一天，重置今日访问数
-                    this.data.todayVisitors = 0;
-                    this.data.lastVisit = today;
-                }
-            }
-            
-            recordVisit() {
-                // 检查是否是同一会话的重复访问
-                const sessionKey = 'jiayue_site_session';
-                const sessionId = sessionStorage.getItem(sessionKey);
-                
-                if (!sessionId) {
-                    // 新会话，记录访问
-                    sessionStorage.setItem(sessionKey, Date.now().toString());
-                    
-                    this.data.totalVisitors += 1;
-                    this.data.todayVisitors += 1;
-                    
-                    // 模拟添加随机国家（如果需要）
-                    this.addRandomCountry();
-                    
-                    // 保存数据
-                    this.saveData();
-                    
-                    // 记录访问历史
-                    this.data.visitHistory.push({
-                        timestamp: new Date(),
-                        country: this.getRandomCountry()
-                    });
-                }
-            }
-            
-            addRandomCountry() {
-                const possibleCountries = [
-                    'Mexico', 'Argentina', 'Chile', 'Colombia', 'Peru', 
-                    'Thailand', 'Vietnam', 'Malaysia', 'Philippines', 'Indonesia',
-                    'Turkey', 'Israel', 'Saudi Arabia', 'UAE', 'Egypt',
-                    'South Africa', 'Nigeria', 'Kenya', 'Ghana', 'Morocco',
-                    'Poland', 'Czech Republic', 'Hungary', 'Romania', 'Portugal',
-                    'Greece', 'Ireland', 'Croatia', 'Slovenia', 'Estonia'
-                ];
-                
-                // 有30%概率添加新国家
-                if (Math.random() < 0.3 && this.data.countries.size < 50) {
-                    const availableCountries = possibleCountries.filter(c => !this.data.countries.has(c));
-                    if (availableCountries.length > 0) {
-                        const newCountry = availableCountries[Math.floor(Math.random() * availableCountries.length)];
-                        this.data.countries.add(newCountry);
-                    }
-                }
-            }
-            
-            getRandomCountry() {
-                const countriesArray = Array.from(this.data.countries);
-                return countriesArray[Math.floor(Math.random() * countriesArray.length)];
-            }
-            
-            getStats() {
-                return {
-                    total: this.data.totalVisitors,
-                    today: this.data.todayVisitors,
-                    countries: this.data.countries.size
-                };
-            }
-        }
-        
-        // 页面切换功能
+        // JavaScript for page navigation and interactive elements
         function showPage(pageId) {
-            // 隐藏所有页面
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
             
-            // 显示选中页面
+            // Show selected page
             document.getElementById(pageId).classList.add('active');
             
-            // 更新导航状态
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.classList.remove('active');
-            });
+            // Update navigation
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => link.classList.remove('active'));
             event.target.classList.add('active');
-            
-            // 重新触发动画
-            setTimeout(() => {
-                setupFadeInAnimation();
-            }, 100);
         }
         
-        // 粒子效果
+        // Create floating particles background
         function createParticles() {
-            const container = document.getElementById('particles');
+            const particles = document.getElementById('particles');
             const particleCount = 50;
             
             for (let i = 0; i < particleCount; i++) {
@@ -999,160 +1073,59 @@
                 particle.style.left = Math.random() * 100 + '%';
                 particle.style.animationDelay = Math.random() * 20 + 's';
                 particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
-                container.appendChild(particle);
+                particles.appendChild(particle);
             }
         }
         
-        // 地球访问点
-        function createVisitorDots() {
-            const globe = document.getElementById('globe');
-            const locations = [
-                { top: '30%', left: '20%' }, // 北美
-                { top: '45%', left: '50%' }, // 欧洲
-                { top: '40%', left: '75%' }, // 亚洲
-                { top: '65%', left: '15%' }, // 南美
-                { top: '60%', left: '85%' }, // 大洋洲
-                { top: '55%', left: '45%' }, // 非洲
-                { top: '25%', left: '60%' }, // 俄罗斯
-                { top: '70%', left: '30%' }, // 巴西
-                { top: '35%', left: '35%' }, // 美国东部
-                { top: '50%', left: '80%' }, // 中国
-                { top: '42%', left: '52%' }, // 德国
-                { top: '38%', left: '78%' }, // 日本
-            ];
+        // Animate statistics counters
+        function animateCounters() {
+            const totalViews = document.getElementById('totalViews');
+            const todayViews = document.getElementById('todayViews');
             
-            // 清除现有的点
-            globe.querySelectorAll('.visitor-dot').forEach(dot => dot.remove());
-            
-            locations.forEach((location, index) => {
-                setTimeout(() => {
-                    const dot = document.createElement('div');
-                    dot.className = 'visitor-dot';
-                    dot.style.top = location.top;
-                    dot.style.left = location.left;
-                    dot.style.animationDelay = Math.random() * 2 + 's';
-                    globe.appendChild(dot);
-                }, index * 200);
-            });
-        }
-        
-        // 动画数字计数
-        function animateNumbers() {
-            const tracker = new VisitorTracker();
-            const stats = tracker.getStats();
-            
-            const counters = [
-                { id: 'totalVisitors', target: stats.total },
-                { id: 'todayVisitors', target: stats.today },
-                { id: 'countries', target: stats.countries }
-            ];
-            
-            counters.forEach(counter => {
-                const element = document.getElementById(counter.id);
-                if (!element) return;
+            if (totalViews && todayViews) {
+                let total = 0;
+                let today = 0;
+                const totalTarget = 1247;
+                const todayTarget = 23;
                 
-                let current = 0;
-                const increment = counter.target / 60;
-                const duration = 1500; // 1.5秒
-                const stepTime = duration / 60;
-                
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= counter.target) {
-                        current = counter.target;
-                        clearInterval(timer);
+                const interval = setInterval(() => {
+                    if (total < totalTarget) {
+                        total += Math.ceil(totalTarget / 100);
+                        totalViews.textContent = Math.min(total, totalTarget);
                     }
-                    element.textContent = Math.floor(current);
-                }, stepTime);
-            });
+                    if (today < todayTarget) {
+                        today += 1;
+                        todayViews.textContent = Math.min(today, todayTarget);
+                    }
+                    if (total >= totalTarget && today >= todayTarget) {
+                        clearInterval(interval);
+                    }
+                }, 50);
+            }
         }
         
-        // 渐入动画
-        function setupFadeInAnimation() {
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            animateCounters();
+            
+            // Add fade-in animation to elements
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
+                        entry.target.classList.add('fade-in');
                     }
                 });
-            }, {
-                threshold: 0.1
-            });
+            }, observerOptions);
             
-            document.querySelectorAll('.fade-in').forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(30px)';
-                el.style.transition = 'all 0.8s ease';
+            document.querySelectorAll('.section, .skill-card, .timeline-item').forEach(el => {
                 observer.observe(el);
             });
-        }
-        
-        // 实时更新访问统计
-        function updateVisitorStats() {
-            const tracker = new VisitorTracker();
-            const stats = tracker.getStats();
-            
-            // 平滑更新数字
-            const elements = {
-                totalVisitors: document.getElementById('totalVisitors'),
-                todayVisitors: document.getElementById('todayVisitors'),
-                countries: document.getElementById('countries')
-            };
-            
-            if (elements.totalVisitors) elements.totalVisitors.textContent = stats.total;
-            if (elements.todayVisitors) elements.todayVisitors.textContent = stats.today;
-            if (elements.countries) elements.countries.textContent = stats.countries;
-        }
-        
-        // 页面加载完成后执行
-        document.addEventListener('DOMContentLoaded', function() {
-            createParticles();
-            createVisitorDots();
-            animateNumbers();
-            setupFadeInAnimation();
-            
-            // 延迟启动打字机效果
-            setTimeout(() => {
-                const typingElement = document.querySelector('.typing-animation');
-                if (typingElement) {
-                    typingElement.style.animation = 'typing 3s steps(30, end), blink 1s infinite';
-                }
-            }, 1000);
-            
-            // 定期更新访问统计（每30秒）
-            setInterval(() => {
-                // 随机模拟新访问（小概率）
-                if (Math.random() < 0.1) { // 10%概率
-                    const tracker = new VisitorTracker();
-                    // 模拟新访问但不重复计算当前会话
-                    updateVisitorStats();
-                    createVisitorDots(); // 更新地球上的点
-                }
-            }, 30000);
-            
-            // 每分钟检查是否需要添加新的访问点
-            setInterval(() => {
-                if (Math.random() < 0.3) { // 30%概率添加新的闪烁点
-                    createVisitorDots();
-                }
-            }, 60000);
-        });
-        
-        // 处理页面可见性变化
-        document.addEventListener('visibilitychange', function() {
-            if (!document.hidden) {
-                // 页面重新变为可见时，刷新统计
-                updateVisitorStats();
-                createVisitorDots();
-            }
-        });
-        
-        // 处理浏览器存储变化（多标签页同步）
-        window.addEventListener('storage', function(e) {
-            if (e.key === 'jiayue_site_visitors') {
-                updateVisitorStats();
-            }
         });
     </script>
 </body>
