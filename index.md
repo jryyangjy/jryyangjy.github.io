@@ -653,14 +653,14 @@
         <div class="nav-container">
             <a href="#" class="nav-brand">Jiayue Yang</a>
             <ul class="nav-links">
-                <li><a href="#" onclick="showPage('home')" class="active">Home</a></li>
-                <li><a href="#" onclick="showPage('publications')">Publications</a></li>
-                <li><a href="#" onclick="showPage('talks')">Talks</a></li>
-                <li><a href="#" onclick="showPage('teaching')">Teaching</a></li>
-                <li><a href="#" onclick="showPage('portfolio')">Portfolio</a></li>
-                <li><a href="#" onclick="showPage('blog')">Blog</a></li>
-                <li><a href="#" onclick="showPage('cv')">CV</a></li>
-                <li><a href="#" onclick="showPage('guide')">Guide</a></li>
+                <li><a href="/" onclick="showPage('home'); return false;" class="active">Home</a></li>
+                <li><a href="/publications" onclick="showPage('publications'); return false;">Publications</a></li>
+                <li><a href="/talks" onclick="showPage('talks'); return false;">Talks</a></li>
+                <li><a href="/teaching" onclick="showPage('teaching'); return false;">Teaching</a></li>
+                <li><a href="/portfolio" onclick="showPage('portfolio'); return false;">Portfolio</a></li>
+                <li><a href="/year-archive" onclick="showPage('blog'); return false;">Blog</a></li>
+                <li><a href="/cv" onclick="showPage('cv'); return false;">CV</a></li>
+                <li><a href="/markdown" onclick="showPage('guide'); return false;">Guide</a></li>
             </ul>
         </div>
     </nav>
@@ -866,12 +866,13 @@
     <!-- Blog 页面 -->
     <div id="blog" class="page">
         <div class="full-page fade-in">
-            <h1 class="page-title">✍️ Blog Posts</h1>
+            <h1 class="page-title">📝 Year Archive</h1>
             <div class="coming-soon">
-                <h3>Technical Insights & Learning Journey</h3>
-                <p>I plan to share my learning experiences, technical insights, and thoughts on computer science and AI research through regular blog posts. Topics will include programming tutorials, research reflections, and academic experiences.</p>
+                <h3>Academic Journey & Timeline</h3>
+                <p>This section will contain a chronological archive of my academic and research journey. 
+                You'll find yearly summaries of my projects, achievements, coursework, and personal growth in computer science and research.</p>
                 <br>
-                <p><em>Blog posts coming soon - follow my journey in tech and research!</em></p>
+                <p><em>Year-by-year archive coming soon - documenting my path in tech and academia!</em></p>
             </div>
         </div>
     </div>
@@ -1035,31 +1036,99 @@
     <!-- Guide 页面 -->
     <div id="guide" class="page">
         <div class="full-page fade-in">
-            <h1 class="page-title">📖 Guide</h1>
+            <h1 class="page-title">📖 Markdown Guide</h1>
             <div class="coming-soon">
-                <h3>Academic & Research Guide</h3>
-                <p>This section will contain useful guides and resources for fellow students and researchers. 
-                Topics will include research methodologies, programming tutorials, academic writing tips, and insights into computer science education.</p>
+                <h3>Markdown Documentation & Tutorials</h3>
+                <p>This section will contain comprehensive Markdown guides, syntax references, and documentation tips. 
+                Perfect for students and researchers looking to improve their technical writing and documentation skills.</p>
                 <br>
-                <p><em>Guides and tutorials coming soon!</em></p>
+                <p><em>Markdown guides and tutorials coming soon!</em></p>
             </div>
         </div>
     </div>
     
     <script>
+        // URL路由管理
+        const routes = {
+            '/': 'home',
+            '/home': 'home',
+            '/publications': 'publications',
+            '/talks': 'talks',
+            '/teaching': 'teaching',
+            '/portfolio': 'portfolio',
+            '/year-archive': 'blog',
+            '/cv': 'cv',
+            '/markdown': 'guide'
+        };
+
         // JavaScript for page navigation and interactive elements
-        function showPage(pageId) {
+        function showPage(pageId, updateUrl = true) {
             // Hide all pages
             const pages = document.querySelectorAll('.page');
             pages.forEach(page => page.classList.remove('active'));
             
             // Show selected page
-            document.getElementById(pageId).classList.add('active');
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+            }
             
             // Update navigation
             const navLinks = document.querySelectorAll('.nav-links a');
             navLinks.forEach(link => link.classList.remove('active'));
-            event.target.classList.add('active');
+            
+            // Find and activate the correct nav link
+            const activeLink = document.querySelector(`[onclick*="${pageId}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+            
+            // Update URL if needed
+            if (updateUrl) {
+                const newPath = Object.keys(routes).find(key => routes[key] === pageId) || '/';
+                if (window.location.pathname !== newPath) {
+                    history.pushState({page: pageId}, '', newPath);
+                }
+            }
+            
+            // Update page title
+            updatePageTitle(pageId);
+        }
+        
+        // Update page title based on current page
+        function updatePageTitle(pageId) {
+            const titles = {
+                'home': 'Jiayue Yang - USTC Computer Science',
+                'publications': 'Publications - Jiayue Yang',
+                'talks': 'Talks - Jiayue Yang',
+                'teaching': 'Teaching - Jiayue Yang',
+                'portfolio': 'Portfolio - Jiayue Yang',
+                'blog': 'Blog Posts - Jiayue Yang',
+                'cv': 'CV - Jiayue Yang',
+                'guide': 'Guide - Jiayue Yang'
+            };
+            document.title = titles[pageId] || 'Jiayue Yang - USTC Computer Science';
+        }
+        
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', function(event) {
+            const pageId = event.state ? event.state.page : getPageFromPath();
+            showPage(pageId, false);
+        });
+        
+        // Get page ID from current path
+        function getPageFromPath() {
+            const path = window.location.pathname;
+            return routes[path] || 'home';
+        }
+        
+        // Initialize routing on page load
+        function initializeRouting() {
+            const pageId = getPageFromPath();
+            showPage(pageId, false);
+            
+            // Set initial state
+            history.replaceState({page: pageId}, '', window.location.pathname);
         }
         
         // Create floating particles background
@@ -1106,6 +1175,9 @@
         
         // Initialize page
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize routing first
+            initializeRouting();
+            
             createParticles();
             animateCounters();
             
