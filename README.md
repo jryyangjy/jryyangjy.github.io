@@ -21,17 +21,17 @@ I'm a second-year Computer Science major at USTC, researching computer vision an
 To run this website locally:
 
 1. Install Ruby and Jekyll:
-   ```bash
+```bash
    gem install jekyll bundler
-   ```
+```
 
 2. Install dependencies:
-   ```bash
+```bash
    bundle install
    ```
 
 3. Run the development server:
-   ```bash
+     ```bash
    bundle exec jekyll serve
    ```
 
