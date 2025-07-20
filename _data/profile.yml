@@ -1,0 +1,47 @@
+name: "Jiayue Yang"
+title: "Computer Science Student"
+organization: "University of Science and Technology of China"
+department: "School of Computer Science and Technology"
+location: "Hefei, Anhui, China"
+email: "jiayueyang@mail.ustc.edu.cn"
+personal_email: "jiangjiayue06@gmail.com"
+github: "jryyangjy"
+github_url: "https://github.com/jryyangjy"
+bio: "Computer Science student researching computer vision and spatial intelligence at SPIN-Lab"
+interests:
+  - Computer Vision
+  - Spatial Intelligence
+  - Machine Learning
+  - Artificial Intelligence
+education:
+  - degree: "Bachelor of Science in Computer Science and Technology"
+    institution: "University of Science and Technology of China"
+    year: "2025-2028 (Expected)"
+    description: "Huaxia Computer Science and Technology Elite Class"
+  - degree: "Cybersecurity Foundation Program"
+    institution: "University of Science and Technology of China"
+    year: "2024-2025"
+    description: "Wang Xiaomo Cybersecurity Elite Class"
+research:
+  - title: "Undergraduate Research Assistant"
+    institution: "SPIN-Lab, USTC"
+    supervisor: "Prof. Yan Xia"
+    period: "2024 - Present"
+    description: "Conducting research in computer vision and spatial intelligence"
+skills:
+  programming_languages:
+    - Python
+    - C/C++
+    - JavaScript
+    - HTML/CSS
+  frameworks_tools:
+    - PyTorch
+    - OpenCV
+    - Git
+    - Linux
+    - Docker
+  areas:
+    - Computer Vision
+    - Machine Learning
+    - Algorithm Design
+    - Data Structures 

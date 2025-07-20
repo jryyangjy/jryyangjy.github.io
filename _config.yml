@@ -1,4 +1,121 @@
 
-title: Jiayue Yang
+title: "Jiayue Yang"
+name: "Jiayue Yang"
+description: "Computer Science Student at USTC"
+url: "https://jryyangjy.github.io"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:year-:month-:day-:title/
 plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
   - jekyll-feed
+  - jemoji
+  - jekyll-include-cache
+
+# Site settings
+author:
+  name: "Jiayue Yang"
+  avatar: "avatar.jpg"
+  bio: "Computer Science Student at USTC"
+  location: "Hefei, Anhui, China"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:jiayueyang@mail.ustc.edu.cn"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/jryyangjy"
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /:collection/:title/
+  publications:
+    output: true
+    permalink: /:collection/:title/
+  talks:
+    output: true
+    permalink: /:collection/:title/
+  teaching:
+    output: true
+    permalink: /:collection/:title/
+  portfolio:
+    output: true
+    permalink: /:collection/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "single"
+      author_profile: true
+      read_time: true
+      comments: false
+      share: true
+      related: true
+  - scope:
+      path: ""
+      type: "publications"
+    values:
+      layout: "single"
+      author_profile: true
+      share: true
+      related: true
+  - scope:
+      path: ""
+      type: "talks"
+    values:
+      layout: "single"
+      author_profile: true
+      share: true
+      related: true
+  - scope:
+      path: ""
+      type: "teaching"
+    values:
+      layout: "single"
+      author_profile: true
+      share: true
+      related: true
+  - scope:
+      path: ""
+      type: "portfolio"
+    values:
+      layout: "single"
+      author_profile: true
+      share: true
+      related: true
+
+# Pagination
+paginate: 5
+paginate_path: "/posts/page:num/"
+
+# Social sharing
+social_share: true
+
+# Comments
+comments:
+  provider: "disqus"
+  disqus:
+    shortname: "jryyangjy"
+
+# Analytics
+analytics:
+  provider: "google"
+  google:
+    tracking_id: ""
+
+# SEO
+seo:
+  type: "Person"
+  name: "Jiayue Yang"
+  job_title: "Computer Science Student"
+  employer: "University of Science and Technology of China"
