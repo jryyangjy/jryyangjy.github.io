@@ -4,6 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jiayue Yang - USTC Computer Science</title>
+    <meta name="description" content="Jiayue Yang - Computer Science student at USTC, researching computer vision and spatial intelligence at SPIN-Lab">
+    <meta name="keywords" content="Jiayue Yang, USTC, Computer Science, Computer Vision, Spatial Intelligence, SPIN-Lab">
+    <meta name="author" content="Jiayue Yang">
+    <link rel="canonical" href="https://jryyangjy.github.io/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jryyangjy.github.io/">
+    <meta property="og:title" content="Jiayue Yang - USTC Computer Science">
+    <meta property="og:description" content="Computer Science student researching computer vision and spatial intelligence">
+    <meta property="og:image" content="https://jryyangjy.github.io/avatar.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://jryyangjy.github.io/">
+    <meta property="twitter:title" content="Jiayue Yang - USTC Computer Science">
+    <meta property="twitter:description" content="Computer Science student researching computer vision and spatial intelligence">
+    <meta property="twitter:image" content="https://jryyangjy.github.io/avatar.jpg">
     <style>
         /* 基础样式 */
         * {
@@ -121,10 +139,13 @@
         /* 页面容器 */
         .page {
             display: none;
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
         
         .page.active {
             display: block;
+            opacity: 1;
         }
         
         /* 左侧个人信息 */
@@ -562,9 +583,14 @@
         }
         
         @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
             .navbar {
                 padding: 10px 20px;
                 border-radius: 25px;
+                margin-bottom: 20px;
             }
             
             .nav-container {
@@ -599,6 +625,28 @@
             .skills-container {
                 grid-template-columns: 1fr;
             }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
+            }
+            
+            .theme-toggle {
+                top: 20px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            
+            .avatar {
+                width: 100px;
+                height: 100px;
+                font-size: 2.5rem;
+            }
         }
         
         /* 动画效果 */
@@ -632,6 +680,8 @@
             white-space: nowrap;
             border-right: 3px solid #3498db;
             animation: typing 3s steps(30, end), blink 1s infinite;
+            display: inline-block;
+            width: 0;
         }
         
         @keyframes blink {
@@ -642,25 +692,136 @@
                 border-color: transparent;
             }
         }
+        
+        /* 加载动画 */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(52, 152, 219, 0.3);
+            border-top: 3px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* 返回顶部按钮 */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #3498db, #9b59b6);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .back-to-top.show {
+            display: flex;
+        }
+        
+        /* 主题切换按钮 */
+        .theme-toggle {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+        
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* 浅色主题 */
+        body.light-theme {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 50%, #e0eafc 100%);
+        }
+        
+        body.light-theme .profile-card,
+        body.light-theme .stats-container,
+        body.light-theme .section,
+        body.light-theme .full-page {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        body.light-theme .navbar {
+            background: rgba(255, 255, 255, 0.9);
+        }
     </style>
 </head>
 <body>
+    <!-- 加载动画 -->
+    <div class="loading" id="loading">
+        <div class="loading-spinner"></div>
+    </div>
+    
     <!-- 粒子背景 -->
     <div class="particles" id="particles"></div>
     
     <!-- 导航栏 -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="nav-brand">Jiayue Yang</a>
+            <a href="/" class="nav-brand">Jiayue Yang</a>
             <ul class="nav-links">
-                <li><a href="/" onclick="showPage('home'); return false;" class="active">Home</a></li>
-                <li><a href="/publications" onclick="showPage('publications'); return false;">Publications</a></li>
-                <li><a href="/talks" onclick="showPage('talks'); return false;">Talks</a></li>
-                <li><a href="/teaching" onclick="showPage('teaching'); return false;">Teaching</a></li>
-                <li><a href="/portfolio" onclick="showPage('portfolio'); return false;">Portfolio</a></li>
-                <li><a href="/year-archive" onclick="showPage('blog'); return false;">Blog</a></li>
-                <li><a href="/cv" onclick="showPage('cv'); return false;">CV</a></li>
-                <li><a href="/markdown" onclick="showPage('guide'); return false;">Guide</a></li>
+                <li><a href="/" data-page="home" class="nav-link active">Home</a></li>
+                <li><a href="/publications" data-page="publications" class="nav-link">Publications</a></li>
+                <li><a href="/talks" data-page="talks" class="nav-link">Talks</a></li>
+                <li><a href="/teaching" data-page="teaching" class="nav-link">Teaching</a></li>
+                <li><a href="/portfolio" data-page="portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="/year-archive" data-page="blog" class="nav-link">Blog</a></li>
+                <li><a href="/cv" data-page="cv" class="nav-link">CV</a></li>
+                <li><a href="/markdown" data-page="guide" class="nav-link">Guide</a></li>
             </ul>
         </div>
     </nav>
@@ -714,7 +875,7 @@
                             <div class="stat-label">Today</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-number" id="lastUpdate">Jan 25</div>
+                            <div class="stat-number" id="lastUpdate">Jan 26</div>
                             <div class="stat-label">Last Update</div>
                         </div>
                     </div>
@@ -842,10 +1003,10 @@
         <div class="full-page fade-in">
             <h1 class="page-title">👨‍🏫 Teaching</h1>
             <div class="coming-soon">
-                <h3>Educational Contributions</h3>
-                <p>As I advance in my academic journey, I'm interested in contributing to education through teaching assistantships, tutoring, and mentoring fellow students. This section will document my teaching experiences and educational activities.</p>
+                <h3>Teaching Opportunities</h3>
+                <p>As I progress in my academic journey, I'm interested in sharing knowledge through teaching assistant positions, tutoring, and mentoring opportunities. This section will showcase any teaching experiences and educational contributions.</p>
                 <br>
-                <p><em>Teaching opportunities will be listed here as they develop!</em></p>
+                <p><em>Future teaching roles and experiences will be documented here!</em></p>
             </div>
         </div>
     </div>
@@ -854,11 +1015,48 @@
     <div id="portfolio" class="page">
         <div class="full-page fade-in">
             <h1 class="page-title">💼 Portfolio</h1>
-            <div class="coming-soon">
-                <h3>Project Showcase</h3>
-                <p>This section will feature a curated collection of my programming projects, research implementations, and technical contributions. From algorithm implementations to computer vision applications, you'll find examples of my work here.</p>
-                <br>
-                <p><em>Projects will be showcased as they are completed and ready for presentation!</em></p>
+            <div class="cv-section">
+                <h3>🚀 Featured Projects</h3>
+                <div class="timeline-item">
+                    <div class="timeline-period">2024 - Present</div>
+                    <div class="timeline-title">Computer Vision Research</div>
+                    <div class="timeline-subtitle">SPIN-Lab, USTC</div>
+                    <div class="timeline-description">
+                        Working on spatial intelligence projects under the supervision of Prof. Yan Xia. Focusing on developing algorithms for visual understanding and spatial reasoning.
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-period">2024</div>
+                    <div class="timeline-title">CS221 AI Project</div>
+                    <div class="timeline-subtitle">Artificial Intelligence Fundamentals</div>
+                    <div class="timeline-description">
+                        Implemented and analyzed various AI algorithms including search algorithms, machine learning models, and logical reasoning systems.
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-period">2023</div>
+                    <div class="timeline-title">CS61A Programming Projects</div>
+                    <div class="timeline-subtitle">Structure and Interpretation of Computer Programs</div>
+                    <div class="timeline-description">
+                        Completed comprehensive programming assignments including implementing interpreters, data structures, and functional programming concepts in Python.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cv-section">
+                <h3>🛠️ Technical Skills</h3>
+                <div class="skills-list">
+                    <div class="skill-item">Python</div>
+                    <div class="skill-item">C/C++</div>
+                    <div class="skill-item">Git</div>
+                    <div class="skill-item">Linux</div>
+                    <div class="skill-item">PyTorch</div>
+                    <div class="skill-item">OpenCV</div>
+                    <div class="skill-item">Machine Learning</div>
+                    <div class="skill-item">Computer Vision</div>
+                </div>
             </div>
         </div>
     </div>
@@ -866,13 +1064,12 @@
     <!-- Blog 页面 -->
     <div id="blog" class="page">
         <div class="full-page fade-in">
-            <h1 class="page-title">📝 Year Archive</h1>
+            <h1 class="page-title">📝 Blog</h1>
             <div class="coming-soon">
-                <h3>Academic Journey & Timeline</h3>
-                <p>This section will contain a chronological archive of my academic and research journey. 
-                You'll find yearly summaries of my projects, achievements, coursework, and personal growth in computer science and research.</p>
+                <h3>Thoughts and Insights</h3>
+                <p>This space will feature blog posts about my research experiences, technical tutorials, academic insights, and reflections on computer science topics. I plan to share knowledge and experiences that might be helpful for fellow students and researchers.</p>
                 <br>
-                <p><em>Year-by-year archive coming soon - documenting my path in tech and academia!</em></p>
+                <p><em>Coming soon: technical posts, research updates, and academic reflections!</em></p>
             </div>
         </div>
     </div>
@@ -885,21 +1082,19 @@
             <div class="cv-section">
                 <h3>🎓 Education</h3>
                 <div class="timeline-item">
-                    <div class="timeline-period">September 2025 - June 2028 (Expected)</div>
-                    <div class="timeline-title">University of Science and Technology of China (USTC)</div>
-                    <div class="timeline-subtitle">School of Computer Science and Technology, Elite Class in Computer Science</div>
+                    <div class="timeline-period">Sep 2025 - Jun 2028 (Expected)</div>
+                    <div class="timeline-title">Bachelor of Science in Computer Science and Technology</div>
+                    <div class="timeline-subtitle">University of Science and Technology of China (USTC)</div>
                     <div class="timeline-description">
-                        Bachelor's degree in Computer Science and Technology, specializing in Computer Vision and Spatial Intelligence. 
-                        Conducting research under the supervision of Prof. Yan Xia at SPIN Lab (Spatial Intelligence Lab).
+                        Huaxia Computer Science and Technology Elite Class, Department of Computer Science and Technology. Specialized program focusing on advanced computer science curriculum and research opportunities.
                     </div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-period">September 2024 - June 2025</div>
-                    <div class="timeline-title">University of Science and Technology of China (USTC)</div>
-                    <div class="timeline-subtitle">School of Cyber Science and Technology, Wang Xiaomo Cyber Security Elite Class</div>
+                    <div class="timeline-period">Sep 2024 - Jun 2025</div>
+                    <div class="timeline-title">Cybersecurity Foundation Program</div>
+                    <div class="timeline-subtitle">University of Science and Technology of China (USTC)</div>
                     <div class="timeline-description">
-                        Foundation year in Cyber Security program before transferring to Computer Science. 
-                        Built strong fundamentals in programming, mathematics, and computer systems.
+                        Wang Xiaomo Cybersecurity Elite Class, School of Cyberspace Science and Technology. Foundational studies in cybersecurity with emphasis on mathematical foundations and programming fundamentals.
                     </div>
                 </div>
             </div>
@@ -907,128 +1102,77 @@
             <div class="cv-section">
                 <h3>🔬 Research Experience</h3>
                 <div class="timeline-item">
-                    <div class="timeline-period">January 2025 - Present</div>
-                    <div class="timeline-title">Undergraduate Researcher</div>
-                    <div class="timeline-subtitle">SPIN Lab (Spatial Intelligence Lab), USTC</div>
+                    <div class="timeline-period">2024 - Present</div>
+                    <div class="timeline-title">Undergraduate Research Assistant</div>
+                    <div class="timeline-subtitle">SPIN-Lab, USTC · Supervisor: Prof. Yan Xia</div>
                     <div class="timeline-description">
-                        Working under Prof. Yan Xia on computer vision and spatial intelligence projects. 
-                        Focus areas include 3D scene understanding, point cloud processing, and spatial reasoning algorithms.
-                    </div>
-                </div>
-            </div>
-            
-            <div class="cv-section">
-                <h3>💻 Technical Skills</h3>
-                <div class="skills-container">
-                    <div class="skill-card">
-                        <div class="skill-title">Programming Languages</div>
-                        <p>Python, C/C++, JavaScript</p>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-title">AI/ML Frameworks</div>
-                        <p>PyTorch, OpenCV, PDAL</p>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-title">Tools & Technologies</div>
-                        <p>Git/GitHub, Linux, Point Cloud Processing</p>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-title">Specializations</div>
-                        <p>Computer Vision, Machine Learning, Algorithm Design</p>
+                        Conducting research in computer vision and spatial intelligence. Working on projects related to visual understanding, spatial reasoning, and AI applications in computer vision tasks.
                     </div>
                 </div>
             </div>
             
             <div class="cv-section">
                 <h3>📚 Relevant Coursework</h3>
-                <div class="timeline-description">
-                    <strong>Computer Science Fundamentals:</strong> Data Structures and Algorithms, Computer Organization, 
-                    Operating Systems, Computer Networks<br><br>
-                    <strong>Mathematics:</strong> Linear Algebra, Calculus, Discrete Mathematics, Probability and Statistics<br><br>
-                    <strong>AI/ML:</strong> Introduction to Artificial Intelligence (CS221), Machine Learning Fundamentals<br><br>
-                    <strong>Programming:</strong> Structure and Interpretation of Computer Programs (CS61A), 
-                    Object-Oriented Programming, Software Engineering
+                <div class="skills-list">
+                    <div class="skill-item">CS61A - Structure and Interpretation of Computer Programs</div>
+                    <div class="skill-item">CS221 - Artificial Intelligence Fundamentals</div>
+                    <div class="skill-item">Data Structures and Algorithms</div>
+                    <div class="skill-item">Computer Vision</div>
+                    <div class="skill-item">Machine Learning</div>
+                    <div class="skill-item">Linear Algebra</div>
                 </div>
             </div>
             
             <div class="cv-section">
-                <h3>🏆 Academic Achievements</h3>
-                <ul>
-                    <li>Selected for Elite Class in Computer Science (华夏计算机科技英才班) at USTC</li>
-                    <li>Successful transfer from Cyber Security to Computer Science program</li>
-                    <li>Undergraduate research position at SPIN Lab under Prof. Yan Xia</li>
-                </ul>
-            </div>
-            
-            <div class="cv-section">
-                <h3>💼 Projects</h3>
+                <h3>💻 Technical Skills</h3>
                 <div class="timeline-item">
-                    <div class="timeline-period">2025</div>
-                    <div class="timeline-title">Point Cloud Processing System</div>
-                    <div class="timeline-subtitle">Research Project - SPIN Lab</div>
+                    <div class="timeline-title">Programming Languages</div>
                     <div class="timeline-description">
-                        Developed an intelligent point cloud segmentation system for large-scale LiDAR data processing. 
-                        Implemented multi-radius analysis (25m, 50m, 100m) with smart conflict detection and parallel processing capabilities.
-                        Technologies: Python, PDAL, concurrent processing, file system optimization.
+                        <strong>Proficient:</strong> Python, C/C++<br>
+                        <strong>Familiar:</strong> JavaScript, HTML/CSS, MATLAB
                     </div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-period">2024-2025</div>
-                    <div class="timeline-title">Algorithm Implementation Portfolio</div>
-                    <div class="timeline-subtitle">Coursework Projects</div>
+                    <div class="timeline-title">Frameworks & Tools</div>
                     <div class="timeline-description">
-                        Implemented fundamental algorithms and data structures in Python and C. 
-                        Projects include sorting algorithms, graph traversal, dynamic programming solutions, and basic AI algorithms.
+                        PyTorch, OpenCV, NumPy, Matplotlib, Git, Linux, Docker, Jupyter Notebooks
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-title">Areas of Expertise</div>
+                    <div class="timeline-description">
+                        Computer Vision, Machine Learning, Algorithm Design, Data Structures, Spatial Intelligence
                     </div>
                 </div>
             </div>
             
             <div class="cv-section">
-                <h3>📈 Research Interests</h3>
-                <div class="timeline-description">
-                    <strong>Computer Vision:</strong> 3D scene understanding, object detection and recognition, 
-                    image processing and analysis<br><br>
-                    <strong>Spatial Intelligence:</strong> Spatial reasoning, 3D geometry processing, 
-                    point cloud analysis, scene reconstruction<br><br>
-                    <strong>Machine Learning:</strong> Deep learning applications in computer vision, 
-                    neural network architectures for spatial data
+                <h3>🏆 Achievements</h3>
+                <div class="achievement-item">Dean's List - Outstanding Academic Performance (2023-2024)</div>
+                <div class="achievement-item">Successful completion of CS61A with distinction</div>
+                <div class="achievement-item">Active member of SPIN-Lab research group</div>
+            </div>
+            
+            <div class="cv-section">
+                <h3>📧 Contact Information</h3>
+                <div class="timeline-item">
+                    <div class="timeline-description">
+                        <strong>Academic Email:</strong> jiayueyang@mail.ustc.edu.cn<br>
+                        <strong>Personal Email:</strong> jiangjiayue06@gmail.com<br>
+                        <strong>GitHub:</strong> <a href="https://github.com/jryyangjy" target="_blank">github.com/jryyangjy</a><br>
+                        <strong>Location:</strong> Hefei, Anhui, China
+                    </div>
                 </div>
             </div>
             
             <div class="cv-section">
                 <h3>🌐 Languages</h3>
-                <div class="timeline-description">
-                    <strong>Chinese:</strong> Native<br>
-                    <strong>English:</strong> Proficient (Academic and Technical)
-                </div>
-            </div>
-            
-            <div class="cv-section">
-                <h3>📧 Contact Information</h3>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <span class="contact-icon">📧</span>
-                        <div>
-                            <strong>Academic Email:</strong> <a href="mailto:jiayueyang@mail.ustc.edu.cn">jiayueyang@mail.ustc.edu.cn</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <span class="contact-icon">📧</span>
-                        <div>
-                            <strong>Personal Email:</strong> <a href="mailto:jiangjiayue06@gmail.com">jiangjiayue06@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <span class="contact-icon">🐱</span>
-                        <div>
-                            <strong>GitHub:</strong> <a href="https://github.com/jryyangjy" target="_blank">github.com/jryyangjy</a>
-                        </div>
+                <div class="timeline-item">
+                    <div class="timeline-description">
+                        <strong>Chinese (Mandarin):</strong> Native<br>
+                        <strong>English:</strong> Fluent (Academic and Technical)
                     </div>
                 </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 30px; color: #7f8c8d; font-size: 0.9rem;">
-                <p><em>Last Updated: July 2025</em></p>
             </div>
         </div>
     </div>
@@ -1036,181 +1180,295 @@
     <!-- Guide 页面 -->
     <div id="guide" class="page">
         <div class="full-page fade-in">
-            <h1 class="page-title">📖 Markdown Guide</h1>
-            <div class="coming-soon">
-                <h3>Markdown Documentation & Tutorials</h3>
-                <p>This section will contain comprehensive Markdown guides, syntax references, and documentation tips. 
-                Perfect for students and researchers looking to improve their technical writing and documentation skills.</p>
-                <br>
-                <p><em>Markdown guides and tutorials coming soon!</em></p>
+            <h1 class="page-title">📖 Academic Guide</h1>
+            <div class="cv-section">
+                <h3>🎯 Study Tips for Computer Science</h3>
+                <div class="timeline-item">
+                    <div class="timeline-title">Programming Fundamentals</div>
+                    <div class="timeline-description">
+                        Start with understanding basic concepts rather than memorizing syntax. Practice coding regularly and focus on problem-solving approaches. Use resources like CS61A to build strong foundational knowledge.
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-title">Research Involvement</div>
+                    <div class="timeline-description">
+                        Engage with professors early in your academic journey. Don't be afraid to reach out to research labs and express genuine interest in their work. Consistent effort and curiosity are more valuable than prior experience.
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-title">Building Technical Skills</div>
+                    <div class="timeline-description">
+                        Focus on understanding core concepts in algorithms, data structures, and mathematics. Supplement coursework with personal projects and open-source contributions. Learn version control (Git) early.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cv-section">
+                <h3>📚 Recommended Resources</h3>
+                <ul>
+                    <li><strong>CS61A Berkeley:</strong> Excellent introduction to programming and computer science concepts</li>
+                    <li><strong>CS221 Stanford:</strong> Comprehensive AI fundamentals course</li>
+                    <li><strong>PyTorch Documentation:</strong> Essential for machine learning and deep learning projects</li>
+                    <li><strong>OpenCV Tutorials:</strong> Great starting point for computer vision applications</li>
+                    <li><strong>GitHub:</strong> Build a portfolio of projects and collaborate with others</li>
+                </ul>
+            </div>
+            
+            <div class="cv-section">
+                <h3>🚀 Getting Started in Research</h3>
+                <div class="timeline-item">
+                    <div class="timeline-title">Finding Your Interest</div>
+                    <div class="timeline-description">
+                        Explore different areas through coursework and reading recent papers. Attend seminars and research presentations to understand current trends and challenges in computer science.
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-title">Building Connections</div>
+                    <div class="timeline-description">
+                        Network with graduate students, attend lab meetings when possible, and participate in academic conferences. Join study groups and collaborative projects with peers.
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     
+    <!-- 主题切换按钮 -->
+    <button class="theme-toggle" id="themeToggle" title="切换主题">🌙</button>
+    
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top" id="backToTop" title="返回顶部">↑</button>
+    
     <script>
-        // GitHub Pages SPA support
-        (function(l) {
-            if (l.search[1] === '/' ) {
-                var decoded = l.search.slice(1).split('&').map(function(s) { 
-                    return s.replace(/~and~/g, '&')
-                }).join('?');
-                window.history.replaceState(null, null,
-                    l.pathname.slice(0, -1) + decoded + l.hash
-                );
-            }
-        }(window.location));
-
-        // URL路由管理
-        const routes = {
-            '/': 'home',
-            '/home': 'home',
-            '/publications': 'publications',
-            '/talks': 'talks',
-            '/teaching': 'teaching',
-            '/portfolio': 'portfolio',
-            '/year-archive': 'blog',
-            '/cv': 'cv',
-            '/markdown': 'guide'
-        };
-
-        // JavaScript for page navigation and interactive elements
-        function showPage(pageId, updateUrl = true) {
-            // Hide all pages
+        // 页面导航功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 创建粒子效果
+            createParticles();
+            
+            // 初始化统计数据动画
+            animateStats();
+            
+            // 导航功能
+            const navLinks = document.querySelectorAll('.nav-link');
             const pages = document.querySelectorAll('.page');
-            pages.forEach(page => page.classList.remove('active'));
             
-            // Show selected page
-            const targetPage = document.getElementById(pageId);
-            if (targetPage) {
-                targetPage.classList.add('active');
+            // 处理URL路由
+            function handleRoute() {
+                const path = window.location.pathname;
+                let targetPage = 'home';
+                
+                // 根据路径确定目标页面
+                if (path.includes('/publications')) targetPage = 'publications';
+                else if (path.includes('/talks')) targetPage = 'talks';
+                else if (path.includes('/teaching')) targetPage = 'teaching';
+                else if (path.includes('/portfolio')) targetPage = 'portfolio';
+                else if (path.includes('/year-archive') || path.includes('/blog')) targetPage = 'blog';
+                else if (path.includes('/cv')) targetPage = 'cv';
+                else if (path.includes('/markdown') || path.includes('/guide')) targetPage = 'guide';
+                
+                // 切换到目标页面
+                switchPage(targetPage);
             }
             
-            // Update navigation
-            const navLinks = document.querySelectorAll('.nav-links a');
-            navLinks.forEach(link => link.classList.remove('active'));
-            
-            // Find and activate the correct nav link
-            const activeLink = document.querySelector(`[onclick*="${pageId}"]`);
-            if (activeLink) {
-                activeLink.classList.add('active');
-            }
-            
-            // Update URL if needed
-            if (updateUrl) {
-                const newPath = Object.keys(routes).find(key => routes[key] === pageId) || '/';
-                if (window.location.pathname !== newPath) {
-                    history.pushState({page: pageId}, '', newPath);
+            // 切换页面函数
+            function switchPage(targetPage) {
+                // 移除所有激活状态
+                navLinks.forEach(l => l.classList.remove('active'));
+                pages.forEach(p => {
+                    p.classList.remove('active');
+                    p.style.display = 'none';
+                });
+                
+                // 激活对应链接
+                const activeLink = document.querySelector(`[data-page="${targetPage}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+                
+                // 显示对应页面
+                const targetElement = document.getElementById(targetPage);
+                if (targetElement) {
+                    targetElement.style.display = 'block';
+                    setTimeout(() => {
+                        targetElement.classList.add('active');
+                    }, 50);
                 }
             }
             
-            // Update page title
-            updatePageTitle(pageId);
-        }
-        
-        // Update page title based on current page
-        function updatePageTitle(pageId) {
-            const titles = {
-                'home': 'Jiayue Yang - USTC Computer Science',
-                'publications': 'Publications - Jiayue Yang',
-                'talks': 'Talks - Jiayue Yang',
-                'teaching': 'Teaching - Jiayue Yang',
-                'portfolio': 'Portfolio - Jiayue Yang',
-                'blog': 'Blog Posts - Jiayue Yang',
-                'cv': 'CV - Jiayue Yang',
-                'guide': 'Guide - Jiayue Yang'
-            };
-            document.title = titles[pageId] || 'Jiayue Yang - USTC Computer Science';
-        }
-        
-        // Handle browser back/forward buttons
-        window.addEventListener('popstate', function(event) {
-            const pageId = event.state ? event.state.page : getPageFromPath();
-            showPage(pageId, false);
+            // 监听导航链接点击
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetPage = this.getAttribute('data-page');
+                    switchPage(targetPage);
+                    
+                    // 更新URL（不刷新页面）
+                    const href = this.getAttribute('href');
+                    if (href && href !== '/') {
+                        window.history.pushState({}, '', href);
+                    } else {
+                        window.history.pushState({}, '', '/');
+                    }
+                });
+            });
+            
+            // 监听浏览器前进后退
+            window.addEventListener('popstate', handleRoute);
+            
+            // 初始化页面
+            handleRoute();
+            
+            // 返回顶部按钮功能
+            const backToTopBtn = document.getElementById('backToTop');
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // 主题切换功能
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+            
+            // 从localStorage读取主题设置
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                body.classList.add('light-theme');
+                themeToggle.textContent = '☀️';
+            }
+            
+            themeToggle.addEventListener('click', function() {
+                body.classList.toggle('light-theme');
+                const isLight = body.classList.contains('light-theme');
+                themeToggle.textContent = isLight ? '☀️' : '🌙';
+                localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            });
+            
+            // 进度条动画
+            setTimeout(() => {
+                document.querySelectorAll('.progress-fill').forEach(bar => {
+                    const width = bar.style.width;
+                    bar.style.width = '0%';
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 500);
+                });
+            }, 1000);
         });
         
-        // Get page ID from current path
-        function getPageFromPath() {
-            const path = window.location.pathname;
-            return routes[path] || 'home';
-        }
-        
-        // Initialize routing on page load
-        function initializeRouting() {
-            const pageId = getPageFromPath();
-            showPage(pageId, false);
-            
-            // Set initial state
-            history.replaceState({page: pageId}, '', window.location.pathname);
-        }
-        
-        // Create floating particles background
+        // 创建粒子背景
         function createParticles() {
-            const particles = document.getElementById('particles');
-            const particleCount = 50;
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = window.innerWidth < 768 ? 25 : 50; // 移动端减少粒子数量
             
-            for (let i = 0; i < particleCount; i++) {
+            // 使用requestAnimationFrame优化性能
+            let created = 0;
+            function createParticle() {
+                if (created >= particleCount) return;
+                
                 const particle = document.createElement('div');
                 particle.className = 'particle';
                 particle.style.left = Math.random() * 100 + '%';
                 particle.style.animationDelay = Math.random() * 20 + 's';
-                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
-                particles.appendChild(particle);
-            }
-        }
-        
-        // Animate statistics counters
-        function animateCounters() {
-            const totalViews = document.getElementById('totalViews');
-            const todayViews = document.getElementById('todayViews');
-            
-            if (totalViews && todayViews) {
-                let total = 0;
-                let today = 0;
-                const totalTarget = 1247;
-                const todayTarget = 23;
+                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                particlesContainer.appendChild(particle);
                 
-                const interval = setInterval(() => {
-                    if (total < totalTarget) {
-                        total += Math.ceil(totalTarget / 100);
-                        totalViews.textContent = Math.min(total, totalTarget);
-                    }
-                    if (today < todayTarget) {
-                        today += 1;
-                        todayViews.textContent = Math.min(today, todayTarget);
-                    }
-                    if (total >= totalTarget && today >= todayTarget) {
-                        clearInterval(interval);
-                    }
-                }, 50);
+                created++;
+                requestAnimationFrame(createParticle);
             }
+            
+            requestAnimationFrame(createParticle);
         }
         
-        // Initialize page
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize routing first
-            initializeRouting();
+        // 统计数据动画
+        function animateStats() {
+            // 从localStorage读取访问统计
+            let totalViews = parseInt(localStorage.getItem('totalViews')) || 0;
+            let todayViews = parseInt(localStorage.getItem('todayViews')) || 0;
+            const lastVisit = localStorage.getItem('lastVisit');
+            const today = new Date().toDateString();
             
-            createParticles();
-            animateCounters();
+            // 更新访问统计
+            totalViews++;
+            if (lastVisit !== today) {
+                todayViews = 1;
+                localStorage.setItem('lastVisit', today);
+            } else {
+                todayViews++;
+            }
             
-            // Add fade-in animation to elements
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
+            // 保存到localStorage
+            localStorage.setItem('totalViews', totalViews.toString());
+            localStorage.setItem('todayViews', todayViews.toString());
             
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('fade-in');
-                    }
-                });
-            }, observerOptions);
+            const stats = [
+                { id: 'totalViews', target: totalViews, suffix: '' },
+                { id: 'todayViews', target: todayViews, suffix: '' }
+            ];
             
-            document.querySelectorAll('.section, .skill-card, .timeline-item').forEach(el => {
-                observer.observe(el);
+            stats.forEach(stat => {
+                const element = document.getElementById(stat.id);
+                if (element) {
+                    let current = 0;
+                    const increment = stat.target / 100;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= stat.target) {
+                            current = stat.target;
+                            clearInterval(timer);
+                        }
+                        element.textContent = Math.floor(current) + stat.suffix;
+                    }, 20);
+                }
+            });
+        }
+        
+        // 页面加载动画
+        window.addEventListener('load', function() {
+            // 隐藏加载动画
+            const loading = document.getElementById('loading');
+            if (loading) {
+                setTimeout(() => {
+                    loading.classList.add('hidden');
+                    setTimeout(() => {
+                        loading.style.display = 'none';
+                    }, 500);
+                }, 1000);
+            }
+            
+            // 启动页面动画
+            document.querySelectorAll('.fade-in').forEach((element, index) => {
+                setTimeout(() => {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, index * 200);
             });
         });
+        
+        // 错误处理
+        window.addEventListener('error', function(e) {
+            console.error('页面错误:', e.error);
+        });
+        
+        // 确保页面在加载失败时也能正常工作
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+                // 如果DOMContentLoaded已经触发，直接初始化
+                if (document.getElementById('loading')) {
+                    setTimeout(() => {
+                        document.getElementById('loading').classList.add('hidden');
+                    }, 500);
+                }
+            });
+        }
     </script>
 </body>
 </html>
