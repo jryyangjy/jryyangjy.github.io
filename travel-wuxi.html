@@ -23,6 +23,27 @@
         <div class="desc">
             这里是无锡游记详情页。你可以在这里补充具体的游玩内容、照片和感受。
         </div>
+        <div class="travel-gallery">
+            <img src="images/travel/wuxi/1.jpg" style="width:100%;max-width:500px;margin:10px 0;">
+            <!-- 更多图片请按1.jpg,2.jpg...命名放入images/travel/wuxi/ -->
+        </div>
+        <!-- 点赞按钮 -->
+        <div style="margin-top:20px;">
+          <span class="likebtn-wrapper" data-theme="custom" data-identifier="travel-wuxi"></span>
+          <script src="https://w.likebtn.com/js/w/widget.js" async></script>
+        </div>
+        <!-- 评论区 -->
+        <div id="vcomments" style="margin-top:40px;"></div>
+        <script src="https://unpkg.com/valine/dist/Valine.min.js"></script>
+        <script>
+          new Valine({
+            el: '#vcomments',
+            appId: 'FBaB6egLU3TwaTvm5GyxCwHw-MdYXbMMI',
+            appKey: '9nqQizX7bgzS7bpXk7zQX0GH',
+            serverURLs: 'https://fbab6egl.api.lncldglobal.com',
+            placeholder: '欢迎留言、评论和交流~'
+          });
+        </script>
     </div>
 </body>
 </html> 
