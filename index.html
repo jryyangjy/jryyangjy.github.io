@@ -259,9 +259,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
-            color: #3498db;
             border: 2px solid rgba(52, 152, 219, 0.1);
+            overflow: hidden;
+        }
+        
+        #visitorChart {
+            border-radius: 13px;
+            background: transparent;
         }
         
         .stats {
@@ -723,16 +727,16 @@
                 <div class="stats-container fade-in">
                     <h2 class="stats-title">📊 Site Statistics</h2>
                     <div class="simple-chart">
-                        📈
+                        <canvas id="visitorChart" width="280" height="150"></canvas>
                     </div>
                     <div class="stats">
                         <div class="stat-item">
-                            <div class="stat-number" id="totalViews">0</div>
+                            <div class="stat-number" id="busuanzi_value_site_pv">0</div>
                             <div class="stat-label">Total Views</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-number" id="todayViews">0</div>
-                            <div class="stat-label">Today</div>
+                            <div class="stat-number" id="busuanzi_value_site_uv">0</div>
+                            <div class="stat-label">Unique Visitors</div>
                         </div>
                         <div class="stat-item">
                             <div class="stat-number" id="lastUpdate">Jan 25</div>
@@ -808,12 +812,35 @@
                 
                 <div class="right-panel">
                     <div class="section fade-in">
-                        <h2>📋 In Progress</h2>
-                        <ul>
-                            <li>Implementing basic algorithms in Python</li>
-                            <li>Studying AI theory through course projects</li>
-                            <li>Exploring computer vision applications</li>
-                        </ul>
+                        <h2>🎓 Education</h2>
+                        <div class="timeline-item">
+                            <div class="timeline-period">2024 - 2028 (Expected)</div>
+                            <div class="timeline-title">B.S. in Computer Science and Technology</div>
+                            <div class="timeline-subtitle">University of Science and Technology of China (USTC)</div>
+                            <div class="timeline-description">
+                                Huaxia Computer Science and Technology Elite Class, Department of Computer Science and Technology.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section fade-in">
+                        <h2>💼 Work Experience</h2>
+                        <div class="timeline-item">
+                            <div class="timeline-period">May 2025 - Present</div>
+                            <div class="timeline-title">Research Assistant</div>
+                            <div class="timeline-subtitle">SPIN-Lab, USTC</div>
+                            <div class="timeline-description">
+                                Conducting research in computer vision, spatial intelligence, multimodal large language models, and embodied AI.
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-period">July 2025 - Present</div>
+                            <div class="timeline-title">Student Assistant</div>
+                            <div class="timeline-subtitle">Foreign Language Teaching Center, USTC</div>
+                            <div class="timeline-description">
+                                Supporting foreign language education initiatives and administrative tasks.
+                            </div>
+                        </div>
                     </div>
                     
                     <div class="section fade-in">
@@ -1243,7 +1270,108 @@
                     element.style.transform = 'translateY(0)';
                 }, index * 200);
             });
+            
+            // 绘制访问量图表
+            drawVisitorChart();
         });
+        
+        // 绘制访问量图表
+        function drawVisitorChart() {
+            const canvas = document.getElementById('visitorChart');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            const width = canvas.width;
+            const height = canvas.height;
+            
+            // 清空画布
+            ctx.clearRect(0, 0, width, height);
+            
+            // 模拟访问量数据（实际数据会从busuanzi获取）
+            const data = [8, 12, 6, 15, 10, 14, 8, 16, 12, 18, 14, 20];
+            
+            // 计算图表区域
+            const padding = 20;
+            const chartWidth = width - 2 * padding;
+            const chartHeight = height - 2 * padding;
+            
+            // 找到数据最大值
+            const maxValue = Math.max(...data);
+            
+            // 绘制网格线
+            ctx.strokeStyle = 'rgba(52, 152, 219, 0.1)';
+            ctx.lineWidth = 1;
+            
+            // 水平网格线
+            for (let i = 0; i <= 4; i++) {
+                const y = padding + (chartHeight / 4) * i;
+                ctx.beginPath();
+                ctx.moveTo(padding, y);
+                ctx.lineTo(width - padding, y);
+                ctx.stroke();
+            }
+            
+            // 垂直网格线
+            for (let i = 0; i <= 6; i++) {
+                const x = padding + (chartWidth / 6) * i;
+                ctx.beginPath();
+                ctx.moveTo(x, padding);
+                ctx.lineTo(x, height - padding);
+                ctx.stroke();
+            }
+            
+            // 绘制折线
+            ctx.strokeStyle = '#3498db';
+            ctx.lineWidth = 3;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+            
+            ctx.beginPath();
+            data.forEach((value, index) => {
+                const x = padding + (chartWidth / (data.length - 1)) * index;
+                const y = height - padding - (value / maxValue) * chartHeight;
+                
+                if (index === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            });
+            ctx.stroke();
+            
+            // 绘制数据点
+            ctx.fillStyle = '#3498db';
+            data.forEach((value, index) => {
+                const x = padding + (chartWidth / (data.length - 1)) * index;
+                const y = height - padding - (value / maxValue) * chartHeight;
+                
+                ctx.beginPath();
+                ctx.arc(x, y, 4, 0, 2 * Math.PI);
+                ctx.fill();
+            });
+            
+            // 添加渐变填充
+            const gradient = ctx.createLinearGradient(0, padding, 0, height - padding);
+            gradient.addColorStop(0, 'rgba(52, 152, 219, 0.3)');
+            gradient.addColorStop(1, 'rgba(52, 152, 219, 0.05)');
+            
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
+            data.forEach((value, index) => {
+                const x = padding + (chartWidth / (data.length - 1)) * index;
+                const y = height - padding - (value / maxValue) * chartHeight;
+                
+                if (index === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            });
+            ctx.lineTo(width - padding, height - padding);
+            ctx.lineTo(padding, height - padding);
+            ctx.closePath();
+            ctx.fill();
+        }
     </script>
     <footer style="text-align:center;color:#888;margin:30px 0 10px 0;font-size:0.95rem;">
         <span id="busuanzi_container_site_pv" style="margin-right:20px;">
