@@ -697,9 +697,10 @@
             <div class="left-panel">
                 <div class="profile-card fade-in">
                     <div class="profile-header">
-                        <div class="avatar">🔍</div>
+                        <div class="avatar" id="avatar-img"><img src="images/avatar.jpg" alt="avatar" style="width:100%;height:100%;border-radius:50%;object-fit:cover;"></div>
                         <h1 class="typing-animation">Jiayue Yang</h1>
                         <div class="subtitle">杨家越 | Computer Science @ USTC</div>
+                        <div class="signature" style="margin:10px 0 0 0;font-size:1.1rem;color:#1976d2;font-weight:600;text-align:center;">Deferred gratification</div>
                     </div>
                     
                     <div class="intro">
@@ -728,6 +729,7 @@
                     <h2 class="stats-title">📊 Site Statistics</h2>
                     <div class="simple-chart">
                         <canvas id="visitorChart" width="280" height="150"></canvas>
+                        <div id="lastUpdateDynamic" style="position:absolute;right:18px;bottom:8px;font-size:0.9rem;color:#7f8c8d;">Last Update: --</div>
                     </div>
                     <div class="stats">
                         <div class="stat-item">
@@ -738,11 +740,19 @@
                             <div class="stat-number" id="busuanzi_value_site_uv">0</div>
                             <div class="stat-label">Unique Visitors</div>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-number" id="lastUpdate">Jan 25</div>
-                            <div class="stat-label">Last Update</div>
+                    </div>
+                    <div style="margin:18px 0 0 0;display:flex;justify-content:center;gap:18px;">
+                        <span class="likebtn-wrapper" data-theme="custom" data-identifier="homepage"></span>
+                        <div id="share-btns">
+                            <button onclick="shareTo('twitter')" title="Share to Twitter" style="border:none;background:none;cursor:pointer;font-size:1.3rem;">🐦</button>
+                            <button onclick="shareTo('weibo')" title="分享到微博" style="border:none;background:none;cursor:pointer;font-size:1.3rem;">🌐</button>
+                            <button onclick="shareTo('wechat')" title="分享到微信" style="border:none;background:none;cursor:pointer;font-size:1.3rem;">💬</button>
                         </div>
                     </div>
+                </div>
+                <div class="section fade-in" style="margin-top:24px;">
+                    <h2>📢 Announcements</h2>
+                    <div id="announcement-content" style="color:#888;">(No announcements yet. Stay tuned!)</div>
                 </div>
             </div>
         </div>
@@ -1275,102 +1285,114 @@
             drawVisitorChart();
         });
         
-        // 绘制访问量图表
+        // Last Update动态化
+        function updateLastUpdate() {
+            const d = new Date();
+            const y = d.getFullYear();
+            const m = (d.getMonth()+1).toString().padStart(2,'0');
+            const day = d.getDate().toString().padStart(2,'0');
+            const str = `Last Update: ${y}-${m}-${day}`;
+            const el = document.getElementById('lastUpdateDynamic');
+            if(el) el.textContent = str;
+        }
+        updateLastUpdate();
+        // 图表动画（简单线性动画）
         function drawVisitorChart() {
             const canvas = document.getElementById('visitorChart');
             if (!canvas) return;
-            
             const ctx = canvas.getContext('2d');
             const width = canvas.width;
             const height = canvas.height;
-            
-            // 清空画布
             ctx.clearRect(0, 0, width, height);
-            
-            // 模拟访问量数据（实际数据会从busuanzi获取）
+            // 模拟数据
             const data = [8, 12, 6, 15, 10, 14, 8, 16, 12, 18, 14, 20];
-            
-            // 计算图表区域
             const padding = 20;
             const chartWidth = width - 2 * padding;
             const chartHeight = height - 2 * padding;
-            
-            // 找到数据最大值
             const maxValue = Math.max(...data);
-            
-            // 绘制网格线
-            ctx.strokeStyle = 'rgba(52, 152, 219, 0.1)';
-            ctx.lineWidth = 1;
-            
-            // 水平网格线
-            for (let i = 0; i <= 4; i++) {
-                const y = padding + (chartHeight / 4) * i;
-                ctx.beginPath();
-                ctx.moveTo(padding, y);
-                ctx.lineTo(width - padding, y);
-                ctx.stroke();
-            }
-            
-            // 垂直网格线
-            for (let i = 0; i <= 6; i++) {
-                const x = padding + (chartWidth / 6) * i;
-                ctx.beginPath();
-                ctx.moveTo(x, padding);
-                ctx.lineTo(x, height - padding);
-                ctx.stroke();
-            }
-            
-            // 绘制折线
-            ctx.strokeStyle = '#3498db';
-            ctx.lineWidth = 3;
-            ctx.lineCap = 'round';
-            ctx.lineJoin = 'round';
-            
-            ctx.beginPath();
-            data.forEach((value, index) => {
-                const x = padding + (chartWidth / (data.length - 1)) * index;
-                const y = height - padding - (value / maxValue) * chartHeight;
-                
-                if (index === 0) {
-                    ctx.moveTo(x, y);
-                } else {
-                    ctx.lineTo(x, y);
+            // 动画参数
+            let progress = 0;
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+                // 网格线
+                ctx.strokeStyle = 'rgba(52, 152, 219, 0.1)';
+                ctx.lineWidth = 1;
+                for (let i = 0; i <= 4; i++) {
+                    const y = padding + (chartHeight / 4) * i;
+                    ctx.beginPath(); ctx.moveTo(padding, y); ctx.lineTo(width - padding, y); ctx.stroke();
                 }
-            });
-            ctx.stroke();
-            
-            // 绘制数据点
-            ctx.fillStyle = '#3498db';
-            data.forEach((value, index) => {
-                const x = padding + (chartWidth / (data.length - 1)) * index;
-                const y = height - padding - (value / maxValue) * chartHeight;
-                
+                for (let i = 0; i <= 6; i++) {
+                    const x = padding + (chartWidth / 6) * i;
+                    ctx.beginPath(); ctx.moveTo(x, padding); ctx.lineTo(x, height - padding); ctx.stroke();
+                }
+                // 折线动画
+                ctx.strokeStyle = '#3498db'; ctx.lineWidth = 3; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
                 ctx.beginPath();
-                ctx.arc(x, y, 4, 0, 2 * Math.PI);
+                for(let i=0;i<data.length;i++){
+                    const x = padding + (chartWidth / (data.length - 1)) * i;
+                    const y = height - padding - (data[i] / maxValue) * chartHeight;
+                    if(i===0) ctx.moveTo(x, y);
+                    else if(i <= Math.floor(progress * (data.length-1))) ctx.lineTo(x, y);
+                    else break;
+                }
+                ctx.stroke();
+                // 数据点
+                ctx.fillStyle = '#3498db';
+                for(let i=0;i<data.length;i++){
+                    if(i > Math.floor(progress * (data.length-1))) break;
+                    const x = padding + (chartWidth / (data.length - 1)) * i;
+                    const y = height - padding - (data[i] / maxValue) * chartHeight;
+                    ctx.beginPath(); ctx.arc(x, y, 4, 0, 2 * Math.PI); ctx.fill();
+                }
+                // 渐变填充
+                const gradient = ctx.createLinearGradient(0, padding, 0, height - padding);
+                gradient.addColorStop(0, 'rgba(52, 152, 219, 0.3)');
+                gradient.addColorStop(1, 'rgba(52, 152, 219, 0.05)');
+                ctx.fillStyle = gradient;
+                ctx.beginPath();
+                for(let i=0;i<data.length;i++){
+                    const x = padding + (chartWidth / (data.length - 1)) * i;
+                    const y = height - padding - (data[i] / maxValue) * chartHeight;
+                    if(i===0) ctx.moveTo(x, y);
+                    else if(i <= Math.floor(progress * (data.length-1))) ctx.lineTo(x, y);
+                    else break;
+                }
+                ctx.lineTo(padding + (chartWidth / (data.length - 1)) * Math.floor(progress * (data.length-1)), height - padding);
+                ctx.lineTo(padding, height - padding);
+                ctx.closePath();
                 ctx.fill();
-            });
-            
-            // 添加渐变填充
-            const gradient = ctx.createLinearGradient(0, padding, 0, height - padding);
-            gradient.addColorStop(0, 'rgba(52, 152, 219, 0.3)');
-            gradient.addColorStop(1, 'rgba(52, 152, 219, 0.05)');
-            
-            ctx.fillStyle = gradient;
-            ctx.beginPath();
-            data.forEach((value, index) => {
-                const x = padding + (chartWidth / (data.length - 1)) * index;
-                const y = height - padding - (value / maxValue) * chartHeight;
-                
-                if (index === 0) {
-                    ctx.moveTo(x, y);
-                } else {
-                    ctx.lineTo(x, y);
+                if(progress < 1){
+                    progress += 0.02;
+                    requestAnimationFrame(animate);
                 }
-            });
-            ctx.lineTo(width - padding, height - padding);
-            ctx.lineTo(padding, height - padding);
-            ctx.closePath();
-            ctx.fill();
+            }
+            animate();
+        }
+        // 分享按钮
+        function shareTo(type){
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent(document.title);
+            if(type==='twitter'){
+                window.open(`https://twitter.com/intent/tweet?url=${url}&text=${title}`);
+            }else if(type==='weibo'){
+                window.open(`https://service.weibo.com/share/share.php?url=${url}&title=${title}`);
+            }else if(type==='wechat'){
+                alert('请手动复制网址到微信。');
+            }
+        }
+        // 主页Valine留言板
+        new Valine({
+            el: '#vcomments',
+            appId: 'FBaB6egLU3TwaTvm5GyxCwHw-MdYXbMMI',
+            appKey: '9nqQizX7bgzS7bpXk7zQX0GH',
+            serverURLs: 'https://fbab6egl.api.lncldglobal.com',
+            placeholder: '欢迎留言、评论和交流~'
+        });
+        // 头像悬浮动画
+        const avatar = document.getElementById('avatar-img');
+        if(avatar){
+            avatar.addEventListener('mouseenter',()=>{avatar.style.transform='scale(1.08) rotate(-3deg)';avatar.style.boxShadow='0 8px 32px rgba(52,152,219,0.18)';});
+            avatar.addEventListener('mouseleave',()=>{avatar.style.transform='';avatar.style.boxShadow='';});
         }
     </script>
     <footer style="text-align:center;color:#888;margin:30px 0 10px 0;font-size:0.95rem;">
