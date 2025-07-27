@@ -642,6 +642,21 @@
             animation: fadeInUp 0.8s ease forwards;
         }
         
+        /* 确保主页内容显示 */
+        .content-section {
+            margin-top: 30px;
+            display: block !important;
+        }
+        
+        .content-section .main-container {
+            display: flex !important;
+        }
+        
+        .content-section .left-panel,
+        .content-section .right-panel {
+            display: block !important;
+        }
+        
         /* 深色模式样式 */
         body.dark-mode {
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
@@ -1407,8 +1422,8 @@
             // 调试：检查主页内容
             const homePage = document.getElementById('home');
             if (homePage) {
-                const educationSection = homePage.querySelector('h2:contains("Education")');
-                const workSection = homePage.querySelector('h2:contains("Work Experience")');
+                const educationSection = homePage.querySelector('h2');
+                const workSection = homePage.querySelectorAll('h2')[1];
                 console.log('Education section found:', !!educationSection);
                 console.log('Work Experience section found:', !!workSection);
             }
@@ -1417,24 +1432,27 @@
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     
-                // 移除所有激活状态
-                navLinks.forEach(l => l.classList.remove('active'));
-                pages.forEach(p => {
-                    p.classList.remove('active');
-                    p.style.display = 'none';
-                });
-                
+                    // 移除所有激活状态
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    pages.forEach(p => {
+                        p.classList.remove('active');
+                        p.style.display = 'none';
+                    });
+                    
                     // 激活当前链接
                     this.classList.add('active');
-                
-                // 显示对应页面
+                    
+                    // 显示对应页面
                     const targetPage = this.getAttribute('data-page');
-                const targetElement = document.getElementById(targetPage);
-                if (targetElement) {
-                    targetElement.style.display = 'block';
-                    setTimeout(() => {
-                        targetElement.classList.add('active');
-                    }, 50);
+                    const targetElement = document.getElementById(targetPage);
+                    if (targetElement) {
+                        targetElement.style.display = 'block';
+                        setTimeout(() => {
+                            targetElement.classList.add('active');
+                        }, 50);
+                        console.log('Switched to page:', targetPage);
+                    } else {
+                        console.error('Target page not found:', targetPage);
                     }
                 });
             });
