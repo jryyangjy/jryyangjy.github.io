@@ -1218,10 +1218,10 @@
     <div id="cv" class="page">
         <div class="full-page fade-in">
             <h1 class="page-title">📄 Curriculum Vitae</h1>
+            <button class="cv-download-btn" onclick="downloadCV()" style="margin-bottom: 30px;">📄 Download CV (PDF)</button>
             
             <div class="cv-section">
                 <h3>🎓 Education</h3>
-                <button class="cv-download-btn" onclick="downloadCV()">📄 Download CV (PDF)</button>
                 <div class="timeline-item">
                     <div class="timeline-period">2024 - 2028 (Expected)</div>
                     <div class="timeline-title">B.S. in Computer Science and Technology</div>
@@ -1397,6 +1397,12 @@
             // 导航功能
             const navLinks = document.querySelectorAll('.nav-link');
             const pages = document.querySelectorAll('.page');
+            
+            // 调试：确保所有页面都存在
+            console.log('Found pages:', pages.length);
+            pages.forEach(page => {
+                console.log('Page ID:', page.id, 'Display:', page.style.display);
+            });
             
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
