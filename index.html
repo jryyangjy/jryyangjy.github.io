@@ -1262,6 +1262,48 @@
             color: #bdc3c7 !important;
         }
         
+        /* 最强制的文字颜色规则 - 覆盖所有可能的样式 */
+        * {
+            color: #333 !important;
+        }
+        
+        body.dark-mode * {
+            color: #ecf0f1 !important;
+        }
+        
+        /* 特殊处理链接和时间段 */
+        a, .timeline-period {
+            color: #3498db !important;
+        }
+        
+        body.dark-mode a, 
+        body.dark-mode .timeline-period {
+            color: #3498db !important;
+        }
+        
+        /* 特殊处理标题 */
+        h1, h2, h3, .page-title {
+            color: #2c3e50 !important;
+        }
+        
+        body.dark-mode h1, 
+        body.dark-mode h2, 
+        body.dark-mode h3, 
+        body.dark-mode .page-title {
+            color: #ecf0f1 !important;
+        }
+        
+        /* 特殊处理段落和描述 */
+        p, .timeline-description, .timeline-subtitle {
+            color: #495057 !important;
+        }
+        
+        body.dark-mode p, 
+        body.dark-mode .timeline-description, 
+        body.dark-mode .timeline-subtitle {
+            color: #bdc3c7 !important;
+        }
+        
         /* 返回顶部按钮 */
         .back-to-top {
             position: fixed;
