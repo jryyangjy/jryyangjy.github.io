@@ -999,9 +999,9 @@
                 </div>
                 
                 <div class="right-panel">
-                    <div class="section fade-in">
+                    <div class="section fade-in" style="display: block !important; opacity: 1 !important;">
                         <h2>🎓 Education</h2>
-                        <div class="timeline-item">
+                        <div class="timeline-item" style="display: block !important;">
                             <div class="timeline-period">2024 - 2028 (Expected)</div>
                             <div class="timeline-title">B.S. in Computer Science and Technology</div>
                             <div class="timeline-subtitle">University of Science and Technology of China (USTC)</div>
@@ -1011,9 +1011,9 @@
                         </div>
                     </div>
                     
-                    <div class="section fade-in">
+                    <div class="section fade-in" style="display: block !important; opacity: 1 !important;">
                         <h2>💼 Work Experience</h2>
-                        <div class="timeline-item">
+                        <div class="timeline-item" style="display: block !important;">
                             <div class="timeline-period">May 2025 - Present</div>
                             <div class="timeline-title">Research Assistant</div>
                             <div class="timeline-subtitle">SPIN-Lab, USTC</div>
@@ -1021,7 +1021,7 @@
                                 Conducting research in computer vision, spatial intelligence, multimodal large language models, and embodied AI.
                             </div>
                         </div>
-                        <div class="timeline-item">
+                        <div class="timeline-item" style="display: block !important;">
                             <div class="timeline-period">July 2025 - Present</div>
                             <div class="timeline-title">Student Assistant</div>
                             <div class="timeline-subtitle">Foreign Language Teaching Center, USTC</div>
@@ -1404,6 +1404,15 @@
                 console.log('Page ID:', page.id, 'Display:', page.style.display);
             });
             
+            // 调试：检查主页内容
+            const homePage = document.getElementById('home');
+            if (homePage) {
+                const educationSection = homePage.querySelector('h2:contains("Education")');
+                const workSection = homePage.querySelector('h2:contains("Work Experience")');
+                console.log('Education section found:', !!educationSection);
+                console.log('Work Experience section found:', !!workSection);
+            }
+            
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -1584,18 +1593,24 @@
         const themeToggle = document.getElementById('themeToggle');
         const body = document.body;
         
+        // 调试：检查主题切换按钮
+        console.log('Theme toggle button found:', !!themeToggle);
+        
         // 检查本地存储的主题偏好
         const savedTheme = localStorage.getItem('theme');
+        console.log('Saved theme:', savedTheme);
         if (savedTheme === 'dark') {
             body.classList.add('dark-mode');
             themeToggle.textContent = '☀️';
         }
         
         themeToggle.addEventListener('click', () => {
+            console.log('Theme toggle clicked');
             body.classList.toggle('dark-mode');
             const isDark = body.classList.contains('dark-mode');
             themeToggle.textContent = isDark ? '☀️' : '🌙';
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            console.log('Theme changed to:', isDark ? 'dark' : 'light');
         });
         
         // 返回顶部功能
