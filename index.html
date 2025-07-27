@@ -646,15 +646,24 @@
         .content-section {
             margin-top: 30px;
             display: block !important;
+            visibility: visible !important;
         }
         
         .content-section .main-container {
             display: flex !important;
+            visibility: visible !important;
         }
         
         .content-section .left-panel,
         .content-section .right-panel {
             display: block !important;
+            visibility: visible !important;
+        }
+        
+        .content-section .section {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
         }
         
         /* 深色模式样式 */
@@ -1406,6 +1415,8 @@
     <script>
         // 页面导航功能
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM Content Loaded');
+            
             // 创建粒子效果
             createParticles();
             
@@ -1413,8 +1424,10 @@
             const navLinks = document.querySelectorAll('.nav-link');
             const pages = document.querySelectorAll('.page');
             
-            // 调试：确保所有页面都存在
+            console.log('Found navLinks:', navLinks.length);
             console.log('Found pages:', pages.length);
+            
+            // 调试：确保所有页面都存在
             pages.forEach(page => {
                 console.log('Page ID:', page.id, 'Display:', page.style.display);
             });
@@ -1428,9 +1441,11 @@
                 console.log('Work Experience section found:', !!workSection);
             }
             
+            // 简化导航功能
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
+                    console.log('Link clicked:', this.getAttribute('data-page'));
                     
                     // 移除所有激活状态
                     navLinks.forEach(l => l.classList.remove('active'));
@@ -1447,9 +1462,7 @@
                     const targetElement = document.getElementById(targetPage);
                     if (targetElement) {
                         targetElement.style.display = 'block';
-                        setTimeout(() => {
-                            targetElement.classList.add('active');
-                        }, 50);
+                        targetElement.classList.add('active');
                         console.log('Switched to page:', targetPage);
                     } else {
                         console.error('Target page not found:', targetPage);
@@ -1486,6 +1499,8 @@
         
         // 页面加载动画
         window.addEventListener('load', function() {
+            console.log('Window loaded');
+            
             document.querySelectorAll('.fade-in').forEach((element, index) => {
                 setTimeout(() => {
                     element.style.opacity = '1';
@@ -1495,6 +1510,15 @@
             
             // 绘制访问量图表
             drawVisitorChart();
+            
+            // 测试导航功能
+            console.log('Testing navigation...');
+            const testLink = document.querySelector('.nav-link[data-page="cv"]');
+            if (testLink) {
+                console.log('CV link found:', testLink);
+            } else {
+                console.error('CV link not found');
+            }
         });
         
         // Last Update动态化
