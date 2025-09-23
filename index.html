@@ -24,6 +24,46 @@
     <meta property="twitter:image" content="https://jryyangjy.github.io/avatar.jpg">
     <style>
         /* 基础样式 */
+        /* Ultra-final safety override: catch any remaining inline styles or high-specificity rules
+           This is intentionally broad but placed last so it overrides problematic vendor/theme rules.
+           It targets content-level containers and also any elements with inline styles that try to hide text. */
+        body, .page, #cv, .cv-section, .timeline-item, .timeline-description, .timeline-title, .timeline-subtitle, .timeline-period, .intro, .page p, .page li, .profile-card, .signature {
+            color: #222222 !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            text-shadow: none !important;
+        }
+
+        /* Dark mode counterpart */
+        body.dark-mode body, body.dark-mode .page, body.dark-mode #cv, body.dark-mode .cv-section, body.dark-mode .timeline-item, body.dark-mode .timeline-description, body.dark-mode .timeline-title, body.dark-mode .timeline-subtitle, body.dark-mode .timeline-period, body.dark-mode .intro, body.dark-mode .page p, body.dark-mode .page li, body.dark-mode .profile-card, body.dark-mode .signature {
+            color: #ecf0f1 !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            text-shadow: none !important;
+        }
+
+        /* Override inline style attempts to set color to transparent/white/#fff */
+        *[style*="color:transparent" i],
+        *[style*="color:white" i],
+        *[style*="#fff" i],
+        *[style*="#ffffff" i] {
+            color: inherit !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        /* If an element has display:none but is inside a page container, make it visible
+           (this will only affect elements explicitly hidden inline for animation; keep small scope) */
+        .page [style*="display:none" i], #cv [style*="display:none" i] {
+            display: block !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        /* Last resort: ensure link and strong text contrast */
+        .page a, #cv a { color: #1e88e5 !important; }
+        body.dark-mode .page a, body.dark-mode #cv a { color: #9fd4ff !important; }
+    </style>
         * {
             margin: 0;
             padding: 0;
