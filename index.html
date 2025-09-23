@@ -2610,3 +2610,34 @@
     </style>
 </body>
 </html>
+
+    <script>
+        // Emergency JS enforcement: set inline styles with priority to override any CSS that hides text
+        (function enforceVisibility() {
+            function applyColors() {
+                const isDark = document.body.classList.contains('dark-mode');
+                const lightColor = '#222222';
+                const darkColor = '#f0f6fb';
+                const color = isDark ? darkColor : lightColor;
+                const elems = document.querySelectorAll('.timeline-title, .timeline-subtitle, .timeline-period, .timeline-description, .cv-section, .intro, .page p, .page li');
+                elems.forEach(el => {
+                    try {
+                        el.style.setProperty('color', color, 'important');
+                        el.style.setProperty('opacity', '1', 'important');
+                        el.style.setProperty('visibility', 'visible', 'important');
+                    } catch (e) {
+                        // ignore
+                    }
+                });
+            }
+
+            document.addEventListener('DOMContentLoaded', applyColors);
+            // If theme toggle exists, re-apply after toggling
+            const themeToggle = document.getElementById('themeToggle');
+            if (themeToggle) themeToggle.addEventListener('click', () => setTimeout(applyColors, 80));
+            // Also run once immediately in case DOM already loaded
+            if (document.readyState === 'complete' || document.readyState === 'interactive') {
+                setTimeout(applyColors, 50);
+            }
+        })();
+    </script>
