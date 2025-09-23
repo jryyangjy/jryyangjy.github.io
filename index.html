@@ -1337,6 +1337,61 @@
             color: #bdc3c7 !important;
         }
         
+        /* 一劳永逸的解决方案 - 强制所有文字可见 */
+        /* 浅色模式 */
+        .timeline-period,
+        .timeline-title,
+        .timeline-subtitle,
+        .timeline-description,
+        .cv-section .timeline-period,
+        .cv-section .timeline-title,
+        .cv-section .timeline-subtitle,
+        .cv-section .timeline-description {
+            color: #495057 !important;
+        }
+        
+        .timeline-period,
+        .cv-section .timeline-period {
+            color: #3498db !important;
+        }
+        
+        .timeline-title,
+        .cv-section .timeline-title {
+            color: #2c3e50 !important;
+        }
+        
+        .timeline-subtitle,
+        .cv-section .timeline-subtitle {
+            color: #7f8c8d !important;
+        }
+        
+        /* 深色模式 */
+        body.dark-mode .timeline-period,
+        body.dark-mode .timeline-title,
+        body.dark-mode .timeline-subtitle,
+        body.dark-mode .timeline-description,
+        body.dark-mode .cv-section .timeline-period,
+        body.dark-mode .cv-section .timeline-title,
+        body.dark-mode .cv-section .timeline-subtitle,
+        body.dark-mode .cv-section .timeline-description {
+            color: #bdc3c7 !important;
+        }
+        
+        body.dark-mode .timeline-period,
+        body.dark-mode .cv-section .timeline-period {
+            color: #3498db !important;
+        }
+        
+        body.dark-mode .timeline-title,
+        body.dark-mode .cv-section .timeline-title {
+            color: #ecf0f1 !important;
+        }
+        
+        body.dark-mode .timeline-subtitle,
+        body.dark-mode .cv-section .timeline-subtitle {
+            color: #bdc3c7 !important;
+        }
+        
         /* 返回顶部按钮 */
         .back-to-top {
             position: fixed;
@@ -1456,6 +1511,56 @@
             51%, 100% {
                 border-color: transparent;
             }
+        }
+    </style>
+    <style>
+        /* Fix: ensure intro and CV description text are always visible
+           These rules are very specific and use !important to override
+           the many global color rules in the file. */
+        .page .intro,
+        .intro,
+        .full-page .intro,
+        .cv-section .timeline-description,
+        .cv-section .timeline-subtitle,
+        .cv-section .timeline-title,
+        .cv-section .timeline-period,
+        /* also target any nested divs inside these sections */
+        .cv-section div,
+        .intro div,
+        .profile-card .intro {
+            color: #333333 !important; /* dark text on light backgrounds */
+        }
+
+        /* When body has dark-mode, use a light text color */
+        body.dark-mode .page .intro,
+        body.dark-mode .intro,
+        body.dark-mode .full-page .intro,
+        body.dark-mode .cv-section .timeline-description,
+        body.dark-mode .cv-section .timeline-subtitle,
+        body.dark-mode .cv-section .timeline-title,
+        body.dark-mode .cv-section .timeline-period,
+        body.dark-mode .cv-section div,
+        body.dark-mode .intro div,
+        body.dark-mode .profile-card .intro {
+            color: #e6eef8 !important; /* light text for dark mode */
+        }
+
+        /* Ensure links inside intro/CV are visible and keep accent color */
+        .intro a,
+        .cv-section .timeline-description a,
+        .cv-section a {
+            color: #3498db !important;
+        }
+
+        body.dark-mode .intro a,
+        body.dark-mode .cv-section a {
+            color: #7ec8ff !important;
+        }
+
+        /* If there are any inline styles setting color:transparent, override them */
+        .intro[style*="color:transparent"],
+        .cv-section[style*="color:transparent"] {
+            color: inherit !important;
         }
     </style>
 </head>
