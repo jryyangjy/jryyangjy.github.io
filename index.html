@@ -2685,5 +2685,32 @@
             }
         })();
     </script>
+        <style>
+            /* Final safety overrides: highest specificity to protect typography and visibility
+               - Ensures content is readable even if SCSS had broad white/hidden rules
+               - Put at the end of the document so it wins in cascade (and still uses !important)
+            */
+            html body, html body *:not(script):not(style) {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+            }
+
+            /* Force readable colors and visibility for CV/timeline/page content */
+            body, .page, #cv, .cv-section, .timeline-item, .timeline-description, .timeline-title, .timeline-subtitle, .timeline-period, .intro, .page p, .page li {
+                color: #222 !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                text-shadow: none !important;
+            }
+
+            /* Dark mode: light text */
+            body.dark-mode body, body.dark-mode .page, body.dark-mode #cv, body.dark-mode .cv-section, body.dark-mode .timeline-item, body.dark-mode .timeline-description, body.dark-mode .timeline-title, body.dark-mode .timeline-subtitle, body.dark-mode .timeline-period, body.dark-mode .intro, body.dark-mode .page p, body.dark-mode .page li {
+                color: #eef6ff !important;
+            }
+
+            /* Override any inline transparent declarations on intro/cv */
+            .intro[style*="color:transparent"], .cv-section[style*="color:transparent"], .timeline-description[style*="color:transparent"] {
+                color: inherit !important;
+            }
+        </style>
 </body>
 </html>
