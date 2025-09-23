@@ -1514,6 +1514,29 @@
         }
     </style>
     <style>
+        /* Emergency override: force CV page text visible in all modes */
+        #cv, #cv .full-page, #cv .full-page * {
+            color: #333333 !important;
+            background-color: transparent !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            text-shadow: none !important;
+        }
+
+        /* Dark mode variant */
+        body.dark-mode #cv, body.dark-mode #cv .full-page, body.dark-mode #cv .full-page * {
+            color: #e6eef8 !important;
+            background-color: transparent !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            text-shadow: none !important;
+        }
+
+        /* Links inside CV */
+        #cv a, #cv .full-page a { color: #3498db !important; }
+        body.dark-mode #cv a, body.dark-mode #cv .full-page a { color: #7ec8ff !important; }
+    </style>
+    <style>
         /* Fix: ensure intro and CV description text are always visible
            These rules are very specific and use !important to override
            the many global color rules in the file. */
