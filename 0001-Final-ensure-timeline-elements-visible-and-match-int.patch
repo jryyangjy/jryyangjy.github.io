@@ -1,0 +1,52 @@
+From c8ee6c1cda0159d707821213e9cc081c7622fcce Mon Sep 17 00:00:00 2001
+From: jryyangjy <jiayueyang06@gmail.com>
+Date: Tue, 23 Sep 2025 16:23:56 +0800
+Subject: [PATCH 1/2] Final: ensure timeline elements visible and match intro
+ styling
+
+---
+ index.html | 14 ++++++++++----
+ 1 file changed, 10 insertions(+), 4 deletions(-)
+
+diff --git a/index.html b/index.html
+index 681eac7..44e26bc 100644
+--- a/index.html
++++ b/index.html
+@@ -1827,8 +1827,10 @@
+                             <div class="timeline-title">B.S. in Computer Science and Technology</div>
+                             <div class="timeline-subtitle">University of Science and Technology of China (USTC)</div>
+                             <div class="timeline-description">
+-                                Huaxia Computer Science and Technology Elite Class, Department of Computer Science and Technology.
+-                            </div>
++                                        <div class="intro">
++                                            <p>Huaxia Computer Science and Technology Elite Class, Department of Computer Science and Technology.</p>
++                                        </div>
++                                    </div>
+                         </div>
+                     </div>
+                     
+@@ -1839,7 +1841,9 @@
+                             <div class="timeline-title">Research Assistant</div>
+                             <div class="timeline-subtitle">SPIN-Lab, USTC</div>
+                             <div class="timeline-description">
+-                                Conducting research in computer vision, spatial intelligence, multimodal large language models, and embodied AI.
++                                <div class="intro">
++                                    <p>Conducting research in computer vision, spatial intelligence, multimodal large language models, and embodied AI.</p>
++                                </div>
+                             </div>
+                         </div>
+                         <div class="timeline-item" style="display: block !important;">
+@@ -1847,7 +1851,9 @@
+                             <div class="timeline-title">Student Assistant</div>
+                             <div class="timeline-subtitle">Foreign Language Teaching Center, USTC</div>
+                             <div class="timeline-description">
+-                                Supporting foreign language education initiatives and administrative tasks.
++                                <div class="intro">
++                                    <p>Supporting foreign language education initiatives and administrative tasks.</p>
++                                </div>
+                             </div>
+                         </div>
+                     </div>
+-- 
+2.48.1.windows.1
+

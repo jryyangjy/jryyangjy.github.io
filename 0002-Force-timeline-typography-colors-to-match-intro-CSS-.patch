@@ -1,0 +1,55 @@
+From 2e3e521e41a15e5a537660957736730882ff1b31 Mon Sep 17 00:00:00 2001
+From: jryyangjy <jiayueyang06@gmail.com>
+Date: Tue, 23 Sep 2025 12:08:23 +0800
+Subject: [PATCH 2/2] Force timeline typography/colors to match intro (CSS
+ override)
+
+---
+ index.html | 31 +++++++++++++++++++++++++++++++
+ 1 file changed, 31 insertions(+)
+
+diff --git a/index.html b/index.html
+index c957bbd..681eac7 100644
+--- a/index.html
++++ b/index.html
+@@ -1630,6 +1630,37 @@
+         .page a, #cv a { color: #1e88e5 !important; }
+         body.dark-mode .page a, body.dark-mode #cv a { color: #9fd4ff !important; }
+     </style>
++    <style>
++        /* Force timeline items to use the same typography and visibility as .intro */
++        .timeline-title,
++        .timeline-subtitle,
++        .timeline-period,
++        .timeline-description,
++        .cv-section .skill-item,
++        .right-panel .timeline-item .timeline-title,
++        .right-panel .timeline-item .timeline-subtitle,
++        .right-panel .timeline-item .timeline-description {
++            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
++            color: #495057 !important; /* same as .intro color in light mode */
++            font-size: 1rem !important;
++            line-height: 1.7 !important;
++            text-align: left !important;
++            margin-bottom: 0.8rem !important;
++        }
++
++        /* Titles heavier weight like headings */
++        .timeline-title { font-weight: 700 !important; font-size: 1.05rem !important; }
++        .timeline-subtitle { font-weight: 600 !important; }
++
++        /* Dark mode variant */
++        body.dark-mode .timeline-title,
++        body.dark-mode .timeline-subtitle,
++        body.dark-mode .timeline-period,
++        body.dark-mode .timeline-description,
++        body.dark-mode .cv-section .skill-item {
++            color: #e6eef8 !important;
++        }
++    </style>
+ </head>
+ <body>
+     <!-- 粒子背景 -->
+-- 
+2.48.1.windows.1
+

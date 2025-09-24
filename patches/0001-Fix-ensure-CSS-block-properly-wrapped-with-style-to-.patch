@@ -1,0 +1,25 @@
+From b05e4d34a98fd4028b2c357252acdf9093fceb7b Mon Sep 17 00:00:00 2001
+From: jryyangjy <jiayueyang06@gmail.com>
+Date: Tue, 23 Sep 2025 23:14:19 +0800
+Subject: [PATCH] Fix: ensure CSS block properly wrapped with <style> to
+ prevent CSS being rendered as content
+
+---
+ index.html | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/index.html b/index.html
+index b3d4ed9..7554ec2 100644
+--- a/index.html
++++ b/index.html
+@@ -64,6 +64,7 @@
+         .page a, #cv a { color: #1e88e5 !important; }
+         body.dark-mode .page a, body.dark-mode #cv a { color: #9fd4ff !important; }
+     </style>
++    <style>
+         * {
+             margin: 0;
+             padding: 0;
+-- 
+2.48.1.windows.1
+
