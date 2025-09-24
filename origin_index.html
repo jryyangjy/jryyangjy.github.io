@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,9 +23,8 @@
     <meta property="twitter:description" content="Computer Science student researching computer vision and spatial intelligence">
     <meta property="twitter:image" content="https://jryyangjy.github.io/avatar.jpg">
     <!-- noop: trigger rebuild -->
-    <!-- rebuild-trigger: 2025-09-24T00:00:00Z - force GitHub Pages rebuild -->
     <style>
-        /* 基础样式 */
+        /* 鍩虹鏍峰紡 */
         /* Ultra-final safety override: catch any remaining inline styles or high-specificity rules
            This is intentionally broad but placed last so it overrides problematic vendor/theme rules.
            It targets content-level containers and also any elements with inline styles that try to hide text. */
@@ -83,7 +82,7 @@
             overflow-x: hidden;
         }
         
-        /* 导航栏 */
+        /* 瀵艰埅鏍?*/
         .navbar {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -133,7 +132,7 @@
             background: rgba(52, 152, 219, 0.1);
         }
         
-        /* 背景粒子效果 */
+        /* 鑳屾櫙绮掑瓙鏁堟灉 */
         .particles {
             position: fixed;
             top: 0;
@@ -179,7 +178,7 @@
             z-index: 2;
         }
         
-        /* 页面容器 */
+        /* 椤甸潰瀹瑰櫒 */
         .page {
             display: none;
             opacity: 0;
@@ -191,7 +190,7 @@
             opacity: 1;
         }
         
-        /* 左侧个人信息 */
+        /* 宸︿晶涓汉淇℃伅 */
         .left-panel {
             flex: 1;
             min-width: 350px;
@@ -268,7 +267,7 @@
             text-decoration: underline;
         }
         
-        /* 右侧统计信息 */
+        /* 鍙充晶缁熻淇℃伅 */
         .right-panel {
             flex: 1;
             min-width: 350px;
@@ -332,7 +331,7 @@
             color: #7f8c8d;
         }
         
-        /* 内容区域 */
+        /* 鍐呭鍖哄煙 */
         .content-section {
             margin-top: 30px;
         }
@@ -412,7 +411,7 @@
             text-decoration: underline;
         }
         
-        /* 技能卡片 */
+        /* 鎶€鑳藉崱鐗?*/
         .skills-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -486,14 +485,14 @@
         }
         
         li::before {
-            content: "→";
+            content: "鈫?;
             position: absolute;
             left: 0;
             color: #3498db;
             font-weight: bold;
         }
         
-        /* 全页面内容样式 */
+        /* 鍏ㄩ〉闈㈠唴瀹规牱寮?*/
         .full-page {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -530,7 +529,7 @@
             line-height: 1.6;
         }
         
-        /* CV特定样式 */
+        /* CV鐗瑰畾鏍峰紡 */
         .cv-section {
             margin-bottom: 30px;
             padding: 25px;
@@ -579,7 +578,7 @@
             line-height: 1.6;
         }
         
-        /* CV技能卡片样式 */
+        /* CV鎶€鑳藉崱鐗囨牱寮?*/
         .skills-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -603,13 +602,13 @@
         }
         
         .achievement-item::before {
-            content: "🏆";
+            content: "馃弳";
             position: absolute;
             left: 0;
             top: 0;
         }
         
-        /* 响应式设计 */
+        /* 鍝嶅簲寮忚璁?*/
         @media (max-width: 1200px) {
             .main-container {
                 flex-direction: column;
@@ -669,7 +668,7 @@
             }
         }
         
-        /* 动画效果 */
+        /* 鍔ㄧ敾鏁堟灉 */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -685,7 +684,7 @@
             animation: fadeInUp 0.8s ease forwards;
         }
         
-        /* 确保主页内容显示 */
+        /* 纭繚涓婚〉鍐呭鏄剧ず */
         .content-section {
             margin-top: 30px;
             display: block !important;
@@ -709,7 +708,7 @@
             opacity: 1 !important;
         }
         
-        /* 简化的主题切换样式 - 确保文字始终可见 */
+        /* 绠€鍖栫殑涓婚鍒囨崲鏍峰紡 - 纭繚鏂囧瓧濮嬬粓鍙 */
         body.dark-mode {
             background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #2c3e50 100%);
         }
@@ -754,7 +753,7 @@
             background: #34495e;
         }
         
-        /* 主题切换按钮 */
+        /* 涓婚鍒囨崲鎸夐挳 */
         .theme-toggle {
             position: fixed;
             top: 20px;
@@ -776,7 +775,7 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
         }
         
-        /* 简化的深色模式样式 - 确保文字始终可见 */
+        /* 绠€鍖栫殑娣辫壊妯″紡鏍峰紡 - 纭繚鏂囧瓧濮嬬粓鍙 */
         body.dark-mode {
             background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #2c3e50 100%);
             color: #ecf0f1;
@@ -1012,7 +1011,7 @@
             color: #bdc3c7 !important;
         }
         
-        /* 确保主页右侧面板的所有文字都可见 */
+        /* 纭繚涓婚〉鍙充晶闈㈡澘鐨勬墍鏈夋枃瀛楅兘鍙 */
         body.dark-mode .right-panel .section h2 {
             color: #ecf0f1 !important;
         }
@@ -1033,7 +1032,7 @@
             color: #bdc3c7 !important;
         }
         
-        /* 确保浅色模式下主页右侧面板的文字也可见 */
+        /* 纭繚娴呰壊妯″紡涓嬩富椤靛彸渚ч潰鏉跨殑鏂囧瓧涔熷彲瑙?*/
         .right-panel .section h2 {
             color: #2c3e50 !important;
         }
@@ -1054,7 +1053,7 @@
             color: #495057 !important;
         }
         
-        /* 全局文字颜色修复 - 确保所有文字都可见 */
+        /* 鍏ㄥ眬鏂囧瓧棰滆壊淇 - 纭繚鎵€鏈夋枃瀛楅兘鍙 */
         body {
             color: #333 !important;
         }
@@ -1063,7 +1062,7 @@
             color: #ecf0f1 !important;
         }
         
-        /* 确保所有页面标题都可见 */
+        /* 纭繚鎵€鏈夐〉闈㈡爣棰橀兘鍙 */
         .page-title {
             color: #2c3e50 !important;
         }
@@ -1072,7 +1071,7 @@
             color: #ecf0f1 !important;
         }
         
-        /* 确保所有section标题都可见 */
+        /* 纭繚鎵€鏈塻ection鏍囬閮藉彲瑙?*/
         .section h2 {
             color: #2c3e50 !important;
         }
@@ -1081,7 +1080,7 @@
             color: #ecf0f1 !important;
         }
         
-        /* 确保所有段落文字都可见 */
+        /* 纭繚鎵€鏈夋钀芥枃瀛楅兘鍙 */
         p {
             color: #495057 !important;
         }
@@ -1090,7 +1089,7 @@
             color: #bdc3c7 !important;
         }
         
-        /* 确保所有列表项都可见 */
+        /* 纭繚鎵€鏈夊垪琛ㄩ」閮藉彲瑙?*/
         li {
             color: #495057 !important;
         }
@@ -1099,7 +1098,7 @@
             color: #bdc3c7 !important;
         }
         
-        /* 确保所有描述文字都可见 */
+        /* 纭繚鎵€鏈夋弿杩版枃瀛楅兘鍙 */
         .timeline-description {
             color: #495057 !important;
         }
@@ -1108,7 +1107,7 @@
             color: #bdc3c7 !important;
         }
         
-        /* 确保所有副标题都可见 */
+        /* 纭繚鎵€鏈夊壇鏍囬閮藉彲瑙?*/
         .timeline-subtitle {
             color: #7f8c8d !important;
         }
@@ -1117,7 +1116,7 @@
             color: #bdc3c7 !important;
         }
         
-        /* 确保所有标题都可见 */
+        /* 纭繚鎵€鏈夋爣棰橀兘鍙 */
         .timeline-title {
             color: #2c3e50 !important;
         }
@@ -1126,7 +1125,7 @@
             color: #ecf0f1 !important;
         }
         
-        /* 确保所有时间段都可见 */
+        /* 纭繚鎵€鏈夋椂闂存閮藉彲瑙?*/
         .timeline-period {
             color: #3498db !important;
         }
@@ -1135,7 +1134,7 @@
             color: #3498db !important;
         }
         
-        /* 确保所有coming-soon内容都可见 */
+        /* 纭繚鎵€鏈塩oming-soon鍐呭閮藉彲瑙?*/
         .coming-soon h3 {
             color: #495057 !important;
         }
@@ -1160,7 +1159,7 @@
             color: #bdc3c7 !important;
         }
         
-        /* 强制所有文字在深色模式下可见 */
+        /* 寮哄埗鎵€鏈夋枃瀛楀湪娣辫壊妯″紡涓嬪彲瑙?*/
         body.dark-mode * {
             color: #ecf0f1 !important;
         }
@@ -1186,7 +1185,7 @@
             color: #3498db !important;
         }
         
-        /* 强制所有文字在浅色模式下可见 */
+        /* 寮哄埗鎵€鏈夋枃瀛楀湪娴呰壊妯″紡涓嬪彲瑙?*/
         body * {
             color: #333 !important;
         }
@@ -1212,7 +1211,7 @@
             color: #3498db !important;
         }
         
-        /* 强制主页右侧面板的所有文字可见 */
+        /* 寮哄埗涓婚〉鍙充晶闈㈡澘鐨勬墍鏈夋枃瀛楀彲瑙?*/
         .right-panel .section .timeline-item .timeline-period {
             color: #3498db !important;
         }
@@ -1245,13 +1244,13 @@
             color: #bdc3c7 !important;
         }
         
-        /* 强制所有div元素内的文字可见 */
+        /* 寮哄埗鎵€鏈塪iv鍏冪礌鍐呯殑鏂囧瓧鍙 */
         div {
             color: inherit !important;
         }
         
-        /* 强制所有文字使用统一颜色 */
-        /* 浅色模式 */
+        /* 寮哄埗鎵€鏈夋枃瀛椾娇鐢ㄧ粺涓€棰滆壊 */
+        /* 娴呰壊妯″紡 */
         .timeline-item div,
         .cv-section div,
         .section div {
@@ -1278,7 +1277,7 @@
             color: #495057 !important;
         }
         
-        /* 深色模式 */
+        /* 娣辫壊妯″紡 */
         body.dark-mode .timeline-item div,
         body.dark-mode .cv-section div,
         body.dark-mode .section div {
@@ -1305,7 +1304,7 @@
             color: #bdc3c7 !important;
         }
         
-        /* 最强制的文字颜色规则 - 覆盖所有可能的样式 */
+        /* 鏈€寮哄埗鐨勬枃瀛楅鑹茶鍒?- 瑕嗙洊鎵€鏈夊彲鑳界殑鏍峰紡 */
         * {
             color: #333 !important;
         }
@@ -1314,7 +1313,7 @@
             color: #ecf0f1 !important;
         }
         
-        /* 特殊处理链接和时间段 */
+        /* 鐗规畩澶勭悊閾炬帴鍜屾椂闂存 */
         a, .timeline-period {
             color: #3498db !important;
         }
@@ -1324,7 +1323,7 @@
             color: #3498db !important;
         }
         
-        /* 特殊处理标题 */
+        /* 鐗规畩澶勭悊鏍囬 */
         h1, h2, h3, .page-title {
             color: #2c3e50 !important;
         }
@@ -1336,7 +1335,7 @@
             color: #ecf0f1 !important;
         }
         
-        /* 特殊处理段落和描述 */
+        /* 鐗规畩澶勭悊娈佃惤鍜屾弿杩?*/
         p, .timeline-description, .timeline-subtitle {
             color: #495057 !important;
         }
@@ -1347,7 +1346,7 @@
             color: #bdc3c7 !important;
         }
         
-        /* 专门处理主页右侧面板的问题文字 */
+        /* 涓撻棬澶勭悊涓婚〉鍙充晶闈㈡澘鐨勯棶棰樻枃瀛?*/
         .right-panel .section[style*="display: block"] .timeline-item[style*="display: block"] .timeline-period {
             color: #3498db !important;
         }
@@ -1380,8 +1379,8 @@
             color: #bdc3c7 !important;
         }
         
-        /* 一劳永逸的解决方案 - 强制所有文字可见 */
-        /* 浅色模式 */
+        /* 涓€鍔虫案閫哥殑瑙ｅ喅鏂规 - 寮哄埗鎵€鏈夋枃瀛楀彲瑙?*/
+        /* 娴呰壊妯″紡 */
         .timeline-period,
         .timeline-title,
         .timeline-subtitle,
@@ -1408,7 +1407,7 @@
             color: #7f8c8d !important;
         }
         
-        /* 深色模式 */
+        /* 娣辫壊妯″紡 */
         body.dark-mode .timeline-period,
         body.dark-mode .timeline-title,
         body.dark-mode .timeline-subtitle,
@@ -1435,7 +1434,7 @@
             color: #bdc3c7 !important;
         }
         
-        /* 返回顶部按钮 */
+        /* 杩斿洖椤堕儴鎸夐挳 */
         .back-to-top {
             position: fixed;
             bottom: 30px;
@@ -1465,7 +1464,7 @@
             box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
         }
         
-        /* CV下载按钮 */
+        /* CV涓嬭浇鎸夐挳 */
         .cv-download-btn {
             background: linear-gradient(45deg, #3498db, #9b59b6);
             color: white;
@@ -1485,7 +1484,7 @@
             box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
         }
         
-        /* 增强的进度条动画 */
+        /* 澧炲己鐨勮繘搴︽潯鍔ㄧ敾 */
         .progress-fill {
             height: 100%;
             background: linear-gradient(90deg, #3498db, #9b59b6);
@@ -1511,7 +1510,7 @@
             100% { left: 100%; }
         }
         
-        /* 时间线动画增强 */
+        /* 鏃堕棿绾垮姩鐢诲寮?*/
         .timeline-item {
             margin-bottom: 20px;
             padding-bottom: 20px;
@@ -1530,7 +1529,7 @@
             border-bottom: 1px solid #3a3a3a;
         }
         
-        /* 打字机效果 */
+        /* 鎵撳瓧鏈烘晥鏋?*/
         @keyframes typing {
             from {
                 width: 0;
@@ -1696,7 +1695,7 @@
         .timeline-subtitle,
         .timeline-period,
         .timeline-description {
-            margin-left: 18px !important;
+            margin-left: 8px !important;
             padding-left: 0 !important; /* prefer margin for alignment */
         }
 
@@ -1709,7 +1708,7 @@
         .page .timeline-subtitle,
         .page .timeline-period,
         .page .timeline-description {
-            margin-left: 18px !important;
+            margin-left: 8px !important;
         }
 
         /* Titles heavier weight like headings */
@@ -1727,16 +1726,16 @@
     </style>
 </head>
 <body>
-    <!-- 粒子背景 -->
+    <!-- 绮掑瓙鑳屾櫙 -->
     <div class="particles" id="particles"></div>
     
-    <!-- 主题切换按钮 -->
-    <button class="theme-toggle" id="themeToggle" title="Toggle Dark/Light Mode">🌙</button>
+    <!-- 涓婚鍒囨崲鎸夐挳 -->
+    <button class="theme-toggle" id="themeToggle" title="Toggle Dark/Light Mode">馃寵</button>
     
-    <!-- 返回顶部按钮 -->
-    <button class="back-to-top" id="backToTop" title="Back to Top">↑</button>
+    <!-- 杩斿洖椤堕儴鎸夐挳 -->
+    <button class="back-to-top" id="backToTop" title="Back to Top">鈫?/button>
     
-    <!-- 导航栏 -->
+    <!-- 瀵艰埅鏍?-->
     <nav class="navbar">
         <div class="nav-container">
             <a href="/" class="nav-brand">Jiayue Yang</a>
@@ -1746,7 +1745,6 @@
                 <li><a href="/talks" data-page="talks" class="nav-link">Talks</a></li>
                 <li><a href="/teaching" data-page="teaching" class="nav-link">Teaching</a></li>
                 <li><a href="/portfolio" data-page="portfolio" class="nav-link">Portfolio</a></li>
-                    <li><a href="/projects" data-page="projects" class="nav-link">Projects</a></li>
                 <li><a href="/year-archive" data-page="blog" class="nav-link">Blog</a></li>
                 <li><a href="/cv" data-page="cv" class="nav-link">CV</a></li>
                 <li><a href="/markdown" data-page="guide" class="nav-link">Guide</a></li>
@@ -1754,17 +1752,17 @@
         </div>
     </nav>
     
-    <!-- 主页 -->
+    <!-- 涓婚〉 -->
     <div id="home" class="page active">
         <div class="main-container">
-            <!-- 左侧个人信息 -->
+            <!-- 宸︿晶涓汉淇℃伅 -->
             <div class="left-panel">
                 <div class="profile-card fade-in">
                     <div class="profile-header">
                         <div class="avatar" id="avatar-img"><img src="images/avatar.jpg" alt="avatar" style="width:100%;height:100%;border-radius:50%;object-fit:cover;"></div>
                         <h1 class="typing-animation">Jiayue Yang</h1>
-                        <div class="subtitle">杨家越 | Computer Science @ USTC</div>
-                        <div class="signature" style="margin:10px 0 0 0;font-size:1.1rem;color:#1976d2;font-weight:600;text-align:center;">在海中也要望月，在谷底也要生花。</div>
+                        <div class="subtitle">鏉ㄥ瓒?| Computer Science @ USTC</div>
+                        <div class="signature" style="margin:10px 0 0 0;font-size:1.1rem;color:#1976d2;font-weight:600;text-align:center;">鍦ㄦ捣涓篃瑕佹湜鏈堬紝鍦ㄨ胺搴曚篃瑕佺敓鑺便€?/div>
                     </div>
                     
                     <div class="intro">
@@ -1773,24 +1771,24 @@
                     
                     <div class="contact-info">
                         <div class="contact-item">
-                            <span class="contact-icon">🏫</span>
+                            <span class="contact-icon">馃彨</span>
                             <div>
                                 <strong>School of Computer Science and Technology</strong><br>
                                 <span style="color: #7f8c8d;">University of Science and Technology of China</span>
                             </div>
                         </div>
                         <div class="contact-item">
-                            <span class="contact-icon">📌</span>
+                            <span class="contact-icon">馃搶</span>
                             <strong>Hefei, Anhui, China</strong>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <!-- 右侧简单统计 -->
+            <!-- 鍙充晶绠€鍗曠粺璁?-->
             <div class="right-panel">
                 <div class="stats-container fade-in">
-                    <h2 class="stats-title">📊 Site Statistics</h2>
+                    <h2 class="stats-title">馃搳 Site Statistics</h2>
                     <div class="simple-chart">
                         <canvas id="visitorChart" width="280" height="150"></canvas>
                         <div id="lastUpdateDynamic" style="position:absolute;right:18px;bottom:8px;font-size:0.9rem;color:#7f8c8d;">Last Update: --</div>
@@ -1808,25 +1806,25 @@
                     <div style="margin:18px 0 0 0;display:flex;justify-content:center;gap:18px;">
                         <span class="likebtn-wrapper" data-theme="custom" data-identifier="homepage"></span>
                         <div id="share-btns">
-                            <button onclick="shareTo('twitter')" title="Share to Twitter" style="border:none;background:none;cursor:pointer;font-size:1.3rem;">🐦</button>
-                            <button onclick="shareTo('weibo')" title="分享到微博" style="border:none;background:none;cursor:pointer;font-size:1.3rem;">🌐</button>
-                            <button onclick="shareTo('wechat')" title="分享到微信" style="border:none;background:none;cursor:pointer;font-size:1.3rem;">💬</button>
+                            <button onclick="shareTo('twitter')" title="Share to Twitter" style="border:none;background:none;cursor:pointer;font-size:1.3rem;">馃惁</button>
+                            <button onclick="shareTo('weibo')" title="鍒嗕韩鍒板井鍗? style="border:none;background:none;cursor:pointer;font-size:1.3rem;">馃寪</button>
+                            <button onclick="shareTo('wechat')" title="鍒嗕韩鍒板井淇? style="border:none;background:none;cursor:pointer;font-size:1.3rem;">馃挰</button>
                         </div>
                     </div>
                 </div>
                 <div class="section fade-in" style="margin-top:24px;">
-                    <h2>📢 Announcements</h2>
+                    <h2>馃摙 Announcements</h2>
                     <div id="announcement-content" style="color:#888;">(No announcements yet. Stay tuned!)</div>
                 </div>
             </div>
         </div>
         
-        <!-- 内容区域 -->
+        <!-- 鍐呭鍖哄煙 -->
         <div class="content-section">
             <div class="main-container">
                 <div class="left-panel">
                     <div class="section fade-in">
-                        <h2>🚀 Research Interests <span class="badge">updated</span></h2>
+                        <h2>馃殌 Research Interests <span class="badge">updated</span></h2>
                         <ul>
                             <li>Computer Vision</li>
                             <li>Spatial Intelligence</li>
@@ -1836,10 +1834,10 @@
                     </div>
                     
                     <div class="section fade-in">
-                        <h2>💻 Current Focus</h2>
+                        <h2>馃捇 Current Focus</h2>
                         <div class="skills-container">
                             <div class="skill-card">
-                                <div class="skill-title">🔧 Core Skills</div>
+                                <div class="skill-title">馃敡 Core Skills</div>
                                 <div class="progress-item">
                                     <div class="progress-label">
                                         <span>Python</span>
@@ -1861,32 +1859,32 @@
                             </div>
                             
                             <div class="skill-card">
-                                <div class="skill-title">📚 Coursework</div>
+                                <div class="skill-title">馃摎 Coursework</div>
                                 <p>CS61A (Structure & Interpretation)<br>
                                 CS221 (AI Fundamentals)</p>
                             </div>
                             
                             <div class="skill-card">
-                                <div class="skill-title">🛠️ Tools</div>
-                                <p>Git • Linux • PyTorch • OpenCV</p>
+                                <div class="skill-title">馃洜锔?Tools</div>
+                                <p>Git 鈥?Linux 鈥?PyTorch 鈥?OpenCV</p>
                             </div>
                         </div>
                     </div>
                     <div class="section fade-in">
-                        <h2>🎯 Interests & Hobbies</h2>
+                        <h2>馃幆 Interests & Hobbies</h2>
                         <ul>
-                            <li>🏀 Basketball</li>
-                            <li>🏓 Table Tennis</li>
-                            <li>🌏 Traveling</li>
-                            <li>📷 Photography</li>
-                            <li>🍜 Foodie</li>
+                            <li>馃弨 Basketball</li>
+                            <li>馃彄 Table Tennis</li>
+                            <li>馃審 Traveling</li>
+                            <li>馃摲 Photography</li>
+                            <li>馃崪 Foodie</li>
                         </ul>
                     </div>
                 </div>
                 
                 <div class="right-panel">
                     <div class="section fade-in" style="display: block !important; opacity: 1 !important;">
-                        <h2>🎓 Education</h2>
+                        <h2>馃帗 Education</h2>
                         <div class="timeline-item" style="display: block !important;">
                             <div class="timeline-period">2024 - 2028 (Expected)</div>
                             <div class="timeline-title">B.S. in Computer Science and Technology</div>
@@ -1900,7 +1898,7 @@
                     </div>
                     
                     <div class="section fade-in" style="display: block !important; opacity: 1 !important;">
-                        <h2>💼 Work Experience</h2>
+                        <h2>馃捈 Work Experience</h2>
                         <div class="timeline-item" style="display: block !important;">
                             <div class="timeline-period">May 2025 - Present</div>
                             <div class="timeline-title">Research Assistant</div>
@@ -1924,46 +1922,46 @@
                     </div>
                     
                     <div class="section fade-in">
-                        <h2>📧 Contact</h2>
+                        <h2>馃摟 Contact</h2>
                         <div class="contact-info">
                             <div class="contact-item">
-                                <span class="contact-icon">📧</span>
+                                <span class="contact-icon">馃摟</span>
                                 <div>
                                     <strong>Academic</strong>: <a href="mailto:jiayueyang@mail.ustc.edu.cn">jiayueyang@mail.ustc.edu.cn</a>
                                 </div>
                             </div>
                             <div class="contact-item">
-                                <span class="contact-icon">📧</span>
+                                <span class="contact-icon">馃摟</span>
                                 <div>
                                     <strong>Gmail</strong>: <a href="mailto:jiangjiayue06@gmail.com">jiangjiayue06@gmail.com</a>
                                 </div>
                             </div>
                             <div class="contact-item">
-                                <span class="contact-icon">🐱</span>
+                                <span class="contact-icon">馃惐</span>
                                 <div>
                                     <strong>GitHub</strong>: <a href="https://github.com/jryyangjy" target="_blank">jryyangjy</a>
                                 </div>
                             </div>
                             <div class="contact-item">
-                                <span class="contact-icon">🤗</span>
+                                <span class="contact-icon">馃</span>
                                 <div>
                                     <strong>Hugging Face</strong>: <a href="https://huggingface.co/jryyangjy" target="_blank">jryyangjy</a>
                                 </div>
                             </div>
                             <div class="contact-item">
-                                <span class="contact-icon">💼</span>
+                                <span class="contact-icon">馃捈</span>
                                 <div>
                                     <strong>LinkedIn</strong>: <a href="https://linkedin.com/in/jiayue-yang-562008377" target="_blank">jiayue-yang-562008377</a>
                                 </div>
                             </div>
                             <div class="contact-item">
-                                <span class="contact-icon">🐦</span>
+                                <span class="contact-icon">馃惁</span>
                                 <div>
                                     <strong>Twitter</strong>: <a href="https://twitter.com/jryyangjy" target="_blank">@jryyangjy</a>
                                 </div>
                             </div>
                             <div class="contact-item">
-                                <span class="contact-icon">☁️</span>
+                                <span class="contact-icon">鈽侊笍</span>
                                 <div>
                                     <strong>Bluesky</strong>: <a href="https://bsky.app/profile/jryyangjy.bsky.social" target="_blank">jryyangjy.bsky.social</a>
                                 </div>
@@ -1975,10 +1973,10 @@
         </div>
     </div>
     
-    <!-- Publications 页面 -->
+    <!-- Publications 椤甸潰 -->
     <div id="publications" class="page">
         <div class="full-page fade-in">
-            <h1 class="page-title">📚 Publications</h1>
+            <h1 class="page-title">馃摎 Publications</h1>
             <div class="coming-soon">
                 <h3>Research in Progress</h3>
                 <p>As an undergraduate researcher, I'm currently working on several projects in computer vision and spatial intelligence. Publications will be added as research progresses and papers are accepted for conferences and journals.</p>
@@ -1988,10 +1986,10 @@
         </div>
     </div>
     
-    <!-- Talks 页面 -->
+    <!-- Talks 椤甸潰 -->
     <div id="talks" class="page">
         <div class="full-page fade-in">
-            <h1 class="page-title">🎤 Talks</h1>
+            <h1 class="page-title">馃帳 Talks</h1>
             <div class="coming-soon">
                 <h3>Speaking Opportunities</h3>
                 <p>I look forward to sharing my research findings and insights with the academic community through conferences, seminars, and workshops. This section will be updated with information about upcoming and past presentations.</p>
@@ -2001,10 +1999,10 @@
         </div>
     </div>
     
-    <!-- Teaching 页面 -->
+    <!-- Teaching 椤甸潰 -->
     <div id="teaching" class="page">
         <div class="full-page fade-in">
-            <h1 class="page-title">👨‍🏫 Teaching</h1>
+            <h1 class="page-title">馃懆鈥嶐煆?Teaching</h1>
             <div class="coming-soon">
                 <h3>Teaching Opportunities</h3>
                 <p>As I progress in my academic journey, I'm interested in sharing knowledge through teaching assistant positions, tutoring, and mentoring opportunities. This section will showcase any teaching experiences and educational contributions.</p>
@@ -2014,12 +2012,12 @@
         </div>
     </div>
     
-    <!-- Portfolio 页面 -->
+    <!-- Portfolio 椤甸潰 -->
     <div id="portfolio" class="page">
         <div class="full-page fade-in">
-            <h1 class="page-title">💼 Portfolio</h1>
+            <h1 class="page-title">馃捈 Portfolio</h1>
             <div class="cv-section">
-                <h3>🚀 Featured Projects</h3>
+                <h3>馃殌 Featured Projects</h3>
                 <div class="timeline-item">
                     <div class="timeline-period">2025 - Present</div>
                     <div class="timeline-title">Computer Vision Research</div>
@@ -2055,7 +2053,7 @@
             </div>
             
             <div class="cv-section">
-                <h3>🛠️ Technical Skills</h3>
+                <h3>馃洜锔?Technical Skills</h3>
                 <div class="skills-list">
                     <div class="skill-item">Python</div>
                     <div class="skill-item">C/C++</div>
@@ -2070,36 +2068,36 @@
         </div>
     </div>
     
-    <!-- Blog 页面 -->
+    <!-- Blog 椤甸潰 -->
     <div id="blog" class="page">
         <div class="full-page fade-in">
-            <h1 class="page-title">📝 Blog</h1>
+            <h1 class="page-title">馃摑 Blog</h1>
             <div class="cv-section">
-                <h3>📸 Travel Moments</h3>
+                <h3>馃摳 Travel Moments</h3>
                 <div class="travel-album">
                     <a class="travel-card" href="travel-hangzhou.html">
                         <img src="images/travel/hangzhou.jpg" alt="Hangzhou" style="width:100%;border-radius:10px;">
-                        <div class="travel-desc">2025.1 杭州｜和朋友们在西湖边散步，喝了热奶茶，冬天的风很舒服。</div>
+                        <div class="travel-desc">2025.1 鏉窞锝滃拰鏈嬪弸浠湪瑗挎箹杈规暎姝ワ紝鍠濅簡鐑ザ鑼讹紝鍐ぉ鐨勯寰堣垝鏈嶃€?/div>
                     </a>
                     <a class="travel-card" href="travel-shanghai.html">
                         <img src="images/travel/shanghai.jpg" alt="Shanghai" style="width:100%;border-radius:10px;">
-                        <div class="travel-desc">2025.1 上海｜第一次夜游外滩，灯光很美，和同学们拍了很多照片。</div>
+                        <div class="travel-desc">2025.1 涓婃捣锝滅涓€娆″娓稿婊╋紝鐏厜寰堢編锛屽拰鍚屽浠媿浜嗗緢澶氱収鐗囥€?/div>
                     </a>
                     <a class="travel-card" href="travel-wuhan.html">
                         <img src="images/travel/wuhan.jpg" alt="Wuhan" style="width:100%;border-radius:10px;">
-                        <div class="travel-desc">2025.1 武汉｜新年在江边看烟花，和家人一起吃了热干面。</div>
+                        <div class="travel-desc">2025.1 姝︽眽锝滄柊骞村湪姹熻竟鐪嬬儫鑺憋紝鍜屽浜轰竴璧峰悆浜嗙儹骞查潰銆?/div>
                     </a>
                     <a class="travel-card" href="travel-wuxi.html">
                         <img src="images/travel/wuxi.jpg" alt="Wuxi" style="width:100%;border-radius:10px;">
-                        <div class="travel-desc">2025.4 无锡｜太湖边吹风，去了鼋头渚看樱花，和朋友们一起逛了南长街。</div>
+                        <div class="travel-desc">2025.4 鏃犻敗锝滃お婀栬竟鍚归锛屽幓浜嗛紜澶存笟鐪嬫ū鑺憋紝鍜屾湅鍙嬩滑涓€璧烽€涗簡鍗楅暱琛椼€?/div>
                     </a>
                     <a class="travel-card" href="travel-suzhou.html">
                         <img src="images/travel/suzhou.jpg" alt="Suzhou" style="width:100%;border-radius:10px;">
-                        <div class="travel-desc">2025.5 苏州｜园林、山水、美食，还有好久不见的朋友们聚会。</div>
+                        <div class="travel-desc">2025.5 鑻忓窞锝滃洯鏋椼€佸北姘淬€佺編椋燂紝杩樻湁濂戒箙涓嶈鐨勬湅鍙嬩滑鑱氫細銆?/div>
                     </a>
                     <a class="travel-card" href="travel-vienna.html">
                         <img src="images/travel/vienna.jpg" alt="Vienna" style="width:100%;border-radius:10px;">
-                        <div class="travel-desc">2024.7 维也纳｜第一次去欧洲，参观了美泉宫，吃了正宗的牛排。</div>
+                        <div class="travel-desc">2024.7 缁翠篃绾筹綔绗竴娆″幓娆ф床锛屽弬瑙備簡缇庢硥瀹紝鍚冧簡姝ｅ畻鐨勭墰鎺掋€?/div>
                     </a>
                 </div>
             </div>
@@ -2112,14 +2110,14 @@
         </div>
     </div>
     
-    <!-- CV 页面 -->
+    <!-- CV 椤甸潰 -->
     <div id="cv" class="page">
         <div class="full-page fade-in">
-            <h1 class="page-title">📄 Curriculum Vitae</h1>
-            <button class="cv-download-btn" onclick="downloadCV()" style="margin-bottom: 30px;">📄 Download CV (PDF)</button>
+            <h1 class="page-title">馃搫 Curriculum Vitae</h1>
+            <button class="cv-download-btn" onclick="downloadCV()" style="margin-bottom: 30px;">馃搫 Download CV (PDF)</button>
             
             <div class="cv-section">
-                <h3>🎓 Education</h3>
+                <h3>馃帗 Education</h3>
                 <div class="timeline-item">
                     <div class="timeline-period">2024 - 2028 (Expected)</div>
                     <div class="timeline-title">B.S. in Computer Science and Technology</div>
@@ -2133,11 +2131,11 @@
             </div>
             
             <div class="cv-section">
-                <h3>💼 Work Experience</h3>
+                <h3>馃捈 Work Experience</h3>
                 <div class="timeline-item">
                     <div class="timeline-period">May 2025 - Present</div>
                     <div class="timeline-title">Research Assistant</div>
-                    <div class="timeline-subtitle">SPIN-Lab, USTC · Supervisor: Prof. Yan Xia</div>
+                    <div class="timeline-subtitle">SPIN-Lab, USTC 路 Supervisor: Prof. Yan Xia</div>
                     <div class="timeline-description">
                         <div class="intro">
                             <p>Conducting research in computer vision, spatial intelligence, multimodal large language models, and embodied AI. Working on projects related to visual understanding, spatial reasoning, and AI applications in computer vision tasks.</p>
@@ -2157,7 +2155,7 @@
             </div>
             
             <div class="cv-section">
-                <h3>📚 Relevant Coursework</h3>
+                <h3>馃摎 Relevant Coursework</h3>
                 <div class="skills-list">
                     <div class="skill-item">CS61A - Structure and Interpretation of Computer Programs</div>
                     <div class="skill-item">CS221 - Artificial Intelligence Fundamentals</div>
@@ -2171,7 +2169,7 @@
             </div>
             
             <div class="cv-section">
-                <h3>💻 Technical Skills</h3>
+                <h3>馃捇 Technical Skills</h3>
                 <div class="timeline-item">
                     <div class="timeline-title">Programming Languages</div>
                     <div class="timeline-description">
@@ -2200,13 +2198,13 @@
             </div>
             
             <div class="cv-section">
-                <h3>🏆 Achievements</h3>
+                <h3>馃弳 Achievements</h3>
                 <div class="achievement-item">Successful completion of CS61A with distinction</div>
                 <div class="achievement-item">Active member of SPIN-Lab research group</div>
             </div>
             
             <div class="cv-section">
-                <h3>📧 Contact Information</h3>
+                <h3>馃摟 Contact Information</h3>
                 <div class="timeline-item">
                     <div class="timeline-description">
                         <div class="intro">
@@ -2224,7 +2222,7 @@
             </div>
             
             <div class="cv-section">
-                <h3>🌐 Languages</h3>
+                <h3>馃寪 Languages</h3>
                 <div class="timeline-item">
                     <div class="timeline-description">
                         <div class="intro">
@@ -2235,24 +2233,24 @@
                 </div>
             </div>
             <div class="cv-section">
-                <h3>🎯 Interests & Hobbies</h3>
+                <h3>馃幆 Interests & Hobbies</h3>
                 <div class="skills-list">
-                    <div class="skill-item">🏀 Basketball</div>
-                    <div class="skill-item">🏓 Table Tennis</div>
-                    <div class="skill-item">🌏 Traveling</div>
-                    <div class="skill-item">📷 Photography</div>
-                    <div class="skill-item">🍜 Foodie</div>
+                    <div class="skill-item">馃弨 Basketball</div>
+                    <div class="skill-item">馃彄 Table Tennis</div>
+                    <div class="skill-item">馃審 Traveling</div>
+                    <div class="skill-item">馃摲 Photography</div>
+                    <div class="skill-item">馃崪 Foodie</div>
                 </div>
             </div>
         </div>
     </div>
     
-    <!-- Guide 页面 -->
+    <!-- Guide 椤甸潰 -->
     <div id="guide" class="page">
         <div class="full-page fade-in">
-            <h1 class="page-title">📖 Academic Guide</h1>
+            <h1 class="page-title">馃摉 Academic Guide</h1>
             <div class="cv-section">
-                <h3>🎯 Study Tips for Computer Science</h3>
+                <h3>馃幆 Study Tips for Computer Science</h3>
                 <div class="timeline-item">
                     <div class="timeline-title">Programming Fundamentals</div>
                     <div class="timeline-description">
@@ -2274,7 +2272,7 @@
             </div>
             
             <div class="cv-section">
-                <h3>📚 Recommended Resources</h3>
+                <h3>馃摎 Recommended Resources</h3>
                 <ul>
                     <li><strong>CS61A Berkeley:</strong> Excellent introduction to programming and computer science concepts</li>
                     <li><strong>CS221 Stanford:</strong> Comprehensive AI fundamentals course</li>
@@ -2285,7 +2283,7 @@
             </div>
             
             <div class="cv-section">
-                <h3>🚀 Getting Started in Research</h3>
+                <h3>馃殌 Getting Started in Research</h3>
                 <div class="timeline-item">
                     <div class="timeline-title">Finding Your Interest</div>
                     <div class="timeline-description">
@@ -2302,63 +2300,29 @@
         </div>
     </div>
     
-    <div id="projects" class="page">
-        <div class="full-page fade-in">
-            <h1 class="page-title">💡 Projects</h1>
-            <div class="section projects-section">
-                <div class="projects-hero">
-                    <h2>Selected Projects</h2>
-                    <div class="project-meta">Selected personal repositories and experiments</div>
-                </div>
-
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-title">Q-learning with visualization</div>
-                        <div class="project-desc">A Q-learning implementation with interactive visualizations to demonstrate RL concepts and learning dynamics.</div>
-                        <div class="project-links">
-                            <a href="https://github.com/jryyangjy/Q-learning-with-visualization" target="_blank" rel="noopener">View on GitHub</a>
-                            <span class="project-meta">• Python · Reinforcement Learning</span>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-title">VAE</div>
-                        <div class="project-desc">Variational Autoencoder experiments including training scripts and sample reconstructions.</div>
-                        <div class="project-links">
-                            <a href="https://github.com/jryyangjy/VAE" target="_blank" rel="noopener">View on GitHub</a>
-                            <span class="project-meta">• PyTorch · Generative Models</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script>
-        // 页面导航功能
+        // 椤甸潰瀵艰埅鍔熻兘
         document.addEventListener('DOMContentLoaded', function() {
             console.log('DOM Content Loaded');
             
-            // 创建粒子效果
+            // 鍒涘缓绮掑瓙鏁堟灉
             createParticles();
             
-            // 初始化主题切换
-            initThemeToggle();
+            // 鍒濆鍖栦富棰樺垏鎹?            initThemeToggle();
             
-            // 导航功能
+            // 瀵艰埅鍔熻兘
             const navLinks = document.querySelectorAll('.nav-link');
             const pages = document.querySelectorAll('.page');
             
             console.log('Found navLinks:', navLinks.length);
             console.log('Found pages:', pages.length);
             
-            // 调试：确保所有页面都存在
+            // 璋冭瘯锛氱‘淇濇墍鏈夐〉闈㈤兘瀛樺湪
             pages.forEach(page => {
                 console.log('Page ID:', page.id, 'Display:', page.style.display);
             });
             
-            // 调试：检查主页内容
-            const homePage = document.getElementById('home');
+            // 璋冭瘯锛氭鏌ヤ富椤靛唴瀹?            const homePage = document.getElementById('home');
             if (homePage) {
                 const educationSection = homePage.querySelector('h2');
                 const workSection = homePage.querySelectorAll('h2')[1];
@@ -2366,23 +2330,20 @@
                 console.log('Work Experience section found:', !!workSection);
             }
             
-            // 简化导航功能
-            navLinks.forEach(link => {
+            // 绠€鍖栧鑸姛鑳?            navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     console.log('Link clicked:', this.getAttribute('data-page'));
                     
-                    // 移除所有激活状态
-                    navLinks.forEach(l => l.classList.remove('active'));
+                    // 绉婚櫎鎵€鏈夋縺娲荤姸鎬?                    navLinks.forEach(l => l.classList.remove('active'));
                     pages.forEach(p => {
                         p.classList.remove('active');
                         p.style.display = 'none';
                     });
                     
-                    // 激活当前链接
-                    this.classList.add('active');
+                    // 婵€娲诲綋鍓嶉摼鎺?                    this.classList.add('active');
                     
-                    // 显示对应页面
+                    // 鏄剧ず瀵瑰簲椤甸潰
                     const targetPage = this.getAttribute('data-page');
                     const targetElement = document.getElementById(targetPage);
                     if (targetElement) {
@@ -2394,44 +2355,8 @@
                     }
                 });
             });
-
-            // Handle initial route from query/hash/path to support GitHub Pages SPA redirects
-            (function handleInitialRoute() {
-                try {
-                    let target = null;
-                    // Support ?/projects style used by SPA GitHub Pages redirect
-                    if (location.search && location.search.indexOf('?/') === 0) {
-                        target = location.search.slice(2).split('&')[0];
-                    }
-                    // Support #/projects hash style
-                    else if (location.hash && location.hash.indexOf('#/') === 0) {
-                        target = location.hash.slice(2);
-                    }
-                    // Support direct pathname like /projects or /projects/
-                    else {
-                        const p = location.pathname.replace(/^\//, '').replace(/\/$/, '');
-                        if (p) target = p;
-                    }
-
-                    if (target) {
-                        console.log('Initial route detected:', target);
-                        // find nav link and target element
-                        const link = Array.from(navLinks).find(l => l.getAttribute('data-page') === target || l.getAttribute('href') === '/' + target || l.getAttribute('href') === target);
-                        const el = document.getElementById(target);
-                        if (link) link.classList.add('active');
-                        if (el) {
-                            pages.forEach(p => { p.classList.remove('active'); p.style.display = 'none'; });
-                            el.style.display = 'block';
-                            el.classList.add('active');
-                        }
-                    }
-                } catch (e) {
-                    console.warn('Error handling initial route', e);
-                }
-            })();
             
-            // 进度条动画
-            setTimeout(() => {
+            // 杩涘害鏉″姩鐢?            setTimeout(() => {
                 document.querySelectorAll('.progress-fill').forEach(bar => {
                     const width = bar.style.width;
                     bar.style.width = '0%';
@@ -2442,7 +2367,7 @@
             }, 1000);
         });
         
-        // 创建粒子背景
+        // 鍒涘缓绮掑瓙鑳屾櫙
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
             const particleCount = 50;
@@ -2457,7 +2382,7 @@
             }
         }
         
-        // 页面加载动画
+        // 椤甸潰鍔犺浇鍔ㄧ敾
         window.addEventListener('load', function() {
             console.log('Window loaded');
             
@@ -2468,10 +2393,9 @@
                 }, index * 200);
             });
             
-            // 绘制访问量图表
-            drawVisitorChart();
+            // 缁樺埗璁块棶閲忓浘琛?            drawVisitorChart();
             
-            // 测试导航功能
+            // 娴嬭瘯瀵艰埅鍔熻兘
             console.log('Testing navigation...');
             const testLink = document.querySelector('.nav-link[data-page="cv"]');
             if (testLink) {
@@ -2481,7 +2405,7 @@
             }
         });
         
-        // Last Update动态化
+        // Last Update鍔ㄦ€佸寲
         function updateLastUpdate() {
             const d = new Date();
             const y = d.getFullYear();
@@ -2492,7 +2416,7 @@
             if(el) el.textContent = str;
         }
         updateLastUpdate();
-        // 图表动画（简单线性动画）
+        // 鍥捐〃鍔ㄧ敾锛堢畝鍗曠嚎鎬у姩鐢伙級
         function drawVisitorChart() {
             const canvas = document.getElementById('visitorChart');
             if (!canvas) return;
@@ -2500,18 +2424,17 @@
             const width = canvas.width;
             const height = canvas.height;
             ctx.clearRect(0, 0, width, height);
-            // 模拟数据
+            // 妯℃嫙鏁版嵁
             const data = [8, 12, 6, 15, 10, 14, 8, 16, 12, 18, 14, 20];
             const padding = 20;
             const chartWidth = width - 2 * padding;
             const chartHeight = height - 2 * padding;
             const maxValue = Math.max(...data);
-            // 动画参数
+            // 鍔ㄧ敾鍙傛暟
             let progress = 0;
             function animate() {
                 ctx.clearRect(0, 0, width, height);
-                // 网格线
-                ctx.strokeStyle = 'rgba(52, 152, 219, 0.1)';
+                // 缃戞牸绾?                ctx.strokeStyle = 'rgba(52, 152, 219, 0.1)';
                 ctx.lineWidth = 1;
                 for (let i = 0; i <= 4; i++) {
                     const y = padding + (chartHeight / 4) * i;
@@ -2521,7 +2444,7 @@
                     const x = padding + (chartWidth / 6) * i;
                     ctx.beginPath(); ctx.moveTo(x, padding); ctx.lineTo(x, height - padding); ctx.stroke();
                 }
-                // 折线动画
+                // 鎶樼嚎鍔ㄧ敾
                 ctx.strokeStyle = '#3498db'; ctx.lineWidth = 3; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
                 ctx.beginPath();
                 for(let i=0;i<data.length;i++){
@@ -2532,15 +2455,14 @@
                     else break;
                 }
                 ctx.stroke();
-                // 数据点
-                ctx.fillStyle = '#3498db';
+                // 鏁版嵁鐐?                ctx.fillStyle = '#3498db';
                 for(let i=0;i<data.length;i++){
                     if(i > Math.floor(progress * (data.length-1))) break;
                     const x = padding + (chartWidth / (data.length - 1)) * i;
                     const y = height - padding - (data[i] / maxValue) * chartHeight;
                     ctx.beginPath(); ctx.arc(x, y, 4, 0, 2 * Math.PI); ctx.fill();
                 }
-                // 渐变填充
+                // 娓愬彉濉厖
                 const gradient = ctx.createLinearGradient(0, padding, 0, height - padding);
                 gradient.addColorStop(0, 'rgba(52, 152, 219, 0.3)');
                 gradient.addColorStop(1, 'rgba(52, 152, 219, 0.05)');
@@ -2564,7 +2486,7 @@
             }
             animate();
         }
-        // 分享按钮
+        // 鍒嗕韩鎸夐挳
         function shareTo(type){
             const url = encodeURIComponent(window.location.href);
             const title = encodeURIComponent(document.title);
@@ -2573,25 +2495,24 @@
             }else if(type==='weibo'){
                 window.open(`https://service.weibo.com/share/share.php?url=${url}&title=${title}`);
             }else if(type==='wechat'){
-                alert('请手动复制网址到微信。');
+                alert('璇锋墜鍔ㄥ鍒剁綉鍧€鍒板井淇°€?);
             }
         }
-        // 主页Valine留言板
-        new Valine({
+        // 涓婚〉Valine鐣欒█鏉?        new Valine({
             el: '#vcomments',
             appId: 'FBaB6egLU3TwaTvm5GyxCwHw-MdYXbMMI',
             appKey: '9nqQizX7bgzS7bpXk7zQX0GH',
             serverURLs: 'https://fbab6egl.api.lncldglobal.com',
-            placeholder: '欢迎留言、评论和交流~'
+            placeholder: '娆㈣繋鐣欒█銆佽瘎璁哄拰浜ゆ祦~'
         });
-        // 头像悬浮动画
+        // 澶村儚鎮诞鍔ㄧ敾
         const avatar = document.getElementById('avatar-img');
         if(avatar){
             avatar.addEventListener('mouseenter',()=>{avatar.style.transform='scale(1.08) rotate(-3deg)';avatar.style.boxShadow='0 8px 32px rgba(52,152,219,0.18)';});
             avatar.addEventListener('mouseleave',()=>{avatar.style.transform='';avatar.style.boxShadow='';});
         }
         
-        // 简化的主题切换功能
+        // 绠€鍖栫殑涓婚鍒囨崲鍔熻兘
         function initThemeToggle() {
             const themeToggle = document.getElementById('themeToggle');
             const body = document.body;
@@ -2603,31 +2524,30 @@
             
             console.log('Theme toggle button found:', !!themeToggle);
             
-            // 检查本地存储的主题偏好
+            // 妫€鏌ユ湰鍦板瓨鍌ㄧ殑涓婚鍋忓ソ
             const savedTheme = localStorage.getItem('theme');
             console.log('Saved theme:', savedTheme);
             if (savedTheme === 'dark') {
                 body.classList.add('dark-mode');
-                themeToggle.textContent = '☀️';
+                themeToggle.textContent = '鈽€锔?;
             }
             
-            // 移除之前的事件监听器（如果存在）
+            // 绉婚櫎涔嬪墠鐨勪簨浠剁洃鍚櫒锛堝鏋滃瓨鍦級
             themeToggle.removeEventListener('click', themeToggleClickHandler);
             
-            // 添加新的事件监听器
-            themeToggle.addEventListener('click', themeToggleClickHandler);
+            // 娣诲姞鏂扮殑浜嬩欢鐩戝惉鍣?            themeToggle.addEventListener('click', themeToggleClickHandler);
             
             function themeToggleClickHandler() {
                 console.log('Theme toggle clicked');
                 body.classList.toggle('dark-mode');
                 const isDark = body.classList.contains('dark-mode');
-                themeToggle.textContent = isDark ? '☀️' : '🌙';
+                themeToggle.textContent = isDark ? '鈽€锔? : '馃寵';
                 localStorage.setItem('theme', isDark ? 'dark' : 'light');
                 console.log('Theme changed to:', isDark ? 'dark' : 'light');
             }
         }
         
-        // 返回顶部功能
+        // 杩斿洖椤堕儴鍔熻兘
         const backToTop = document.getElementById('backToTop');
         
         window.addEventListener('scroll', () => {
@@ -2645,9 +2565,9 @@
             });
         });
         
-        // CV下载功能
+        // CV涓嬭浇鍔熻兘
         function downloadCV() {
-            // 创建一个包含CV内容的HTML页面
+            // 鍒涘缓涓€涓寘鍚獵V鍐呭鐨凥TML椤甸潰
             const cvContent = `
                 <!DOCTYPE html>
                 <html>
@@ -2686,7 +2606,7 @@
                         <div class="timeline-item">
                             <div class="timeline-period">May 2025 - Present</div>
                             <div class="timeline-title">Research Assistant</div>
-                            <div>SPIN-Lab, USTC · Supervisor: Prof. Yan Xia</div>
+                            <div>SPIN-Lab, USTC 路 Supervisor: Prof. Yan Xia</div>
                         </div>
                         <div class="timeline-item">
                             <div class="timeline-period">July 2025 - Present</div>
@@ -2713,14 +2633,13 @@
                     
                     <div class="section">
                         <h2>Interests & Hobbies</h2>
-                        <p>🏀 Basketball | 🏓 Table Tennis | 🌏 Traveling | 📷 Photography | 🍜 Foodie</p>
+                        <p>馃弨 Basketball | 馃彄 Table Tennis | 馃審 Traveling | 馃摲 Photography | 馃崪 Foodie</p>
                     </div>
                 </body>
                 </html>
             `;
             
-            // 创建Blob并下载
-            const blob = new Blob([cvContent], { type: 'text/html' });
+            // 鍒涘缓Blob骞朵笅杞?            const blob = new Blob([cvContent], { type: 'text/html' });
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
@@ -2731,8 +2650,7 @@
             window.URL.revokeObjectURL(url);
         }
         
-        // 时间线动画增强
-        function animateTimelineItems() {
+        // 鏃堕棿绾垮姩鐢诲寮?        function animateTimelineItems() {
             const timelineItems = document.querySelectorAll('.timeline-item');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -2745,13 +2663,22 @@
             timelineItems.forEach(item => observer.observe(item));
         }
         
-        // 页面加载完成后初始化动画
+        // 椤甸潰鍔犺浇瀹屾垚鍚庡垵濮嬪寲鍔ㄧ敾
         window.addEventListener('load', () => {
             animateTimelineItems();
         });
     </script>
-        
-    
+    <footer style="text-align:center;color:#888;margin:30px 0 10px 0;font-size:0.95rem;">
+        <span id="busuanzi_container_site_pv" style="margin-right:20px;">
+            <span>Site Visits: </span>
+            <span id="busuanzi_value_site_pv"></span>
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span>Unique Visitors: </span>
+            <span id="busuanzi_value_site_uv"></span>
+        </span>
+    </footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
     <style>
         .travel-album {
