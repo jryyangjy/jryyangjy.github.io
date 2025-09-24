@@ -1690,6 +1690,27 @@
             margin-bottom: 0.8rem !important;
         }
 
+        /* Small right-nudge to align timeline/CV content visually (adjusted per user feedback) */
+        .timeline-title,
+        .timeline-subtitle,
+        .timeline-period,
+        .timeline-description {
+            margin-left: 8px !important;
+            padding-left: 0 !important; /* prefer margin for alignment */
+        }
+
+        /* Apply same nudge inside CV section and for pages */
+        #cv .timeline-title,
+        #cv .timeline-subtitle,
+        #cv .timeline-period,
+        #cv .timeline-description,
+        .page .timeline-title,
+        .page .timeline-subtitle,
+        .page .timeline-period,
+        .page .timeline-description {
+            margin-left: 8px !important;
+        }
+
         /* Titles heavier weight like headings */
         .timeline-title { font-weight: 700 !important; font-size: 1.05rem !important; }
         .timeline-subtitle { font-weight: 600 !important; }
