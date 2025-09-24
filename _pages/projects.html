@@ -5,40 +5,83 @@ permalink: /projects/
 ---
 <style>
   .projects-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 18px; }
-  .project-card { background: linear-gradient(180deg,#ffffff, #f7f9fb); border-radius: 12px; padding: 18px; box-shadow: 0 6px 18px rgba(20,30,60,0.08); transition: transform .18s ease, box-shadow .18s ease; border:1px solid rgba(30,40,60,0.04); }
+  .project-card { background: linear-gradient(180deg,#ffffff, #f7f9fb); border-radius: 12px; overflow: hidden; box-shadow: 0 6px 18px rgba(20,30,60,0.08); transition: transform .18s ease, box-shadow .18s ease; border:1px solid rgba(30,40,60,0.04); display:flex; flex-direction:column; }
+  .project-thumb { width:100%; height:140px; background:linear-gradient(90deg,#e9f2ff,#ffffff); display:flex; align-items:center; justify-content:center; color:#7b8b97; font-weight:600; }
+  .project-body { padding: 16px; flex:1; display:flex; flex-direction:column; }
   .project-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(20,30,60,0.12); }
   .project-title { font-size: 1.05rem; font-weight:700; color: #16325c; margin-bottom:6px; }
-  .project-desc { color:#40556a; font-size:0.95rem; line-height:1.45; margin-bottom:10px; }
-  .project-links { display:flex; gap:10px; align-items:center; }
+  .project-desc { color:#40556a; font-size:0.95rem; line-height:1.45; margin-bottom:10px; flex:1; }
+  .project-links { display:flex; gap:10px; align-items:center; margin-top:10px; }
   .project-links a { color:#1e88e5; text-decoration:none; font-weight:600; }
   .project-meta { font-size:0.85rem; color:#7b8b97; }
-  .projects-hero { display:flex; align-items:center; justify-content:space-between; margin-bottom:18px; }
+  .projects-hero { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:18px; }
   .projects-hero h2 { margin:0; }
+  .project-tags { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+  .tag { background:#eef6ff; color:#1e6fb8; padding:4px 8px; border-radius:999px; font-size:0.8rem; }
+  .search-wrap { display:flex; gap:10px; align-items:center; max-width:520px; }
+  .project-search { width:100%; padding:10px 12px; border-radius:8px; border:1px solid rgba(30,40,60,0.06); }
+  .project-card .actions { display:flex; gap:8px; }
+  .action-btn { background: rgba(30,136,229,0.08); color:#1e88e5; border:1px solid rgba(30,136,229,0.12); padding:6px 10px; border-radius:8px; text-decoration:none; font-weight:600; }
+  .project-empty { text-align:center; color:#7b8b97; padding:40px 20px; }
 </style>
 
 <div class="section projects-section">
   <div class="projects-hero">
-    <h2>Projects</h2>
-    <div class="project-meta">Selected personal repositories and experiments</div>
+    <div>
+      <h2>Projects</h2>
+      <div class="project-meta">Selected personal repositories and experiments</div>
+    </div>
+    <div class="search-wrap">
+      <input id="projectSearch" class="project-search" placeholder="Search projects by name, tag, or description…" />
+    </div>
   </div>
 
   <div class="projects-grid">
-    <div class="project-card">
-      <div class="project-title">Q-learning with visualization</div>
-      <div class="project-desc">A Q-learning implementation with interactive visualizations to demonstrate RL concepts and learning dynamics.</div>
-      <div class="project-links">
-        <a href="https://github.com/jryyangjy/Q-learning-with-visualization" target="_blank" rel="noopener">View on GitHub</a>
-        <span class="project-meta">• Python · Reinforcement Learning</span>
+    <div class="project-card" data-tags="python rl visualization">
+      <div class="project-thumb">Thumbnail</div>
+      <div class="project-body">
+        <div class="project-title">Q-learning with visualization</div>
+        <div class="project-desc">A Q-learning implementation with interactive visualizations to demonstrate RL concepts and learning dynamics.</div>
+        <div class="project-tags"><span class="tag">Python</span><span class="tag">RL</span><span class="tag">Visualization</span></div>
+        <div class="project-links">
+          <div class="actions"><a class="action-btn" href="https://github.com/jryyangjy/Q-learning-with-visualization" target="_blank" rel="noopener">GitHub</a></div>
+          <span class="project-meta">• Python · Reinforcement Learning</span>
+        </div>
       </div>
     </div>
 
-    <div class="project-card">
-      <div class="project-title">VAE</div>
-      <div class="project-desc">Variational Autoencoder experiments including training scripts and sample reconstructions.</div>
-      <div class="project-links">
-        <a href="https://github.com/jryyangjy/VAE" target="_blank" rel="noopener">View on GitHub</a>
-        <span class="project-meta">• PyTorch · Generative Models</span>
+    <div class="project-card" data-tags="pytorch vae generative">
+      <div class="project-thumb">Thumbnail</div>
+      <div class="project-body">
+        <div class="project-title">VAE</div>
+        <div class="project-desc">Variational Autoencoder experiments including training scripts and sample reconstructions.</div>
+        <div class="project-tags"><span class="tag">PyTorch</span><span class="tag">VAE</span><span class="tag">Generative</span></div>
+        <div class="project-links"><div class="actions"><a class="action-btn" href="https://github.com/jryyangjy/VAE" target="_blank" rel="noopener">GitHub</a></div>
+          <span class="project-meta">• PyTorch · Generative Models</span>
+        </div>
       </div>
     </div>
   </div>
+  <div id="projectsEmpty" class="project-empty" style="display:none;">No projects match your search.</div>
+  <script>
+    (function(){
+      const input = document.getElementById('projectSearch');
+      const cards = Array.from(document.querySelectorAll('.project-card'));
+      const empty = document.getElementById('projectsEmpty');
+      function filter(){
+        const q = input.value.trim().toLowerCase();
+        let any=false;
+        cards.forEach(c=>{
+          const title = c.querySelector('.project-title')?.textContent.toLowerCase()||'';
+          const desc = c.querySelector('.project-desc')?.textContent.toLowerCase()||'';
+          const tags = (c.getAttribute('data-tags')||'').toLowerCase();
+          const match = !q || title.includes(q) || desc.includes(q) || tags.includes(q);
+          c.style.display = match ? 'flex' : 'none';
+          if(match) any=true;
+        });
+        empty.style.display = any ? 'none' : 'block';
+      }
+      input.addEventListener('input', filter);
+    })();
+  </script>
 </div>
