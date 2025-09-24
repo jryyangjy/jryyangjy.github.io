@@ -1696,7 +1696,7 @@
         .timeline-subtitle,
         .timeline-period,
         .timeline-description {
-            margin-left: 18px !important;
+            margin-left: 20px !important;
             padding-left: 0 !important; /* prefer margin for alignment */
         }
 
@@ -1709,7 +1709,7 @@
         .page .timeline-subtitle,
         .page .timeline-period,
         .page .timeline-description {
-            margin-left: 18px !important;
+            margin-left: 20px !important;
         }
 
         /* Titles heavier weight like headings */
@@ -2303,31 +2303,28 @@
     </div>
     
     <div id="projects" class="page">
-        <div class="full-page fade-in">
-            <h1 class="page-title">💡 Projects</h1>
-            <div class="section projects-section">
-                <div class="projects-hero">
-                    <h2>Selected Projects</h2>
-                    <div class="project-meta">Selected personal repositories and experiments</div>
+        <div class="section projects-section full-page fade-in">
+            <div class="projects-hero">
+                <h2>Projects</h2>
+                <div class="project-meta">Selected personal repositories and experiments</div>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-title">Q-learning with visualization</div>
+                    <div class="project-desc">A Q-learning implementation with interactive visualizations to demonstrate RL concepts and learning dynamics.</div>
+                    <div class="project-links">
+                        <a href="https://github.com/jryyangjy/Q-learning-with-visualization" target="_blank" rel="noopener">View on GitHub</a>
+                        <span class="project-meta">• Python · Reinforcement Learning</span>
+                    </div>
                 </div>
 
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-title">Q-learning with visualization</div>
-                        <div class="project-desc">A Q-learning implementation with interactive visualizations to demonstrate RL concepts and learning dynamics.</div>
-                        <div class="project-links">
-                            <a href="https://github.com/jryyangjy/Q-learning-with-visualization" target="_blank" rel="noopener">View on GitHub</a>
-                            <span class="project-meta">• Python · Reinforcement Learning</span>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-title">VAE</div>
-                        <div class="project-desc">Variational Autoencoder experiments including training scripts and sample reconstructions.</div>
-                        <div class="project-links">
-                            <a href="https://github.com/jryyangjy/VAE" target="_blank" rel="noopener">View on GitHub</a>
-                            <span class="project-meta">• PyTorch · Generative Models</span>
-                        </div>
+                <div class="project-card">
+                    <div class="project-title">VAE</div>
+                    <div class="project-desc">Variational Autoencoder experiments including training scripts and sample reconstructions.</div>
+                    <div class="project-links">
+                        <a href="https://github.com/jryyangjy/VAE" target="_blank" rel="noopener">View on GitHub</a>
+                        <span class="project-meta">• PyTorch · Generative Models</span>
                     </div>
                 </div>
             </div>
