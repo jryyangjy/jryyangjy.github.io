@@ -9,6 +9,20 @@
     <meta name="author" content="Jiayue Yang">
     <link rel="canonical" href="https://jryyangjy.github.io/">
     
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="JY Portfolio">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="JY Portfolio">
+
+    <!-- PWA Icons -->
+    <link rel="apple-touch-icon" href="/images/icon-192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/icon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/images/icon-512.png">
+    <link rel="manifest" href="/pwa/manifest.json">
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jryyangjy.github.io/">
@@ -24,6 +38,20 @@
     <meta property="twitter:image" content="https://jryyangjy.github.io/avatar.jpg">
     <!-- noop: trigger rebuild -->
     <!-- rebuild-trigger: 2025-09-24T00:00:00Z - force GitHub Pages rebuild -->
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/css/critical.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/js/lazyload.js" as="script">
+    <link rel="preload" href="/js/navigation.js" as="script">
+    <link rel="preload" href="/js/theme.js" as="script">
+
+    <!-- Fallback for browsers that don't support preload -->
+    <noscript>
+        <link rel="stylesheet" href="/css/critical.css">
+        <link rel="stylesheet" href="/css/main.css">
+    </noscript>
+
     <style>
         /* 基础样式 */
         /* Ultra-final safety override: catch any remaining inline styles or high-specificity rules
@@ -1746,10 +1774,8 @@
                 <li><a href="/talks" data-page="talks" class="nav-link">Talks</a></li>
                 <li><a href="/teaching" data-page="teaching" class="nav-link">Teaching</a></li>
                 <li><a href="/portfolio" data-page="portfolio" class="nav-link">Portfolio</a></li>
-                    <li><a href="/projects" data-page="projects" class="nav-link">Projects</a></li>
-                <li><a href="/year-archive" data-page="blog" class="nav-link">Blog</a></li>
+                <li><a href="/projects" data-page="projects" class="nav-link">Projects</a></li>
                 <li><a href="/cv" data-page="cv" class="nav-link">CV</a></li>
-                <li><a href="/markdown" data-page="guide" class="nav-link">Guide</a></li>
             </ul>
         </div>
     </nav>
@@ -1761,14 +1787,14 @@
             <div class="left-panel">
                 <div class="profile-card fade-in">
                     <div class="profile-header">
-                        <div class="avatar" id="avatar-img"><img src="images/avatar.jpg" alt="avatar" style="width:100%;height:100%;border-radius:50%;object-fit:cover;"></div>
+                        <div class="avatar" id="avatar-img"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="images/avatar.jpg" alt="avatar" style="width:100%;height:100%;border-radius:50%;object-fit:cover;" class="lazy-image"></div>
                         <h1 class="typing-animation">Jiayue Yang</h1>
                         <div class="subtitle">杨家越 | Computer Science @ USTC</div>
                         <div class="signature" style="margin:10px 0 0 0;font-size:1.1rem;color:#1976d2;font-weight:600;text-align:center;">在海中也要望月，在谷底也要生花。</div>
                     </div>
                     
                     <div class="intro">
-                        <p>I'm <strong>Jiayue Yang</strong>, a second-year Computer Science major at <a href="https://www.ustc.edu.cn/" target="_blank">USTC</a>. Exploring the intersection of programming and AI fundamentals. I'm fortunate to be supervised by Prof. <a href="https://saids.ustc.edu.cn/2024/1105/c36363a686123/page.htm" target="_blank">Yan Xia</a> at <a href="https://spin-ustc.cn/" target="_blank">SPIN-Lab</a>, with research interests in computer vision, spatial intelligence, multimodal large language models, and embodied AI.</p>
+                        <p>I'm <strong>Jiayue Yang</strong>, a second-year Computer Science major at <a href="https://www.ustc.edu.cn/" target="_blank">USTC</a>. Exploring the intersection of programming and AI fundamentals. I'm fortunate to be supervised by Prof. Dr.<a href="https://saids.ustc.edu.cn/2024/1105/c36363a686123/page.htm" target="_blank">Yan Xia</a> at <a href="https://spin-ustc.cn/" target="_blank">SPIN-Lab</a>, <a href="https://saids.ustc.edu.cn/" target="_blank">School of Artificial Intelligence and Data Science (SAIDS)</a>, <a href="https://www.ustc.edu.cn/" target="_blank">University of Science and Technology of China</a>, with research interests in computer vision, spatial intelligence, multimodal large language models, and embodied AI. I'm also a Research Intern supervised by Prof. Dr. <a href="https://olafwysocki.github.io/" target="_blank" rel="noopener noreferrer">Olaf Wysocki</a> at the <a href="https://cv4dt.github.io/" target="_blank" rel="noopener noreferrer">Computer Vision for Digital Twins (CV4DT)</a>, <a href="https://www-smartinfrastructure.eng.cam.ac.uk/" target="_blank" rel="noopener noreferrer">Centre for Smart Infrastructure and Construction (CSIC)</a>, <a href="https://www.cam.ac.uk/" target="_blank" rel="noopener noreferrer">University of Cambridge</a>.</p>
                     </div>
                     
                     <div class="contact-info">
@@ -1826,7 +1852,7 @@
             <div class="main-container">
                 <div class="left-panel">
                     <div class="section fade-in">
-                        <h2>🚀 Research Interests <span class="badge">updated</span></h2>
+                        <h2>🚀 Research Interests <span class="badge">Currently Focusing on 3D Vision</span></h2>
                         <ul>
                             <li>Computer Vision</li>
                             <li>Spatial Intelligence</li>
@@ -1912,9 +1938,19 @@
                             </div>
                         </div>
                         <div class="timeline-item" style="display: block !important;">
+                            <div class="timeline-period">November 2025 - Present</div>
+                            <div class="timeline-title">Research Intern</div>
+                            <div class="timeline-subtitle"><a href="https://cv4dt.github.io/" target="_blank" rel="noopener noreferrer">Computer Vision for Digital Twins (CV4DT)</a>, <a href="https://www-smartinfrastructure.eng.cam.ac.uk/" target="_blank" rel="noopener noreferrer">Centre for Smart Infrastructure and Construction (CSIC)</a>, <a href="https://www.cam.ac.uk/" target="_blank" rel="noopener noreferrer">University of Cambridge</a></div>
+                            <div class="timeline-description">
+                                <div class="intro">
+                                    <p>Supervised by <a href="https://olafwysocki.github.io/" target="_blank" rel="noopener noreferrer">Prof. Dr. Olaf Wysocki</a>. Conducting research in <strong>3D computer vision</strong>, focusing on 3D reconstruction techniques for semantic reconstruction and digital twins applications.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item" style="display: block !important;">
                             <div class="timeline-period">July 2025 - Present</div>
                             <div class="timeline-title">Student Assistant</div>
-                            <div class="timeline-subtitle">Foreign Language Teaching Center, USTC</div>
+                            <div class="timeline-subtitle"><a href="https://le.ustc.edu.cn/main.htm" target="_blank" rel="noopener noreferrer">Foreign Language Teaching Center, USTC</a></div>
                             <div class="timeline-description">
                                 <div class="intro">
                                     <p>Supporting foreign language education initiatives and administrative tasks.</p>
@@ -2026,7 +2062,7 @@
                     <div class="timeline-subtitle">SPIN-Lab, USTC</div>
                     <div class="timeline-description">
                         <div class="intro">
-                            <p>Working on spatial intelligence, multimodal large language models, and embodied AI projects under the supervision of Prof. Yan Xia. Focusing on developing algorithms for visual understanding and spatial reasoning.</p>
+                            <p>Working on spatial intelligence, multimodal large language models, and embodied AI projects under the supervision of Prof. Dr. Yan Xia. Focusing on developing algorithms for visual understanding and spatial reasoning.</p>
                         </div>
                     </div>
                 </div>
@@ -2052,6 +2088,17 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-period">November 2025 - Present</div>
+                    <div class="timeline-title">Research Intern</div>
+                    <div class="timeline-subtitle"><a href="https://cv4dt.github.io/" target="_blank" rel="noopener noreferrer">Computer Vision for Digital Twins (CV4DT)</a>, <a href="https://www-smartinfrastructure.eng.cam.ac.uk/" target="_blank" rel="noopener noreferrer">Centre for Smart Infrastructure and Construction (CSIC)</a>, <a href="https://www.cam.ac.uk/" target="_blank" rel="noopener noreferrer">University of Cambridge</a></div>
+                    <div class="timeline-description">
+                        <div class="intro">
+                            <p>Supervised by <a href="https://olafwysocki.github.io/" target="_blank" rel="noopener noreferrer">Prof. Dr. Olaf Wysocki</a>. Conducting research in <strong>3D computer vision</strong>, focusing on 3D reconstruction techniques for semantic reconstruction and digital twins applications.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <div class="cv-section">
@@ -2062,55 +2109,27 @@
                     <div class="skill-item">Git</div>
                     <div class="skill-item">Linux</div>
                     <div class="skill-item">PyTorch</div>
-                    <div class="skill-item">OpenCV</div>
-                    <div class="skill-item">Machine Learning</div>
-                    <div class="skill-item">Computer Vision</div>
                 </div>
             </div>
         </div>
     </div>
     
-    <!-- Blog 页面 -->
-    <div id="blog" class="page">
+    <!-- Blog 页面 - Hidden -->
+    <!-- <div id="blog" class="page">
         <div class="full-page fade-in">
             <h1 class="page-title">📝 Blog</h1>
             <div class="cv-section">
                 <h3>📸 Travel Moments</h3>
                 <div class="travel-album">
-                    <a class="travel-card" href="travel-hangzhou.html">
-                        <img src="images/travel/hangzhou.jpg" alt="Hangzhou" style="width:100%;border-radius:10px;">
-                        <div class="travel-desc">2025.1 杭州｜和朋友们在西湖边散步，喝了热奶茶，冬天的风很舒服。</div>
-                    </a>
-                    <a class="travel-card" href="travel-shanghai.html">
-                        <img src="images/travel/shanghai.jpg" alt="Shanghai" style="width:100%;border-radius:10px;">
-                        <div class="travel-desc">2025.1 上海｜第一次夜游外滩，灯光很美，和同学们拍了很多照片。</div>
-                    </a>
-                    <a class="travel-card" href="travel-wuhan.html">
-                        <img src="images/travel/wuhan.jpg" alt="Wuhan" style="width:100%;border-radius:10px;">
-                        <div class="travel-desc">2025.1 武汉｜新年在江边看烟花，和家人一起吃了热干面。</div>
-                    </a>
-                    <a class="travel-card" href="travel-wuxi.html">
-                        <img src="images/travel/wuxi.jpg" alt="Wuxi" style="width:100%;border-radius:10px;">
-                        <div class="travel-desc">2025.4 无锡｜太湖边吹风，去了鼋头渚看樱花，和朋友们一起逛了南长街。</div>
-                    </a>
-                    <a class="travel-card" href="travel-suzhou.html">
-                        <img src="images/travel/suzhou.jpg" alt="Suzhou" style="width:100%;border-radius:10px;">
-                        <div class="travel-desc">2025.5 苏州｜园林、山水、美食，还有好久不见的朋友们聚会。</div>
-                    </a>
-                    <a class="travel-card" href="travel-vienna.html">
-                        <img src="images/travel/vienna.jpg" alt="Vienna" style="width:100%;border-radius:10px;">
-                        <div class="travel-desc">2024.7 维也纳｜第一次去欧洲，参观了美泉宫，吃了正宗的牛排。</div>
-                    </a>
+                    ... (travel content hidden)
                 </div>
             </div>
             <div class="coming-soon">
                 <h3>Thoughts and Insights</h3>
-                <p>This space will feature blog posts about my research experiences, technical tutorials, academic insights, and reflections on computer science topics. I plan to share knowledge and experiences that might be helpful for fellow students and researchers.</p>
-                <br>
-                <p><em>Coming soon: technical posts, research updates, and academic reflections!</em></p>
+                <p>Coming soon...</p>
             </div>
         </div>
-    </div>
+    </div> -->
     
     <!-- CV 页面 -->
     <div id="cv" class="page">
@@ -2137,7 +2156,7 @@
                 <div class="timeline-item">
                     <div class="timeline-period">May 2025 - Present</div>
                     <div class="timeline-title">Research Assistant</div>
-                    <div class="timeline-subtitle">SPIN-Lab, USTC · Supervisor: Prof. Yan Xia</div>
+                    <div class="timeline-subtitle">SPIN-Lab, USTC · Supervisor: Prof. Dr. Yan Xia</div>
                     <div class="timeline-description">
                         <div class="intro">
                             <p>Conducting research in computer vision, spatial intelligence, multimodal large language models, and embodied AI. Working on projects related to visual understanding, spatial reasoning, and AI applications in computer vision tasks.</p>
@@ -2154,6 +2173,16 @@
                         </div>
                     </div>
                 </div>
+                <div class="timeline-item">
+                    <div class="timeline-period">November 2025 - Present</div>
+                    <div class="timeline-title">Research Intern</div>
+                    <div class="timeline-subtitle">Computer Vision for Digital Twins (CV4DT), Centre for Smart Infrastructure and Construction (CSIC), University of Cambridge · Supervisor: Prof. Dr. Olaf Wysocki</div>
+                    <div class="timeline-description">
+                        <div class="intro">
+                            <p>Conducting research in 3D computer vision, focusing on 3D reconstruction techniques for semantic reconstruction and digital twins applications. Self-funded research visit with waived bench fees and full access to institute facilities.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <div class="cv-section">
@@ -2162,11 +2191,7 @@
                     <div class="skill-item">CS61A - Structure and Interpretation of Computer Programs</div>
                     <div class="skill-item">CS221 - Artificial Intelligence Fundamentals</div>
                     <div class="skill-item">Data Structures and Algorithms</div>
-                    <div class="skill-item">Computer Vision</div>
-                    <div class="skill-item">Machine Learning</div>
                     <div class="skill-item">Linear Algebra</div>
-                    <div class="skill-item">Multimodal AI</div>
-                    <div class="skill-item">Embodied Intelligence</div>
                 </div>
             </div>
             
@@ -2177,7 +2202,7 @@
                     <div class="timeline-description">
                         <div class="intro">
                             <p><strong>Proficient:</strong> Python, C/C++<br>
-                            <strong>Familiar:</strong> JavaScript, HTML/CSS, MATLAB</p>
+                            <strong>Familiar:</strong> JavaScript, MATLAB</p>
                         </div>
                     </div>
                 </div>
@@ -2185,15 +2210,7 @@
                     <div class="timeline-title">Frameworks & Tools</div>
                     <div class="timeline-description">
                         <div class="intro">
-                            <p>PyTorch, OpenCV, NumPy, Matplotlib, Git, Linux, Docker, Jupyter Notebooks</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-title">Areas of Expertise</div>
-                    <div class="timeline-description">
-                        <div class="intro">
-                            <p>Computer Vision, Machine Learning, Algorithm Design, Data Structures, Spatial Intelligence, Multimodal Large Language Models, Embodied AI</p>
+                            <p>PyTorch, NumPy, Git, Linux, Jupyter Notebooks</p>
                         </div>
                     </div>
                 </div>
@@ -2201,8 +2218,8 @@
             
             <div class="cv-section">
                 <h3>🏆 Achievements</h3>
-                <div class="achievement-item">Successful completion of CS61A with distinction</div>
-                <div class="achievement-item">Active member of SPIN-Lab research group</div>
+                <div class="achievement-item">Completed CS61A with distinction</div>
+                <div class="achievement-item">Research assistant at SPIN-Lab, USTC</div>
             </div>
             
             <div class="cv-section">
@@ -2305,26 +2322,40 @@
     <div id="projects" class="page">
         <div class="section projects-section full-page fade-in">
             <div class="projects-hero">
-                <h2>Projects</h2>
-                <div class="project-meta">Selected personal repositories and experiments</div>
+                <h2>🚀 Projects</h2>
+                <div class="project-subtitle">
+                    <span class="subtitle-accent">Selected</span> personal repositories and experiments
+                </div>
             </div>
 
             <div class="projects-grid">
                 <div class="project-card">
+                    <div class="project-icon">🧠</div>
                     <div class="project-title">Q-learning with visualization</div>
                     <div class="project-desc">A Q-learning implementation with interactive visualizations to demonstrate RL concepts and learning dynamics.</div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Reinforcement Learning</span>
+                    </div>
                     <div class="project-links">
-                        <a href="https://github.com/jryyangjy/Q-learning-with-visualization" target="_blank" rel="noopener">View on GitHub</a>
-                        <span class="project-meta">• Python · Reinforcement Learning</span>
+                        <a href="https://github.com/jryyangjy/Q-learning-with-visualization." target="_blank" rel="noopener" class="github-link">
+                            <span class="link-icon">📖</span> View on GitHub
+                        </a>
                     </div>
                 </div>
 
                 <div class="project-card">
+                    <div class="project-icon">🎨</div>
                     <div class="project-title">VAE</div>
                     <div class="project-desc">Variational Autoencoder experiments including training scripts and sample reconstructions.</div>
+                    <div class="project-tech">
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">Generative Models</span>
+                    </div>
                     <div class="project-links">
-                        <a href="https://github.com/jryyangjy/VAE" target="_blank" rel="noopener">View on GitHub</a>
-                        <span class="project-meta">• PyTorch · Generative Models</span>
+                        <a href="https://github.com/jryyangjy/VAE" target="_blank" rel="noopener" class="github-link">
+                            <span class="link-icon">📖</span> View on GitHub
+                        </a>
                     </div>
                 </div>
             </div>
@@ -2683,12 +2714,17 @@
                         <div class="timeline-item">
                             <div class="timeline-period">May 2025 - Present</div>
                             <div class="timeline-title">Research Assistant</div>
-                            <div>SPIN-Lab, USTC · Supervisor: Prof. Yan Xia</div>
+                            <div>SPIN-Lab, USTC · Supervisor: Prof. Dr. Yan Xia</div>
                         </div>
                         <div class="timeline-item">
                             <div class="timeline-period">July 2025 - Present</div>
                             <div class="timeline-title">Student Assistant</div>
                             <div>Foreign Language Teaching Center, USTC</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-period">November 2025 - Present</div>
+                            <div class="timeline-title">Research Intern</div>
+                            <div>Computer Vision for Digital Twins (CV4DT), Centre for Smart Infrastructure and Construction (CSIC), University of Cambridge · Supervisor: Prof. Dr. Olaf Wysocki</div>
                         </div>
                     </div>
                     
@@ -2751,6 +2787,190 @@
     
 
     <style>
+        /* Enhanced Projects Styles */
+        .projects-hero {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .projects-hero h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a202c;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-subtitle {
+            font-size: 1.1rem;
+            color: #718096;
+            font-weight: 400;
+            position: relative;
+            display: inline-block;
+        }
+
+        .subtitle-accent {
+            color: #667eea;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .subtitle-accent::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .projects-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            max-width: 100%;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c);
+            border-radius: 20px 20px 0 0;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            display: block;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .project-title {
+            font-size: 1.4rem !important;
+            font-weight: 800 !important;
+            color: #1a202c !important;
+            margin-bottom: 15px !important;
+            letter-spacing: -0.5px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-desc {
+            font-size: 1rem !important;
+            color: #4a5568 !important;
+            line-height: 1.6 !important;
+            margin-bottom: 20px !important;
+            font-weight: 400 !important;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .tech-tag {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .tech-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+        }
+
+        .project-links {
+            margin-top: 25px;
+        }
+
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #24292e 0%, #1a1a1a 100%);
+            color: white !important;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .github-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .github-link:hover::before {
+            left: 100%;
+        }
+
+        .github-link:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+            background: linear-gradient(135deg, #1a1a1a 0%, #24292e 100%);
+        }
+
+        .link-icon {
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .github-link:hover .link-icon {
+            transform: scale(1.2);
+        }
+
         .travel-album {
             display: flex;
             flex-wrap: wrap;
@@ -2832,5 +3052,96 @@
                 color: inherit !important;
             }
         </style>
+
+    <!-- Load external JavaScript modules -->
+    <script src="/js/lazyload.js" defer></script>
+    <script src="/js/navigation.js" defer></script>
+    <script src="/js/theme.js" defer></script>
+
+    <!-- PWA Service Worker Registration -->
+    <script>
+        // Register Service Worker for PWA functionality
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/pwa/sw.js')
+                    .then(registration => {
+                        console.log('🚀 Service Worker registered successfully:', registration.scope);
+
+                        // Handle updates
+                        registration.addEventListener('updatefound', () => {
+                            const newWorker = registration.installing;
+                            if (newWorker) {
+                                newWorker.addEventListener('statechange', () => {
+                                    if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                        // New content available, show update prompt
+                                        if (confirm('New content is available. Reload to get the latest version?')) {
+                                            window.location.reload();
+                                        }
+                                    }
+                                });
+                            }
+                        });
+                    })
+                    .catch(error => {
+                        console.error('❌ Service Worker registration failed:', error);
+                    });
+            });
+        }
+
+        // Performance monitoring
+        window.addEventListener('load', () => {
+            // Report performance metrics
+            if ('PerformanceObserver' in window) {
+                try {
+                    // Monitor LCP (Largest Contentful Paint)
+                    const lcpObserver = new PerformanceObserver((list) => {
+                        const entries = list.getEntries();
+                        const lastEntry = entries[entries.length - 1];
+                        console.log('📊 LCP:', lastEntry.startTime + 'ms');
+                    });
+                    lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] });
+
+                    // Monitor FID (First Input Delay)
+                    const fidObserver = new PerformanceObserver((list) => {
+                        const entries = list.getEntries();
+                        entries.forEach(entry => {
+                            console.log('📊 FID:', entry.processingStart - entry.startTime + 'ms');
+                        });
+                    });
+                    fidObserver.observe({ entryTypes: ['first-input'] });
+
+                    // Monitor CLS (Cumulative Layout Shift)
+                    const clsObserver = new PerformanceObserver((list) => {
+                        let clsValue = 0;
+                        const entries = list.getEntries();
+                        entries.forEach(entry => {
+                            if (!entry.hadRecentInput) {
+                                clsValue += entry.value;
+                            }
+                        });
+                        console.log('📊 CLS:', clsValue);
+                    });
+                    clsObserver.observe({ entryTypes: ['layout-shift'] });
+                } catch (e) {
+                    console.warn('⚠️ Performance monitoring not fully supported');
+                }
+            }
+        });
+
+        // Error handling and reporting
+        window.addEventListener('error', (event) => {
+            console.error('🚨 JavaScript Error:', {
+                message: event.message,
+                filename: event.filename,
+                lineno: event.lineno,
+                colno: event.colno,
+                error: event.error
+            });
+        });
+
+        window.addEventListener('unhandledrejection', (event) => {
+            console.error('🚨 Unhandled Promise Rejection:', event.reason);
+        });
+    </script>
 </body>
 </html>
